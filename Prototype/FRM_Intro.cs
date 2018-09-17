@@ -34,5 +34,18 @@ namespace Prototype
         {
             Close();
         }
+
+        private void BTN_Open_Click(object sender, EventArgs e)
+        {
+            if (DLG_Open.ShowDialog() == DialogResult.OK)
+            {
+                string Path = DLG_Open.FileName;
+                Bitmap ImageOpened = new Bitmap(Path);
+                FRM_Main main = new FRM_Main(ImageOpened);
+                main.ShowDialog();
+                this.Close();
+            }
+          
+        }
     }
 }

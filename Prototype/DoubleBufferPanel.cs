@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Prototype
 {
-    public partial class Form3 : Form
+    public partial class DoubleBufferPanel : Panel
     {
-        public Form3()
+        public DoubleBufferPanel()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+        }
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            base.OnPaint(pe);
         }
     }
 }

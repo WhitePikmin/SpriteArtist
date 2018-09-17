@@ -16,7 +16,7 @@ namespace Prototype
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRM_Main(640,480));
+            Application.Run(new FRM_Intro());
         }
     }
 }

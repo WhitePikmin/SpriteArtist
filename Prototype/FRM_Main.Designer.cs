@@ -31,12 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Main));
             this.MNS_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTNTLS_New_File = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTNTLS_Load = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNTLS_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Save_As = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTNTLS_Undo = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTNTLS_Redo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNTLS_Select_All = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,29 +62,31 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.TLS_Tools = new System.Windows.Forms.ToolStrip();
             this.TLS_Colors = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.DLG_Color = new System.Windows.Forms.ColorDialog();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton44 = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.PNL_Layer = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.PNL_Drag_Zone = new System.Windows.Forms.Panel();
-            this.NUM_Pen_Size = new System.Windows.Forms.NumericUpDown();
-            this.PNL_Canvas = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.PNL_Drag_Zone = new System.Windows.Forms.Panel();
+            this.NUM_Pen_Size = new System.Windows.Forms.NumericUpDown();
+            this.PNL_Canvas = new System.Windows.Forms.Panel();
             this.toolStripButton34 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton44 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Add_Color = new System.Windows.Forms.ToolStripButton();
             this.BTN_MainColor = new System.Windows.Forms.ToolStripButton();
             this.BTN_SecondColor = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Add_Color = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Remove_Color = new System.Windows.Forms.ToolStripButton();
             this.BTN_Palette = new System.Windows.Forms.ToolStripButton();
             this.BTN_Pen = new System.Windows.Forms.ToolStripButton();
             this.BTN_Eraser = new System.Windows.Forms.ToolStripButton();
@@ -98,21 +105,14 @@
             this.BTN_Copy = new System.Windows.Forms.ToolStripButton();
             this.BTN_Paste = new System.Windows.Forms.ToolStripButton();
             this.BTN_Resize = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.BTN_Shape_Circle = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_Shape_Square = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton32 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton45 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton47 = new System.Windows.Forms.ToolStripButton();
-            this.BTNTLS_New_File = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTNTLS_Load = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTNTLS_Save = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTNTLS_Undo = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTNTLS_Redo = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Cut = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Paste = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTN_Remove_Color = new System.Windows.Forms.ToolStripButton();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Tools.SuspendLayout();
@@ -153,10 +153,34 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.fileToolStripMenuItem.Text = "&Ficher";
             // 
+            // BTNTLS_New_File
+            // 
+            this.BTNTLS_New_File.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNTLS_New_File.Name = "BTNTLS_New_File";
+            this.BTNTLS_New_File.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.BTNTLS_New_File.Size = new System.Drawing.Size(146, 22);
+            this.BTNTLS_New_File.Text = "&New";
+            // 
+            // BTNTLS_Load
+            // 
+            this.BTNTLS_Load.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNTLS_Load.Name = "BTNTLS_Load";
+            this.BTNTLS_Load.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.BTNTLS_Load.Size = new System.Drawing.Size(146, 22);
+            this.BTNTLS_Load.Text = "&Open";
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            // 
+            // BTNTLS_Save
+            // 
+            this.BTNTLS_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTNTLS_Save.Name = "BTNTLS_Save";
+            this.BTNTLS_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.BTNTLS_Save.Size = new System.Drawing.Size(146, 22);
+            this.BTNTLS_Save.Text = "&Save";
             // 
             // BTNTLS_Save_As
             // 
@@ -194,6 +218,20 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.editToolStripMenuItem.Text = "&Edition";
+            // 
+            // BTNTLS_Undo
+            // 
+            this.BTNTLS_Undo.Name = "BTNTLS_Undo";
+            this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Undo.Text = "&Undo";
+            // 
+            // BTNTLS_Redo
+            // 
+            this.BTNTLS_Redo.Name = "BTNTLS_Redo";
+            this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Redo.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
@@ -342,6 +380,17 @@
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BTN_Shape_Circle,
+            this.BTN_Shape_Square});
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(16, 22);
+            this.toolStripSplitButton1.Text = "BTN_Split_Brush_Shape";
+            // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
@@ -405,6 +454,15 @@
             this.toolStrip5.TabIndex = 9;
             this.toolStrip5.Text = "TLS_Bottom";
             // 
+            // toolStripButton44
+            // 
+            this.toolStripButton44.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton44.Image = global::Prototype.Properties.Resources.Remove_16xSM;
+            this.toolStripButton44.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton44.Name = "toolStripButton44";
+            this.toolStripButton44.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton44.Text = "toolStripButton44";
+            // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Name = "toolStripTextBox1";
@@ -429,6 +487,54 @@
             this.PNL_Layer.Size = new System.Drawing.Size(179, 607);
             this.PNL_Layer.TabIndex = 10;
             this.PNL_Layer.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(141, 32);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(26, 23);
+            this.button6.TabIndex = 6;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(141, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(26, 23);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(109, 169);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(26, 23);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(77, 169);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 23);
+            this.button3.TabIndex = 3;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(35, 169);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 23);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 169);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 23);
+            this.button1.TabIndex = 1;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -491,88 +597,14 @@
             this.PNL_Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseDown);
             this.PNL_Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseMove);
             // 
-            // button6
-            // 
-            this.button6.Image = global::Prototype.Properties.Resources.Lock_16x;
-            this.button6.Location = new System.Drawing.Point(141, 32);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(26, 23);
-            this.button6.TabIndex = 6;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Image = global::Prototype.Properties.Resources.Lightbulb_16x;
-            this.button5.Location = new System.Drawing.Point(141, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(26, 23);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Image = global::Prototype.Properties.Resources.Download_16x;
-            this.button4.Location = new System.Drawing.Point(109, 169);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(26, 23);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Image = global::Prototype.Properties.Resources.Upload_16x;
-            this.button3.Location = new System.Drawing.Point(77, 169);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 23);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = global::Prototype.Properties.Resources.Remove_16xSM;
-            this.button2.Location = new System.Drawing.Point(35, 169);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 23);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::Prototype.Properties.Resources.Add_grey_16x;
-            this.button1.Location = new System.Drawing.Point(3, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 23);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // toolStripButton34
             // 
             this.toolStripButton34.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton34.Image = global::Prototype.Properties.Resources.ZoomIn_16x;
+            this.toolStripButton34.Image = global::Prototype.Properties.Resources.Add_grey_16x;
             this.toolStripButton34.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton34.Name = "toolStripButton34";
             this.toolStripButton34.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton34.Text = "toolStripButton34";
-            // 
-            // toolStripButton44
-            // 
-            this.toolStripButton44.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton44.Image = global::Prototype.Properties.Resources.ZoomOut_16x;
-            this.toolStripButton44.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton44.Name = "toolStripButton44";
-            this.toolStripButton44.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton44.Text = "toolStripButton44";
-            // 
-            // BTN_Add_Color
-            // 
-            this.BTN_Add_Color.AutoSize = false;
-            this.BTN_Add_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Add_Color.Image = global::Prototype.Properties.Resources.Add_grey_16x;
-            this.BTN_Add_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Add_Color.Name = "BTN_Add_Color";
-            this.BTN_Add_Color.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Add_Color.Text = "toolStripButton8";
-            this.BTN_Add_Color.Click += new System.EventHandler(this.BTN_Add_Color_Click);
             // 
             // BTN_MainColor
             // 
@@ -596,6 +628,27 @@
             this.BTN_SecondColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_SecondColor.Name = "BTN_SecondColor";
             this.BTN_SecondColor.Size = new System.Drawing.Size(32, 32);
+            // 
+            // BTN_Add_Color
+            // 
+            this.BTN_Add_Color.AutoSize = false;
+            this.BTN_Add_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BTN_Add_Color.Image = global::Prototype.Properties.Resources.Add_grey_16x;
+            this.BTN_Add_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Add_Color.Name = "BTN_Add_Color";
+            this.BTN_Add_Color.Size = new System.Drawing.Size(24, 24);
+            this.BTN_Add_Color.Text = "toolStripButton8";
+            this.BTN_Add_Color.Click += new System.EventHandler(this.BTN_Add_Color_Click);
+            // 
+            // BTN_Remove_Color
+            // 
+            this.BTN_Remove_Color.AutoSize = false;
+            this.BTN_Remove_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BTN_Remove_Color.Image = global::Prototype.Properties.Resources.Remove_16xSM;
+            this.BTN_Remove_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Remove_Color.Name = "BTN_Remove_Color";
+            this.BTN_Remove_Color.Size = new System.Drawing.Size(24, 24);
+            this.BTN_Remove_Color.Text = "toolStripButton8";
             // 
             // BTN_Palette
             // 
@@ -768,18 +821,6 @@
             this.BTN_Resize.Size = new System.Drawing.Size(23, 22);
             this.BTN_Resize.Text = "toolStripButton36";
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BTN_Shape_Circle,
-            this.BTN_Shape_Square});
-            this.toolStripSplitButton1.Image = global::Prototype.Properties.Resources.circle;
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton1.Text = "BTN_Split_Brush_Shape";
-            // 
             // BTN_Shape_Circle
             // 
             this.BTN_Shape_Circle.Image = global::Prototype.Properties.Resources.circle;
@@ -797,7 +838,7 @@
             // toolStripButton32
             // 
             this.toolStripButton32.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton32.Image = global::Prototype.Properties.Resources.GridToggle_16xMD;
+            this.toolStripButton32.Image = global::Prototype.Properties.Resources.circle;
             this.toolStripButton32.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton32.Name = "toolStripButton32";
             this.toolStripButton32.Size = new System.Drawing.Size(23, 22);
@@ -820,49 +861,6 @@
             this.toolStripButton47.Name = "toolStripButton47";
             this.toolStripButton47.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton47.Text = "BTN_Shrink_Brush";
-            // 
-            // BTNTLS_New_File
-            // 
-            this.BTNTLS_New_File.Image = global::Prototype.Properties.Resources.NewFile_16x;
-            this.BTNTLS_New_File.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNTLS_New_File.Name = "BTNTLS_New_File";
-            this.BTNTLS_New_File.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.BTNTLS_New_File.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_New_File.Text = "&New";
-            // 
-            // BTNTLS_Load
-            // 
-            this.BTNTLS_Load.Image = global::Prototype.Properties.Resources.OpenFolder_16x;
-            this.BTNTLS_Load.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNTLS_Load.Name = "BTNTLS_Load";
-            this.BTNTLS_Load.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.BTNTLS_Load.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_Load.Text = "&Open";
-            // 
-            // BTNTLS_Save
-            // 
-            this.BTNTLS_Save.Image = global::Prototype.Properties.Resources.Save_16x;
-            this.BTNTLS_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTNTLS_Save.Name = "BTNTLS_Save";
-            this.BTNTLS_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.BTNTLS_Save.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_Save.Text = "&Save";
-            // 
-            // BTNTLS_Undo
-            // 
-            this.BTNTLS_Undo.Image = global::Prototype.Properties.Resources.Undo_16x;
-            this.BTNTLS_Undo.Name = "BTNTLS_Undo";
-            this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
-            this.BTNTLS_Undo.Text = "&Undo";
-            // 
-            // BTNTLS_Redo
-            // 
-            this.BTNTLS_Redo.Image = global::Prototype.Properties.Resources.Redo_16x;
-            this.BTNTLS_Redo.Name = "BTNTLS_Redo";
-            this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
-            this.BTNTLS_Redo.Text = "&Redo";
             // 
             // BTNTLS_Cut
             // 
@@ -890,16 +888,6 @@
             this.BTNTLS_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.BTNTLS_Paste.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Paste.Text = "&Paste";
-            // 
-            // BTN_Remove_Color
-            // 
-            this.BTN_Remove_Color.AutoSize = false;
-            this.BTN_Remove_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Remove_Color.Image = global::Prototype.Properties.Resources.Remove_16xSM;
-            this.BTN_Remove_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Remove_Color.Name = "BTN_Remove_Color";
-            this.BTN_Remove_Color.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Remove_Color.Text = "toolStripButton8";
             // 
             // FRM_Main
             // 

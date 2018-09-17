@@ -32,6 +32,7 @@
             this.BTN_New = new System.Windows.Forms.Button();
             this.BTN_Open = new System.Windows.Forms.Button();
             this.BTN_Quit = new System.Windows.Forms.Button();
+            this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +62,7 @@
             this.BTN_Open.TabIndex = 2;
             this.BTN_Open.Text = "Ouvrir Fichier";
             this.BTN_Open.UseVisualStyleBackColor = true;
+            this.BTN_Open.Click += new System.EventHandler(this.BTN_Open_Click);
             // 
             // BTN_Quit
             // 
@@ -71,6 +73,12 @@
             this.BTN_Quit.Text = "Quitter";
             this.BTN_Quit.UseVisualStyleBackColor = true;
             this.BTN_Quit.Click += new System.EventHandler(this.BTN_Quit_Click);
+            // 
+            // DLG_Open
+            // 
+            this.DLG_Open.DefaultExt = "png";
+            this.DLG_Open.FileName = "Sprite";
+            this.DLG_Open.Title = "Ouvrir une image";
             // 
             // FRM_Intro
             // 
@@ -95,5 +103,6 @@
         private System.Windows.Forms.Button BTN_New;
         private System.Windows.Forms.Button BTN_Open;
         private System.Windows.Forms.Button BTN_Quit;
+        private System.Windows.Forms.OpenFileDialog DLG_Open;
     }
 }
