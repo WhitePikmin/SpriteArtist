@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,9 @@ namespace Prototype
         System.Drawing.Drawing2D.LineCap LineCap = System.Drawing.Drawing2D.LineCap.Round;
         System.Drawing.Drawing2D.DashCap DashCap = System.Drawing.Drawing2D.DashCap.Round;
 
+        enum Tool {Pen,Eraser,ColorPicker,Line,Select,Bucket,Zoom};
+        Tool CurrentTool = Tool.Pen;
+
 
         public FRM_Main(ushort NewWidth, ushort NewHeight)
         {
@@ -45,11 +49,6 @@ namespace Prototype
 
             InitCanvas();
 
-            //Activer le "Double buffer"
-            //Éviter que le canevas clignote
-            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
-            | BindingFlags.Instance | BindingFlags.NonPublic, null,
-            PNL_Canvas, new object[] { true });
         }
 
         public FRM_Main(Bitmap ImageOpened)
@@ -57,9 +56,12 @@ namespace Prototype
             InitializeComponent();
 
             Sprite = ImageOpened;
+            Canvas = Graphics.FromImage(Sprite);
+
             Canvas_Width = (ushort)Sprite.Width;
             Canvas_Height = (ushort)Sprite.Height;
-            Canvas = Graphics.FromImage(Sprite);
+            PNL_Canvas.Width = Sprite.Width;
+            PNL_Canvas.Height = Sprite.Height;
 
             InitCanvas();
         }
@@ -76,6 +78,12 @@ namespace Prototype
             ChangeColorSecondPen(Color.White);
 
             CenterCanvas();
+
+            //Activer le "Double buffer"
+            //Éviter que le canevas clignote
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
+            | BindingFlags.Instance | BindingFlags.NonPublic, null,
+            PNL_Canvas, new object[] { true });
 
             //listBox1.DrawMode = DrawMode.OwnerDrawFixed;
         }
@@ -98,6 +106,20 @@ namespace Prototype
 
         }
 
+        private void EraseOnCanvas(Pen pen_, MouseEventArgs e)
+        {
+            Pen Eraser = new Pen(Color.Transparent);
+            Eraser.Width = pen_.Width;
+            Eraser.SetLineCap(LineCap, LineCap, DashCap);
+
+            Canvas.CompositingMode = CompositingMode.SourceCopy;
+
+            CurrentPoint = e.Location;
+            Canvas.DrawLine(Eraser, OldPoint, CurrentPoint);
+            OldPoint = CurrentPoint;
+            PNL_Canvas.Invalidate();
+        }
+
         private void DrawOnCanvas(Pen pen_, MouseEventArgs e)
         {
             Canvas = Graphics.FromImage(Sprite);
@@ -105,6 +127,25 @@ namespace Prototype
             Canvas.DrawLine(pen_, OldPoint, CurrentPoint);
             OldPoint = CurrentPoint;
             //Sprite = new Bitmap(Canvas_Width,Canvas_Height,Canvas);
+            PNL_Canvas.Invalidate();
+        }
+
+        private void EraseSingleDotOnCanvas(Color col_, MouseEventArgs e)
+        {
+            Pen Eraser = new Pen(Color.Transparent);
+            Eraser.Width = MainPen.Width;
+            Eraser.SetLineCap(LineCap, LineCap, DashCap);
+
+            Canvas.CompositingMode = CompositingMode.SourceCopy;
+
+            Canvas = Graphics.FromImage(Sprite);
+            OldPoint = e.Location;
+            int PenWidthHalf = (int)Math.Ceiling(Eraser.Width / 2);
+            if (Eraser.Width < 3)
+                Canvas.FillRectangle(new SolidBrush(col_), OldPoint.X - PenWidthHalf, OldPoint.Y - PenWidthHalf, Eraser.Width, Eraser.Width);
+            else
+                Canvas.FillEllipse(new SolidBrush(col_), OldPoint.X - PenWidthHalf, OldPoint.Y - PenWidthHalf, Eraser.Width, Eraser.Width);
+            //Sprite = new Bitmap(Canvas_Width, Canvas_Height, Canvas);
             PNL_Canvas.Invalidate();
         }
 
@@ -152,10 +193,23 @@ namespace Prototype
         private void PNL_Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                DrawOnCanvas(MainPen, e);
+            {
+                switch (CurrentTool)
+                {
+                    case Tool.Pen: DrawOnCanvas(MainPen, e); break;
+                    case Tool.Eraser: EraseOnCanvas(MainPen, e); break;
+                }
+            }
+
             else
             if (e.Button == MouseButtons.Right)
-                DrawOnCanvas(SecondPen, e);
+            {
+                switch (CurrentTool)
+                {
+                    case Tool.Pen: DrawOnCanvas(SecondPen, e); break;
+                    case Tool.Eraser: EraseOnCanvas(SecondPen, e); break;
+                }
+            }
      
             if (e.Button == MouseButtons.Middle)
             {
@@ -167,12 +221,21 @@ namespace Prototype
         {
             if (e.Button == MouseButtons.Left)
             {
-                DrawSingleDotOnCanvas(MainPen.Color,e);
+                switch (CurrentTool)
+                {
+                    case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
+                    case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
+                }
+                
             }
             else
             if (e.Button == MouseButtons.Right)
             {
-                DrawSingleDotOnCanvas(SecondPen.Color, e);
+                switch (CurrentTool)
+                {
+                    case Tool.Pen: DrawSingleDotOnCanvas(SecondPen.Color, e); break;
+                    case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
+                }
             }
 
 
@@ -217,6 +280,27 @@ namespace Prototype
         private void BTN_Add_Color_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void SetTool()
+        {
+            if (BTN_Pen.Checked)
+                CurrentTool = Tool.Pen;
+            else
+            {
+                if (BTN_Erase.Checked)
+                    CurrentTool = Tool.Eraser;
+            }
+        }
+
+        private void BTN_Pen_CheckedChanged(object sender, EventArgs e)
+        {
+            SetTool();
+        }
+
+        private void BTN_Erase_CheckedChanged(object sender, EventArgs e)
+        {
+            SetTool();
         }
 
 
