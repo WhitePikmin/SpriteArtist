@@ -113,6 +113,7 @@
             this.BTN_Select = new System.Windows.Forms.RadioButton();
             this.BTN_Fill = new System.Windows.Forms.RadioButton();
             this.BTN_Zoom = new System.Windows.Forms.RadioButton();
+            this.DLG_Save = new System.Windows.Forms.SaveFileDialog();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -200,8 +201,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -412,6 +414,7 @@
             this.BTN_Save.Name = "BTN_Save";
             this.BTN_Save.Size = new System.Drawing.Size(23, 22);
             this.BTN_Save.Text = "toolStripButton2";
+            this.BTN_Save.Click += new System.EventHandler(this.BTN_Save_Click);
             // 
             // BTN_Upload
             // 
@@ -772,6 +775,7 @@
             this.PNL_Canvas.Name = "PNL_Canvas";
             this.PNL_Canvas.Size = new System.Drawing.Size(640, 480);
             this.PNL_Canvas.TabIndex = 4;
+            this.PNL_Canvas.Click += new System.EventHandler(this.PNL_Canvas_Click);
             this.PNL_Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.PNL_Canvas_Paint);
             this.PNL_Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseDown);
             this.PNL_Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseMove);
@@ -893,6 +897,11 @@
             this.BTN_Zoom.TabIndex = 19;
             this.BTN_Zoom.UseVisualStyleBackColor = false;
             // 
+            // DLG_Save
+            // 
+            this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp|Image GIF|*.gif";
+            this.DLG_Save.Title = "Sauvegarder Image";
+            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -917,6 +926,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FRM_Main";
             this.Text = "Pixel Artist";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Main_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Main_Load);
             this.MNS_MainMenu.ResumeLayout(false);
             this.MNS_MainMenu.PerformLayout();
@@ -1020,6 +1030,7 @@
         private System.Windows.Forms.RadioButton BTN_Select;
         private System.Windows.Forms.RadioButton BTN_Fill;
         private System.Windows.Forms.RadioButton BTN_Zoom;
+        private System.Windows.Forms.SaveFileDialog DLG_Save;
     }
 }
 

@@ -76,8 +76,8 @@
             // 
             // DLG_Open
             // 
-            this.DLG_Open.DefaultExt = "png";
             this.DLG_Open.FileName = "Sprite";
+            this.DLG_Open.Filter = "Image PNG|*.png|Image Bitmap |*.bmp|Image GIF |*.gif|Tout les fichiers |*.*";
             this.DLG_Open.Title = "Ouvrir une image";
             // 
             // FRM_Intro
