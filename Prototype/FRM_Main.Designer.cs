@@ -654,6 +654,7 @@
             this.BTN_ZoomIn.Name = "BTN_ZoomIn";
             this.BTN_ZoomIn.Size = new System.Drawing.Size(23, 22);
             this.BTN_ZoomIn.Text = "toolStripButton34";
+            this.BTN_ZoomIn.Click += new System.EventHandler(this.BTN_ZoomIn_Click);
             // 
             // BTN_ZoomOut
             // 
@@ -669,7 +670,7 @@
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.ReadOnly = true;
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBox1.Text = "100%";
+            this.toolStripTextBox1.Text = "300%";
             // 
             // PNL_Layer
             // 

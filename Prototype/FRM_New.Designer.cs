@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pixels = new System.Windows.Forms.Label();
+            this.NUM_Height = new System.Windows.Forms.NumericUpDown();
+            this.NUM_Width = new System.Windows.Forms.NumericUpDown();
             this.BTN_Cancel = new System.Windows.Forms.Button();
             this.BTN_Create = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.NUM_Width = new System.Windows.Forms.NumericUpDown();
-            this.NUM_Height = new System.Windows.Forms.NumericUpDown();
-            this.pixels = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_Width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Height)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_Width)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -58,6 +58,70 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nouveau Canevas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(139, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "pixels";
+            // 
+            // pixels
+            // 
+            this.pixels.AutoSize = true;
+            this.pixels.Location = new System.Drawing.Point(139, 31);
+            this.pixels.Name = "pixels";
+            this.pixels.Size = new System.Drawing.Size(33, 13);
+            this.pixels.TabIndex = 8;
+            this.pixels.Text = "pixels";
+            // 
+            // NUM_Height
+            // 
+            this.NUM_Height.Location = new System.Drawing.Point(68, 51);
+            this.NUM_Height.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.NUM_Height.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUM_Height.Name = "NUM_Height";
+            this.NUM_Height.Size = new System.Drawing.Size(64, 20);
+            this.NUM_Height.TabIndex = 7;
+            this.NUM_Height.Value = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.NUM_Height.ValueChanged += new System.EventHandler(this.NUM_Height_ValueChanged);
+            // 
+            // NUM_Width
+            // 
+            this.NUM_Width.Location = new System.Drawing.Point(68, 25);
+            this.NUM_Width.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.NUM_Width.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUM_Width.Name = "NUM_Width";
+            this.NUM_Width.Size = new System.Drawing.Size(64, 20);
+            this.NUM_Width.TabIndex = 6;
+            this.NUM_Width.Value = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.NUM_Width.ValueChanged += new System.EventHandler(this.NUM_Width_ValueChanged);
             // 
             // BTN_Cancel
             // 
@@ -97,70 +161,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Largeur:";
             // 
-            // NUM_Width
-            // 
-            this.NUM_Width.Location = new System.Drawing.Point(68, 25);
-            this.NUM_Width.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.NUM_Width.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUM_Width.Name = "NUM_Width";
-            this.NUM_Width.Size = new System.Drawing.Size(64, 20);
-            this.NUM_Width.TabIndex = 6;
-            this.NUM_Width.Value = new decimal(new int[] {
-            640,
-            0,
-            0,
-            0});
-            this.NUM_Width.ValueChanged += new System.EventHandler(this.NUM_Width_ValueChanged);
-            // 
-            // NUM_Height
-            // 
-            this.NUM_Height.Location = new System.Drawing.Point(68, 51);
-            this.NUM_Height.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.NUM_Height.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUM_Height.Name = "NUM_Height";
-            this.NUM_Height.Size = new System.Drawing.Size(64, 20);
-            this.NUM_Height.TabIndex = 7;
-            this.NUM_Height.Value = new decimal(new int[] {
-            480,
-            0,
-            0,
-            0});
-            this.NUM_Height.ValueChanged += new System.EventHandler(this.NUM_Height_ValueChanged);
-            // 
-            // pixels
-            // 
-            this.pixels.AutoSize = true;
-            this.pixels.Location = new System.Drawing.Point(139, 31);
-            this.pixels.Name = "pixels";
-            this.pixels.Size = new System.Drawing.Size(33, 13);
-            this.pixels.TabIndex = 8;
-            this.pixels.Text = "pixels";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "pixels";
-            // 
             // FRM_New
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,8 +172,8 @@
             this.Text = "Nouveau Canevas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_Width)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Height)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_Width)).EndInit();
             this.ResumeLayout(false);
 
         }

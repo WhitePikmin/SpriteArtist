@@ -16,6 +16,7 @@ namespace Prototype
     {
         ushort Canvas_Width = 640;
         ushort Canvas_Height = 480;
+        float Zoom = 1;
 
         Point OldPoint = new Point();
         Point CurrentPoint = new Point();
@@ -48,6 +49,7 @@ namespace Prototype
             Canvas = Graphics.FromImage(Sprite);
 
             InitCanvas();
+            ChangeZoom(3);
 
         }
 
@@ -101,6 +103,20 @@ namespace Prototype
             Cursor.Current = Cursors.Hand;
         }
 
+        private void ChangeZoom(float newZoom)
+        {
+            Zoom = newZoom;
+            PNL_Canvas.Width = (int)(Canvas_Width * Zoom);
+            PNL_Canvas.Height = (int)(Canvas_Height * Zoom);
+            PNL_Canvas.Invalidate();
+
+        }
+
+        private Point GetCursorLocationRelative(MouseEventArgs e)
+        {
+            return new Point((int)(e.X / Zoom),(int)(e.Y /  Zoom));
+        }
+
         private void Draw()
         {
 
@@ -114,7 +130,7 @@ namespace Prototype
 
             Canvas.CompositingMode = CompositingMode.SourceCopy;
 
-            CurrentPoint = e.Location;
+            CurrentPoint = GetCursorLocationRelative(e);
             Canvas.DrawLine(Eraser, OldPoint, CurrentPoint);
             OldPoint = CurrentPoint;
             PNL_Canvas.Invalidate();
@@ -123,7 +139,7 @@ namespace Prototype
         private void DrawOnCanvas(Pen pen_, MouseEventArgs e)
         {
             Canvas = Graphics.FromImage(Sprite);
-            CurrentPoint = e.Location;
+            CurrentPoint = GetCursorLocationRelative(e);
             Canvas.DrawLine(pen_, OldPoint, CurrentPoint);
             OldPoint = CurrentPoint;
             //Sprite = new Bitmap(Canvas_Width,Canvas_Height,Canvas);
@@ -139,7 +155,7 @@ namespace Prototype
             Canvas.CompositingMode = CompositingMode.SourceCopy;
 
             Canvas = Graphics.FromImage(Sprite);
-            OldPoint = e.Location;
+            OldPoint = GetCursorLocationRelative(e);
             int PenWidthHalf = (int)Math.Ceiling(Eraser.Width / 2);
             if (Eraser.Width < 3)
                 Canvas.FillRectangle(new SolidBrush(col_), OldPoint.X - PenWidthHalf, OldPoint.Y - PenWidthHalf, Eraser.Width, Eraser.Width);
@@ -152,7 +168,7 @@ namespace Prototype
         private void DrawSingleDotOnCanvas(Color col_, MouseEventArgs e)
         {
             Canvas = Graphics.FromImage(Sprite);
-            OldPoint = e.Location;
+            OldPoint = GetCursorLocationRelative(e);
             int PenWidthHalf = (int)Math.Ceiling(MainPen.Width / 2);
             if (MainPen.Width < 3)
                 Canvas.FillRectangle(new SolidBrush(col_), OldPoint.X - PenWidthHalf, OldPoint.Y - PenWidthHalf, MainPen.Width, MainPen.Width);
@@ -187,8 +203,12 @@ namespace Prototype
 
         private void PNL_Canvas_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(Sprite, new Point(0, 0));
+            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            e.Graphics.PixelOffsetMode = PixelOffsetMode.None;
+            e.Graphics.DrawImage(Sprite, new Rectangle(0,0,PNL_Canvas.Width,PNL_Canvas.Height),new Rectangle(0,0,Sprite.Width,Sprite.Height),GraphicsUnit.Pixel);
         }
+
+
 
         private void PNL_Canvas_MouseMove(object sender, MouseEventArgs e)
         {
@@ -301,6 +321,10 @@ namespace Prototype
         private void BTN_Erase_CheckedChanged(object sender, EventArgs e)
         {
             SetTool();
+        }
+
+        private void BTN_ZoomIn_Click(object sender, EventArgs e)
+        {
         }
 
 
