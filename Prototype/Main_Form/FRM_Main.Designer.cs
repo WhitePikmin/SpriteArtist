@@ -82,6 +82,7 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton45 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton47 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.TLS_Colors = new System.Windows.Forms.ToolStrip();
             this.BTN_MainColor = new System.Windows.Forms.ToolStripButton();
             this.BTN_SecondColor = new System.Windows.Forms.ToolStripButton();
@@ -93,7 +94,7 @@
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.BTN_ZoomIn = new System.Windows.Forms.ToolStripButton();
             this.BTN_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.TXB_ZoomLevel = new System.Windows.Forms.ToolStripTextBox();
             this.PNL_Layer = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -114,6 +115,8 @@
             this.BTN_Fill = new System.Windows.Forms.RadioButton();
             this.BTN_Zoom = new System.Windows.Forms.RadioButton();
             this.DLG_Save = new System.Windows.Forms.SaveFileDialog();
+            this.BTN_Grid = new System.Windows.Forms.CheckBox();
+            this.TBX_Debug = new System.Windows.Forms.Label();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -201,7 +204,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -380,7 +383,8 @@
             this.toolStripButton32,
             this.toolStripSeparator12,
             this.toolStripButton45,
-            this.toolStripButton47});
+            this.toolStripButton47,
+            this.toolStripSeparator7});
             this.TLS_Top.Location = new System.Drawing.Point(0, 24);
             this.TLS_Top.Name = "TLS_Top";
             this.TLS_Top.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -556,6 +560,12 @@
             this.toolStripButton47.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton47.Text = "BTN_Shrink_Brush";
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Margin = new System.Windows.Forms.Padding(68, 0, 0, 0);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
             // TLS_Colors
             // 
             this.TLS_Colors.Dock = System.Windows.Forms.DockStyle.Left;
@@ -641,7 +651,7 @@
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BTN_ZoomIn,
             this.BTN_ZoomOut,
-            this.toolStripTextBox1});
+            this.TXB_ZoomLevel});
             this.toolStrip5.Location = new System.Drawing.Point(85, 656);
             this.toolStrip5.Name = "toolStrip5";
             this.toolStrip5.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -667,13 +677,14 @@
             this.BTN_ZoomOut.Name = "BTN_ZoomOut";
             this.BTN_ZoomOut.Size = new System.Drawing.Size(23, 22);
             this.BTN_ZoomOut.Text = "toolStripButton44";
+            this.BTN_ZoomOut.Click += new System.EventHandler(this.BTN_ZoomOut_Click);
             // 
-            // toolStripTextBox1
+            // TXB_ZoomLevel
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.ReadOnly = true;
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBox1.Text = "300%";
+            this.TXB_ZoomLevel.Name = "TXB_ZoomLevel";
+            this.TXB_ZoomLevel.ReadOnly = true;
+            this.TXB_ZoomLevel.Size = new System.Drawing.Size(100, 25);
+            this.TXB_ZoomLevel.Text = "300%";
             // 
             // PNL_Layer
             // 
@@ -782,7 +793,7 @@
             // 
             // NUM_Pen_Size
             // 
-            this.NUM_Pen_Size.Location = new System.Drawing.Point(362, 27);
+            this.NUM_Pen_Size.Location = new System.Drawing.Point(342, 27);
             this.NUM_Pen_Size.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -902,12 +913,37 @@
             this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp|Image GIF|*.gif";
             this.DLG_Save.Title = "Sauvegarder Image";
             // 
+            // BTN_Grid
+            // 
+            this.BTN_Grid.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Grid.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTN_Grid.Image = global::Prototype.Properties.Resources.GridToggle_16xMD;
+            this.BTN_Grid.Location = new System.Drawing.Point(425, 25);
+            this.BTN_Grid.Name = "BTN_Grid";
+            this.BTN_Grid.Size = new System.Drawing.Size(23, 22);
+            this.BTN_Grid.TabIndex = 21;
+            this.BTN_Grid.UseVisualStyleBackColor = false;
+            this.BTN_Grid.CheckedChanged += new System.EventHandler(this.BTN_Grid_CheckedChanged);
+            // 
+            // TBX_Debug
+            // 
+            this.TBX_Debug.AutoSize = true;
+            this.TBX_Debug.BackColor = System.Drawing.SystemColors.Control;
+            this.TBX_Debug.Location = new System.Drawing.Point(580, 659);
+            this.TBX_Debug.Name = "TBX_Debug";
+            this.TBX_Debug.Size = new System.Drawing.Size(39, 13);
+            this.TBX_Debug.TabIndex = 22;
+            this.TBX_Debug.Text = "Debug";
+            this.TBX_Debug.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.TBX_Debug);
+            this.Controls.Add(this.BTN_Grid);
             this.Controls.Add(this.BTN_Zoom);
             this.Controls.Add(this.BTN_Fill);
             this.Controls.Add(this.BTN_Select);
@@ -1004,7 +1040,7 @@
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStripButton BTN_ZoomIn;
         private System.Windows.Forms.ToolStripButton BTN_ZoomOut;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox TXB_ZoomLevel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripButton toolStripButton45;
         private System.Windows.Forms.ToolStripButton toolStripButton47;
@@ -1031,6 +1067,9 @@
         private System.Windows.Forms.RadioButton BTN_Fill;
         private System.Windows.Forms.RadioButton BTN_Zoom;
         private System.Windows.Forms.SaveFileDialog DLG_Save;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.CheckBox BTN_Grid;
+        private System.Windows.Forms.Label TBX_Debug;
     }
 }
 
