@@ -428,6 +428,7 @@
             this.BTN_Upload.Name = "BTN_Upload";
             this.BTN_Upload.Size = new System.Drawing.Size(23, 22);
             this.BTN_Upload.Text = "toolStripButton6";
+            this.BTN_Upload.Click += new System.EventHandler(this.BTN_Upload_Click);
             // 
             // toolStripSeparator6
             // 

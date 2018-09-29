@@ -270,6 +270,12 @@ namespace Prototype
                 ZoomIn(e);
         }
 
+        private void BTN_Upload_Click(object sender, EventArgs e)
+        {
+            FRM_SendImage send = new FRM_SendImage(Sprite);
+            send.ShowDialog();
+        }
+
 
 
         //Pour les layers qui sont locked

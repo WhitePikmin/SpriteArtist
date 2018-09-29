@@ -14,7 +14,6 @@ namespace Prototype
     {
         private void DrawOnCanvas(Pen pen_, MouseEventArgs e, bool Erase)
         {
-            const float OFFSET = 0.5f;
             Canvas = Graphics.FromImage(Sprite);
             CurrentPoint = GetCursorLocationRelative(e);
 

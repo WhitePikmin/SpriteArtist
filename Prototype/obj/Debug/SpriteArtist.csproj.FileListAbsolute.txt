@@ -11,3 +11,4 @@ C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototy
 C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\Debug\Prototype.Properties.Resources.resources
 C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\Debug\Prototype.exe
 C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\Debug\Prototype.pdb
+C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\Debug\Prototype.FRM_SendImage.resources
