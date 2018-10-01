@@ -7,7 +7,7 @@ using System.IO;
 using System.Net.Http;
 using System.Drawing;
 
-namespace Prototype
+namespace SpriteArtist
 {
     class ImageUploader
     {
@@ -50,7 +50,7 @@ namespace Prototype
 
                 string ErrorMessage = GetErrorMessage(contents);
                 if (ErrorMessage != "")
-                    FinalMessage = "**ERREUR: " + ErrorMessage + "**";
+                    FinalMessage = ErrorMessage;
                 else
                     FinalMessage = "File sent";
                 hc.Dispose();
@@ -66,14 +66,14 @@ namespace Prototype
         private static string GetErrorMessage(string HTMLPage)
         {
             string NewMessage = "";
-            const string ErrorElementStart = "class=\"error\">";
+            const string ErrorElementStart = "<div class=\"error\">";
             const string ErrorElementEnd = "</div>";
 
             int StartIndex = HTMLPage.IndexOf(ErrorElementStart) + ErrorElementStart.Length;
-            NewMessage = HTMLPage.Substring(0, StartIndex);
+            NewMessage = HTMLPage.Substring(StartIndex, HTMLPage.Length - StartIndex);
 
-            int EndIndex = NewMessage.IndexOf(ErrorElementEnd) + 1;
-            NewMessage = NewMessage.Substring(0, EndIndex);
+            int EndIndex = NewMessage.IndexOf(ErrorElementEnd);
+            NewMessage = NewMessage.Substring(0,EndIndex);
 
             if (NewMessage.Length != 1)
                 return NewMessage.Trim();

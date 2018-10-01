@@ -12,7 +12,7 @@ using System.Reflection;
 using System.IO;
 using System.Drawing.Imaging;
 
-namespace Prototype
+namespace SpriteArtist
 {
 
     public partial class FRM_Main
@@ -30,10 +30,55 @@ namespace Prototype
                 }
                 Sprite.Save(DLG_Save.FileName, format);
                 FileName = DLG_Save.FileName;
-                LastSave = new Bitmap(Sprite);
+                FileChanged = false;
                 return DialogResult.OK;
             }
             return DialogResult.Cancel;
+        }
+
+        private DialogResult PromptSave()
+        {
+            return MessageBox.Show("Voulez vous sauvegarder les modifications avant de fermer le programme?", "Avertissement", MessageBoxButtons.YesNoCancel);
+        }
+
+        private DialogResult OpenFile()
+        {            if (DLG_Open.ShowDialog() == DialogResult.OK)
+            {
+                bool Open;
+                if (FileChanged)
+                {
+                    DialogResult result = PromptSave();
+                    if (result == DialogResult.Yes)
+                    {
+                        result = SaveFileAs();
+                        Open = (result == DialogResult.OK);
+                    }
+                    else
+                        Open = (result != DialogResult.Cancel);
+                }
+                else
+                    Open = true;
+
+                if (Open)
+                {
+                    LoadImage(new Bitmap(DLG_Open.FileName));
+                }
+                return DialogResult.OK;
+            }
+            return DialogResult.Cancel;
+        }
+
+        private void LoadImage(Bitmap ImageOpened)
+        {
+            Sprite = ImageOpened;
+            Canvas = Graphics.FromImage(Sprite);
+
+            Canvas_Width = (ushort)Sprite.Width;
+            Canvas_Height = (ushort)Sprite.Height;
+            PNL_Canvas.Width = Sprite.Width;
+            PNL_Canvas.Height = Sprite.Height;
+            ChangeZoom(INITIAL_ZOOM);
+            CenterCanvas();
         }
 
     }

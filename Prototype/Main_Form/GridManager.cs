@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Prototype
+namespace SpriteArtist
 {
     partial class FRM_Main
     {

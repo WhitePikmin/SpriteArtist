@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace Prototype
+namespace SpriteArtist
 {
 
     public partial class FRM_Main
@@ -16,17 +16,26 @@ namespace Prototype
         {
             Canvas = Graphics.FromImage(Sprite);
             CurrentPoint = GetCursorLocationRelative(e);
-
+            Color col_;
             if (Erase)
             {
                 //Pour que l'efface puisse marcher: être capable de rendre un pixel transparent
                 Canvas.CompositingMode = CompositingMode.SourceCopy;
-                pen_.Color = Color.Transparent;
+                col_ = Color.Transparent;
             }
-            
-            Canvas.DrawLine(pen_, OldPoint, CurrentPoint);
+            else
+            {
+                col_ = pen_.Color;
+                Canvas.CompositingMode = CompositingMode.SourceOver;
+            }
+
+            Pen usedPen = new Pen(col_, pen_.Width);
+            usedPen.SetLineCap(LineCap, LineCap, DashCap);
+
+            Canvas.DrawLine(usedPen, OldPoint, CurrentPoint);
             OldPoint = CurrentPoint;
             PNL_Canvas.Invalidate();
+            FileChanged = true;
         }
 
 
@@ -34,13 +43,20 @@ namespace Prototype
         {
             Canvas = Graphics.FromImage(Sprite);
             OldPoint = GetCursorLocationRelative(e);
-            if (col_ == Color.Transparent) Canvas.CompositingMode = CompositingMode.SourceCopy;
+
+            if (col_ == Color.Transparent)
+                Canvas.CompositingMode = CompositingMode.SourceCopy;
+            else
+                Canvas.CompositingMode = CompositingMode.SourceOver;
+
             int PenWidthHalf = (int)Math.Ceiling(MainPen.Width / 2);
             if (MainPen.Width < 3)
                 Canvas.FillRectangle(new SolidBrush(col_), OldPoint.X + 1 - PenWidthHalf, OldPoint.Y + 1 - PenWidthHalf, MainPen.Width, MainPen.Width);
             else
                 Canvas.FillEllipse(new SolidBrush(col_), OldPoint.X - PenWidthHalf, OldPoint.Y - PenWidthHalf, MainPen.Width, MainPen.Width);
+
             PNL_Canvas.Invalidate();
+            FileChanged = true;
         }
 
         private void ChangeColorMainPen(Color col)

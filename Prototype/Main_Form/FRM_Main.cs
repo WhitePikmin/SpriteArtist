@@ -12,7 +12,7 @@ using System.Reflection;
 using System.IO;
 using System.Drawing.Imaging;
 
-namespace Prototype
+namespace SpriteArtist
 {
     public partial class FRM_Main : Form
     {
@@ -21,7 +21,9 @@ namespace Prototype
         float Zoom = 1;
         const float ZOOM_MAX = 128;
         const float ZOOM_MIN = 0.5f;
+        const float INITIAL_ZOOM = 4;
         bool DisplayGrid = false;
+        bool FileChanged = false;
 
         string FileName;
 
@@ -32,7 +34,6 @@ namespace Prototype
         Point CurrentDragPoint = new Point();
 
         Bitmap Sprite = new Bitmap(1, 1);
-        Bitmap LastSave;
         Graphics Canvas;
         Pen MainPen = new Pen(Color.Black,1);
         Pen SecondPen = new Pen(Color.Black, 1);
@@ -62,13 +63,7 @@ namespace Prototype
         {
             InitializeComponent();
 
-            Sprite = ImageOpened;
-            Canvas = Graphics.FromImage(Sprite);
-
-            Canvas_Width = (ushort)Sprite.Width;
-            Canvas_Height = (ushort)Sprite.Height;
-            PNL_Canvas.Width = Sprite.Width;
-            PNL_Canvas.Height = Sprite.Height;
+            LoadImage(ImageOpened);
 
             InitCanvas();
         }
@@ -86,15 +81,13 @@ namespace Prototype
 
             CenterCanvas();
 
-            LastSave = new Bitmap(Sprite);
-
             //Activer le "Double buffer"
             //Éviter que le canevas clignote
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             PNL_Canvas, new object[] { true });
 
-            ChangeZoom(4);
+            FileChanged = false;
         }
 
         private Point GetCursorLocationRelative(MouseEventArgs e) { return new Point((int)((e.X / Zoom)), (int)((e.Y / Zoom))); }
@@ -201,6 +194,14 @@ namespace Prototype
             }
         }
 
+        private void BTN_SecondColor_Click(object sender, EventArgs e)
+        {
+            if (DLG_Color.ShowDialog() == DialogResult.OK)
+            {
+                ChangeColorSecondPen(DLG_Color.Color);
+            }
+        }
+
         private void BTN_Add_Color_Click(object sender, EventArgs e)
         {
             
@@ -209,12 +210,15 @@ namespace Prototype
         private void SetTool()
         {
             if (BTN_Pen.Checked)
+            {
                 CurrentTool = Tool.Pen;
+            }
             else
             {
                 if (BTN_Erase.Checked)
                     CurrentTool = Tool.Eraser;
             }
+            LBL_Debug.Text = CurrentTool.ToString();
         }
 
         private void BTN_Pen_CheckedChanged(object sender, EventArgs e) => SetTool();
@@ -225,13 +229,15 @@ namespace Prototype
 
         private void BTN_Save_Click(object sender, EventArgs e) => SaveFileAs();
 
+        private void BTN_Load_Click(object sender, EventArgs e) => OpenFile();
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => this.Close();
 
         private void FRM_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Sprite != LastSave)
+            if (FileChanged)
             {
-                DialogResult dlg = MessageBox.Show("Voulez vous sauvegarder les modifications avant de fermer le programme?", "Avertissement", MessageBoxButtons.YesNoCancel);
+                DialogResult dlg = PromptSave();
                 if (dlg == DialogResult.Yes)
                 {
                     if (SaveFileAs() == DialogResult.OK)
@@ -252,15 +258,11 @@ namespace Prototype
 
         private void BTN_Grid_CheckedChanged(object sender, EventArgs e) => SetGridVisible(BTN_Grid.Checked);
 
-        private void BTN_ZoomIn_Click(object sender, EventArgs e)
-        {
-            ZoomIn();
-        }
+        private void BTN_ZoomIn_Click(object sender, EventArgs e) =>  ZoomIn();
 
-        private void BTN_ZoomOut_Click(object sender, EventArgs e)
-        {
-            ZoomOut();
-        }
+        private void BTN_ZoomOut_Click(object sender, EventArgs e) => ZoomOut();
+
+        private void BTN_Zoom1x_Click(object sender, EventArgs e) =>  Zoom1x();
 
         private void PNL_Canvas_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -275,8 +277,6 @@ namespace Prototype
             FRM_SendImage send = new FRM_SendImage(Sprite);
             send.ShowDialog();
         }
-
-
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)

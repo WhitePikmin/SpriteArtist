@@ -1,4 +1,4 @@
-﻿namespace Prototype
+﻿namespace SpriteArtist
 {
     partial class FRM_Main
     {
@@ -93,6 +93,7 @@
             this.DLG_Color = new System.Windows.Forms.ColorDialog();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.BTN_ZoomIn = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Zoom1x = new System.Windows.Forms.ToolStripButton();
             this.BTN_ZoomOut = new System.Windows.Forms.ToolStripButton();
             this.TXB_ZoomLevel = new System.Windows.Forms.ToolStripTextBox();
             this.PNL_Layer = new System.Windows.Forms.Panel();
@@ -107,16 +108,17 @@
             this.PNL_Canvas = new System.Windows.Forms.Panel();
             this.NUM_Pen_Size = new System.Windows.Forms.NumericUpDown();
             this.TLS_Tools = new System.Windows.Forms.ToolStrip();
-            this.BTN_Pen = new System.Windows.Forms.RadioButton();
-            this.BTN_Erase = new System.Windows.Forms.RadioButton();
-            this.BTN_ColorPick = new System.Windows.Forms.RadioButton();
-            this.BTN_Line = new System.Windows.Forms.RadioButton();
-            this.BTN_Select = new System.Windows.Forms.RadioButton();
-            this.BTN_Fill = new System.Windows.Forms.RadioButton();
-            this.BTN_Zoom = new System.Windows.Forms.RadioButton();
             this.DLG_Save = new System.Windows.Forms.SaveFileDialog();
             this.BTN_Grid = new System.Windows.Forms.CheckBox();
-            this.TBX_Debug = new System.Windows.Forms.Label();
+            this.BTN_Zoom = new System.Windows.Forms.RadioButton();
+            this.BTN_Fill = new System.Windows.Forms.RadioButton();
+            this.BTN_Select = new System.Windows.Forms.RadioButton();
+            this.BTN_Line = new System.Windows.Forms.RadioButton();
+            this.BTN_ColorPick = new System.Windows.Forms.RadioButton();
+            this.BTN_Erase = new System.Windows.Forms.RadioButton();
+            this.BTN_Pen = new System.Windows.Forms.RadioButton();
+            this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
+            this.LBL_Debug = new System.Windows.Forms.Label();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -404,16 +406,17 @@
             // BTN_Load
             // 
             this.BTN_Load.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Load.Image = global::Prototype.Properties.Resources.OpenFolder_16x;
+            this.BTN_Load.Image = global::SpriteArtist.Properties.Resources.OpenFolder_16x;
             this.BTN_Load.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Load.Name = "BTN_Load";
             this.BTN_Load.Size = new System.Drawing.Size(23, 22);
             this.BTN_Load.Text = "toolStripButton1";
+            this.BTN_Load.Click += new System.EventHandler(this.BTN_Load_Click);
             // 
             // BTN_Save
             // 
             this.BTN_Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Save.Image = global::Prototype.Properties.Resources.Save_16x;
+            this.BTN_Save.Image = global::SpriteArtist.Properties.Resources.Save_16x;
             this.BTN_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Save.Name = "BTN_Save";
             this.BTN_Save.Size = new System.Drawing.Size(23, 22);
@@ -423,7 +426,7 @@
             // BTN_Upload
             // 
             this.BTN_Upload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Upload.Image = global::Prototype.Properties.Resources.Upload_16x;
+            this.BTN_Upload.Image = global::SpriteArtist.Properties.Resources.Upload_16x;
             this.BTN_Upload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Upload.Name = "BTN_Upload";
             this.BTN_Upload.Size = new System.Drawing.Size(23, 22);
@@ -438,7 +441,7 @@
             // BTN_Undo
             // 
             this.BTN_Undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Undo.Image = global::Prototype.Properties.Resources.Undo_16x;
+            this.BTN_Undo.Image = global::SpriteArtist.Properties.Resources.Undo_16x;
             this.BTN_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Undo.Name = "BTN_Undo";
             this.BTN_Undo.Size = new System.Drawing.Size(23, 22);
@@ -447,7 +450,7 @@
             // BTN_Redo
             // 
             this.BTN_Redo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Redo.Image = global::Prototype.Properties.Resources.Redo_16x;
+            this.BTN_Redo.Image = global::SpriteArtist.Properties.Resources.Redo_16x;
             this.BTN_Redo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Redo.Name = "BTN_Redo";
             this.BTN_Redo.Size = new System.Drawing.Size(23, 22);
@@ -461,7 +464,7 @@
             // BTN_Cut
             // 
             this.BTN_Cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Cut.Image = global::Prototype.Properties.Resources.Cut_16x;
+            this.BTN_Cut.Image = global::SpriteArtist.Properties.Resources.Cut_16x;
             this.BTN_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Cut.Name = "BTN_Cut";
             this.BTN_Cut.Size = new System.Drawing.Size(23, 22);
@@ -470,7 +473,7 @@
             // BTN_Copy
             // 
             this.BTN_Copy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Copy.Image = global::Prototype.Properties.Resources.Copy_16x;
+            this.BTN_Copy.Image = global::SpriteArtist.Properties.Resources.Copy_16x;
             this.BTN_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Copy.Name = "BTN_Copy";
             this.BTN_Copy.Size = new System.Drawing.Size(23, 22);
@@ -479,7 +482,7 @@
             // BTN_Paste
             // 
             this.BTN_Paste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Paste.Image = global::Prototype.Properties.Resources.Paste_16x;
+            this.BTN_Paste.Image = global::SpriteArtist.Properties.Resources.Paste_16x;
             this.BTN_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Paste.Name = "BTN_Paste";
             this.BTN_Paste.Size = new System.Drawing.Size(23, 22);
@@ -493,7 +496,7 @@
             // BTN_Resize
             // 
             this.BTN_Resize.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Resize.Image = global::Prototype.Properties.Resources.Resize_16x;
+            this.BTN_Resize.Image = global::SpriteArtist.Properties.Resources.Resize_16x;
             this.BTN_Resize.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Resize.Name = "BTN_Resize";
             this.BTN_Resize.Size = new System.Drawing.Size(23, 22);
@@ -517,14 +520,14 @@
             // 
             // BTN_Shape_Circle
             // 
-            this.BTN_Shape_Circle.Image = global::Prototype.Properties.Resources.circle;
+            this.BTN_Shape_Circle.Image = global::SpriteArtist.Properties.Resources.circle;
             this.BTN_Shape_Circle.Name = "BTN_Shape_Circle";
             this.BTN_Shape_Circle.Size = new System.Drawing.Size(110, 22);
             this.BTN_Shape_Circle.Text = "Circle";
             // 
             // BTN_Shape_Square
             // 
-            this.BTN_Shape_Square.Image = global::Prototype.Properties.Resources.square;
+            this.BTN_Shape_Square.Image = global::SpriteArtist.Properties.Resources.square;
             this.BTN_Shape_Square.Name = "BTN_Shape_Square";
             this.BTN_Shape_Square.Size = new System.Drawing.Size(110, 22);
             this.BTN_Shape_Square.Text = "Square";
@@ -532,7 +535,7 @@
             // toolStripButton32
             // 
             this.toolStripButton32.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton32.Image = global::Prototype.Properties.Resources.circle;
+            this.toolStripButton32.Image = global::SpriteArtist.Properties.Resources.circle;
             this.toolStripButton32.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton32.Name = "toolStripButton32";
             this.toolStripButton32.Size = new System.Drawing.Size(23, 22);
@@ -546,7 +549,7 @@
             // toolStripButton45
             // 
             this.toolStripButton45.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton45.Image = global::Prototype.Properties.Resources.Add_grey_16x;
+            this.toolStripButton45.Image = global::SpriteArtist.Properties.Resources.Add_grey_16x;
             this.toolStripButton45.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton45.Name = "toolStripButton45";
             this.toolStripButton45.Size = new System.Drawing.Size(23, 22);
@@ -555,7 +558,7 @@
             // toolStripButton47
             // 
             this.toolStripButton47.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton47.Image = global::Prototype.Properties.Resources.Remove_16xSM;
+            this.toolStripButton47.Image = global::SpriteArtist.Properties.Resources.Remove_16xSM;
             this.toolStripButton47.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton47.Name = "toolStripButton47";
             this.toolStripButton47.Size = new System.Drawing.Size(23, 22);
@@ -607,6 +610,7 @@
             this.BTN_SecondColor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_SecondColor.Name = "BTN_SecondColor";
             this.BTN_SecondColor.Size = new System.Drawing.Size(32, 32);
+            this.BTN_SecondColor.Click += new System.EventHandler(this.BTN_SecondColor_Click);
             // 
             // toolStripSeparator10
             // 
@@ -617,7 +621,7 @@
             // 
             this.BTN_Add_Color.AutoSize = false;
             this.BTN_Add_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Add_Color.Image = global::Prototype.Properties.Resources.Add_grey_16x;
+            this.BTN_Add_Color.Image = global::SpriteArtist.Properties.Resources.Add_grey_16x;
             this.BTN_Add_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Add_Color.Name = "BTN_Add_Color";
             this.BTN_Add_Color.Size = new System.Drawing.Size(24, 24);
@@ -628,7 +632,7 @@
             // 
             this.BTN_Remove_Color.AutoSize = false;
             this.BTN_Remove_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Remove_Color.Image = global::Prototype.Properties.Resources.Remove_16xSM;
+            this.BTN_Remove_Color.Image = global::SpriteArtist.Properties.Resources.Remove_16xSM;
             this.BTN_Remove_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Remove_Color.Name = "BTN_Remove_Color";
             this.BTN_Remove_Color.Size = new System.Drawing.Size(24, 24);
@@ -651,6 +655,7 @@
             this.toolStrip5.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BTN_ZoomIn,
+            this.BTN_Zoom1x,
             this.BTN_ZoomOut,
             this.TXB_ZoomLevel});
             this.toolStrip5.Location = new System.Drawing.Point(85, 656);
@@ -663,17 +668,27 @@
             // BTN_ZoomIn
             // 
             this.BTN_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_ZoomIn.Image = global::Prototype.Properties.Resources.Add_grey_16x;
+            this.BTN_ZoomIn.Image = global::SpriteArtist.Properties.Resources.Add_grey_16x;
             this.BTN_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_ZoomIn.Name = "BTN_ZoomIn";
             this.BTN_ZoomIn.Size = new System.Drawing.Size(23, 22);
             this.BTN_ZoomIn.Text = "toolStripButton34";
             this.BTN_ZoomIn.Click += new System.EventHandler(this.BTN_ZoomIn_Click);
             // 
+            // BTN_Zoom1x
+            // 
+            this.BTN_Zoom1x.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BTN_Zoom1x.Image = global::SpriteArtist.Properties.Resources._1x_16x;
+            this.BTN_Zoom1x.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Zoom1x.Name = "BTN_Zoom1x";
+            this.BTN_Zoom1x.Size = new System.Drawing.Size(23, 22);
+            this.BTN_Zoom1x.Text = "toolStripButton1";
+            this.BTN_Zoom1x.Click += new System.EventHandler(this.BTN_Zoom1x_Click);
+            // 
             // BTN_ZoomOut
             // 
             this.BTN_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_ZoomOut.Image = global::Prototype.Properties.Resources.Remove_16xSM;
+            this.BTN_ZoomOut.Image = global::SpriteArtist.Properties.Resources.Remove_16xSM;
             this.BTN_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_ZoomOut.Name = "BTN_ZoomOut";
             this.BTN_ZoomOut.Size = new System.Drawing.Size(23, 22);
@@ -782,7 +797,7 @@
             // 
             this.PNL_Canvas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PNL_Canvas.BackColor = System.Drawing.Color.White;
-            this.PNL_Canvas.BackgroundImage = global::Prototype.Properties.Resources.checkerboard;
+            this.PNL_Canvas.BackgroundImage = global::SpriteArtist.Properties.Resources.checkerboard;
             this.PNL_Canvas.Location = new System.Drawing.Point(58, 32);
             this.PNL_Canvas.Name = "PNL_Canvas";
             this.PNL_Canvas.Size = new System.Drawing.Size(640, 480);
@@ -828,87 +843,6 @@
             this.TLS_Tools.TabIndex = 6;
             this.TLS_Tools.Text = "toolStrip2";
             // 
-            // BTN_Pen
-            // 
-            this.BTN_Pen.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Pen.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Pen.Checked = true;
-            this.BTN_Pen.Image = global::Prototype.Properties.Resources.PenToolFilled_16x;
-            this.BTN_Pen.Location = new System.Drawing.Point(4, 52);
-            this.BTN_Pen.Name = "BTN_Pen";
-            this.BTN_Pen.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Pen.TabIndex = 13;
-            this.BTN_Pen.TabStop = true;
-            this.BTN_Pen.UseVisualStyleBackColor = false;
-            this.BTN_Pen.CheckedChanged += new System.EventHandler(this.BTN_Pen_CheckedChanged);
-            // 
-            // BTN_Erase
-            // 
-            this.BTN_Erase.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Erase.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Erase.Image = global::Prototype.Properties.Resources.Eraser_16x;
-            this.BTN_Erase.Location = new System.Drawing.Point(4, 90);
-            this.BTN_Erase.Name = "BTN_Erase";
-            this.BTN_Erase.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Erase.TabIndex = 14;
-            this.BTN_Erase.UseVisualStyleBackColor = false;
-            this.BTN_Erase.CheckedChanged += new System.EventHandler(this.BTN_Erase_CheckedChanged);
-            // 
-            // BTN_ColorPick
-            // 
-            this.BTN_ColorPick.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_ColorPick.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_ColorPick.Image = global::Prototype.Properties.Resources.ColorPicker_12x_16x;
-            this.BTN_ColorPick.Location = new System.Drawing.Point(4, 128);
-            this.BTN_ColorPick.Name = "BTN_ColorPick";
-            this.BTN_ColorPick.Size = new System.Drawing.Size(32, 32);
-            this.BTN_ColorPick.TabIndex = 15;
-            this.BTN_ColorPick.UseVisualStyleBackColor = false;
-            // 
-            // BTN_Line
-            // 
-            this.BTN_Line.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Line.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Line.Image = global::Prototype.Properties.Resources.line_icon;
-            this.BTN_Line.Location = new System.Drawing.Point(4, 166);
-            this.BTN_Line.Name = "BTN_Line";
-            this.BTN_Line.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Line.TabIndex = 16;
-            this.BTN_Line.UseVisualStyleBackColor = false;
-            // 
-            // BTN_Select
-            // 
-            this.BTN_Select.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Select.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Select.Image = global::Prototype.Properties.Resources.RectangleSelectionTool_16x;
-            this.BTN_Select.Location = new System.Drawing.Point(4, 204);
-            this.BTN_Select.Name = "BTN_Select";
-            this.BTN_Select.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Select.TabIndex = 17;
-            this.BTN_Select.UseVisualStyleBackColor = false;
-            // 
-            // BTN_Fill
-            // 
-            this.BTN_Fill.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Fill.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Fill.Image = global::Prototype.Properties.Resources.color;
-            this.BTN_Fill.Location = new System.Drawing.Point(4, 242);
-            this.BTN_Fill.Name = "BTN_Fill";
-            this.BTN_Fill.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Fill.TabIndex = 18;
-            this.BTN_Fill.UseVisualStyleBackColor = false;
-            // 
-            // BTN_Zoom
-            // 
-            this.BTN_Zoom.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Zoom.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Zoom.Image = global::Prototype.Properties.Resources.Zoom_16x;
-            this.BTN_Zoom.Location = new System.Drawing.Point(4, 280);
-            this.BTN_Zoom.Name = "BTN_Zoom";
-            this.BTN_Zoom.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Zoom.TabIndex = 19;
-            this.BTN_Zoom.UseVisualStyleBackColor = false;
-            // 
             // DLG_Save
             // 
             this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp|Image GIF|*.gif";
@@ -918,7 +852,7 @@
             // 
             this.BTN_Grid.Appearance = System.Windows.Forms.Appearance.Button;
             this.BTN_Grid.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BTN_Grid.Image = global::Prototype.Properties.Resources.GridToggle_16xMD;
+            this.BTN_Grid.Image = global::SpriteArtist.Properties.Resources.GridToggle_16xMD;
             this.BTN_Grid.Location = new System.Drawing.Point(425, 25);
             this.BTN_Grid.Name = "BTN_Grid";
             this.BTN_Grid.Size = new System.Drawing.Size(23, 22);
@@ -926,16 +860,103 @@
             this.BTN_Grid.UseVisualStyleBackColor = false;
             this.BTN_Grid.CheckedChanged += new System.EventHandler(this.BTN_Grid_CheckedChanged);
             // 
-            // TBX_Debug
+            // BTN_Zoom
             // 
-            this.TBX_Debug.AutoSize = true;
-            this.TBX_Debug.BackColor = System.Drawing.SystemColors.Control;
-            this.TBX_Debug.Location = new System.Drawing.Point(580, 659);
-            this.TBX_Debug.Name = "TBX_Debug";
-            this.TBX_Debug.Size = new System.Drawing.Size(39, 13);
-            this.TBX_Debug.TabIndex = 22;
-            this.TBX_Debug.Text = "Debug";
-            this.TBX_Debug.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.BTN_Zoom.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Zoom.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Zoom.Image = global::SpriteArtist.Properties.Resources.Zoom_16x;
+            this.BTN_Zoom.Location = new System.Drawing.Point(4, 280);
+            this.BTN_Zoom.Name = "BTN_Zoom";
+            this.BTN_Zoom.Size = new System.Drawing.Size(32, 32);
+            this.BTN_Zoom.TabIndex = 19;
+            this.BTN_Zoom.UseVisualStyleBackColor = false;
+            // 
+            // BTN_Fill
+            // 
+            this.BTN_Fill.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Fill.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Fill.Image = global::SpriteArtist.Properties.Resources.color;
+            this.BTN_Fill.Location = new System.Drawing.Point(4, 242);
+            this.BTN_Fill.Name = "BTN_Fill";
+            this.BTN_Fill.Size = new System.Drawing.Size(32, 32);
+            this.BTN_Fill.TabIndex = 18;
+            this.BTN_Fill.UseVisualStyleBackColor = false;
+            // 
+            // BTN_Select
+            // 
+            this.BTN_Select.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Select.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Select.Image = global::SpriteArtist.Properties.Resources.RectangleSelectionTool_16x;
+            this.BTN_Select.Location = new System.Drawing.Point(4, 204);
+            this.BTN_Select.Name = "BTN_Select";
+            this.BTN_Select.Size = new System.Drawing.Size(32, 32);
+            this.BTN_Select.TabIndex = 17;
+            this.BTN_Select.UseVisualStyleBackColor = false;
+            // 
+            // BTN_Line
+            // 
+            this.BTN_Line.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Line.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Line.Image = global::SpriteArtist.Properties.Resources.line_icon;
+            this.BTN_Line.Location = new System.Drawing.Point(4, 166);
+            this.BTN_Line.Name = "BTN_Line";
+            this.BTN_Line.Size = new System.Drawing.Size(32, 32);
+            this.BTN_Line.TabIndex = 16;
+            this.BTN_Line.UseVisualStyleBackColor = false;
+            // 
+            // BTN_ColorPick
+            // 
+            this.BTN_ColorPick.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_ColorPick.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_ColorPick.Image = global::SpriteArtist.Properties.Resources.ColorPicker_12x_16x;
+            this.BTN_ColorPick.Location = new System.Drawing.Point(4, 128);
+            this.BTN_ColorPick.Name = "BTN_ColorPick";
+            this.BTN_ColorPick.Size = new System.Drawing.Size(32, 32);
+            this.BTN_ColorPick.TabIndex = 15;
+            this.BTN_ColorPick.UseVisualStyleBackColor = false;
+            // 
+            // BTN_Erase
+            // 
+            this.BTN_Erase.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Erase.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Erase.Image = global::SpriteArtist.Properties.Resources.Eraser_16x;
+            this.BTN_Erase.Location = new System.Drawing.Point(4, 90);
+            this.BTN_Erase.Name = "BTN_Erase";
+            this.BTN_Erase.Size = new System.Drawing.Size(32, 32);
+            this.BTN_Erase.TabIndex = 14;
+            this.BTN_Erase.UseVisualStyleBackColor = false;
+            this.BTN_Erase.CheckedChanged += new System.EventHandler(this.BTN_Erase_CheckedChanged);
+            // 
+            // BTN_Pen
+            // 
+            this.BTN_Pen.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_Pen.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_Pen.Checked = true;
+            this.BTN_Pen.Image = global::SpriteArtist.Properties.Resources.PenToolFilled_16x;
+            this.BTN_Pen.Location = new System.Drawing.Point(4, 52);
+            this.BTN_Pen.Name = "BTN_Pen";
+            this.BTN_Pen.Size = new System.Drawing.Size(32, 32);
+            this.BTN_Pen.TabIndex = 13;
+            this.BTN_Pen.TabStop = true;
+            this.BTN_Pen.UseVisualStyleBackColor = false;
+            this.BTN_Pen.CheckedChanged += new System.EventHandler(this.BTN_Pen_CheckedChanged);
+            // 
+            // DLG_Open
+            // 
+            this.DLG_Open.FileName = "Sprite";
+            this.DLG_Open.Filter = "Image PNG|*.png|Image Bitmap |*.bmp|Image GIF |*.gif|Tout les fichiers |*.*";
+            this.DLG_Open.Title = "Ouvrir une image";
+            // 
+            // LBL_Debug
+            // 
+            this.LBL_Debug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBL_Debug.AutoSize = true;
+            this.LBL_Debug.BackColor = System.Drawing.SystemColors.Control;
+            this.LBL_Debug.Location = new System.Drawing.Point(1, 659);
+            this.LBL_Debug.Name = "LBL_Debug";
+            this.LBL_Debug.Size = new System.Drawing.Size(39, 13);
+            this.LBL_Debug.TabIndex = 22;
+            this.LBL_Debug.Text = "Debug";
             // 
             // FRM_Main
             // 
@@ -943,7 +964,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1008, 681);
-            this.Controls.Add(this.TBX_Debug);
+            this.Controls.Add(this.LBL_Debug);
             this.Controls.Add(this.BTN_Grid);
             this.Controls.Add(this.BTN_Zoom);
             this.Controls.Add(this.BTN_Fill);
@@ -1070,7 +1091,9 @@
         private System.Windows.Forms.SaveFileDialog DLG_Save;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.CheckBox BTN_Grid;
-        private System.Windows.Forms.Label TBX_Debug;
+        private System.Windows.Forms.ToolStripButton BTN_Zoom1x;
+        private System.Windows.Forms.OpenFileDialog DLG_Open;
+        private System.Windows.Forms.Label LBL_Debug;
     }
 }
 

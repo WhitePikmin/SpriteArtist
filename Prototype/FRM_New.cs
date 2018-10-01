@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Prototype
+namespace SpriteArtist
 {
     public partial class FRM_New : Form
     {
@@ -40,6 +40,11 @@ namespace Prototype
         private void NUM_Width_ValueChanged(object sender, EventArgs e)
         {
             CanvasWidth = (ushort)NUM_Width.Value;
+        }
+
+        private void FRM_New_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

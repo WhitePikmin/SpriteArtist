@@ -12,7 +12,7 @@ using System.Reflection;
 using System.IO;
 using System.Drawing.Imaging;
 
-namespace Prototype
+namespace SpriteArtist
 {
     public partial class FRM_Main
     {
@@ -48,9 +48,8 @@ namespace Prototype
             if (Zoom != ZOOM_MAX)
             {
                 ChangeZoom(Zoom * 2);
-                CenterCanvas(e.X, e.Y);
+                CenterCanvas(e.X * 2, e.Y * 2);
             }
-               
         }
 
         private void ZoomOut()
@@ -59,12 +58,18 @@ namespace Prototype
                 ChangeZoom(Zoom / 2);
         }
 
+        private void Zoom1x()
+        {
+            ChangeZoom(1);
+            CenterCanvas();
+        }
+
         private void ZoomOut(MouseEventArgs e)
         {
             if (Zoom != ZOOM_MIN)
             {
                 ChangeZoom(Zoom / 2);
-                CenterCanvas(e.X, e.Y);
+                CenterCanvas(e.X / 2, e.Y / 2);
             }
         }
     }

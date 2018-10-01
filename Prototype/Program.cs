@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
-namespace Prototype
+namespace SpriteArtist
 {
     static class Program
     {
@@ -16,7 +17,7 @@ namespace Prototype
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRM_Intro());
+            Application.Run(new FRM_Main(128,128));
         }
     }
 }

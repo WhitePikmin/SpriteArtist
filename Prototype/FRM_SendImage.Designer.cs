@@ -1,4 +1,4 @@
-﻿namespace Prototype
+﻿namespace SpriteArtist
 {
     partial class FRM_SendImage
     {
@@ -52,7 +52,7 @@
             // 
             // PBX_Preview
             // 
-            this.PBX_Preview.BackgroundImage = global::Prototype.Properties.Resources.checkerboard;
+            this.PBX_Preview.BackgroundImage = global::SpriteArtist.Properties.Resources.checkerboard;
             this.PBX_Preview.Location = new System.Drawing.Point(276, 44);
             this.PBX_Preview.Name = "PBX_Preview";
             this.PBX_Preview.Size = new System.Drawing.Size(369, 349);

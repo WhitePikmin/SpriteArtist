@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Prototype
+namespace SpriteArtist
 {
     public partial class FRM_SendImage : Form
     {

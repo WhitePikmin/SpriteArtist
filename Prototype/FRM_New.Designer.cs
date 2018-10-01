@@ -1,4 +1,4 @@
-﻿namespace Prototype
+﻿namespace SpriteArtist
 {
     partial class FRM_New
     {
@@ -170,6 +170,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FRM_New";
             this.Text = "Nouveau Canevas";
+            this.Load += new System.EventHandler(this.FRM_New_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Height)).EndInit();

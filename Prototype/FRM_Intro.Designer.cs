@@ -1,4 +1,4 @@
-﻿namespace Prototype
+﻿namespace SpriteArtist
 {
     partial class FRM_Intro
     {
