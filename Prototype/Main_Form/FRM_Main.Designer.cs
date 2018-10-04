@@ -892,6 +892,7 @@
             this.BTN_Select.Size = new System.Drawing.Size(32, 32);
             this.BTN_Select.TabIndex = 17;
             this.BTN_Select.UseVisualStyleBackColor = false;
+            this.BTN_Select.CheckedChanged += new System.EventHandler(this.BTN_Select_CheckedChanged);
             // 
             // BTN_Line
             // 

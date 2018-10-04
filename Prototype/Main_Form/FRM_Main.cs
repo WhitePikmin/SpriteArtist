@@ -22,8 +22,13 @@ namespace SpriteArtist
         const float ZOOM_MAX = 128;
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
+
         bool DisplayGrid = false;
         bool FileChanged = false;
+
+        bool DraggingSelection = false;
+        bool ActiveSelection = false;
+        Rectangle SelectionZone = new Rectangle(2, 2, 9, 9);
 
         string FileName;
 
@@ -39,6 +44,8 @@ namespace SpriteArtist
         Pen SecondPen = new Pen(Color.Black, 1);
         LineCap LineCap = System.Drawing.Drawing2D.LineCap.Round;
         DashCap DashCap = System.Drawing.Drawing2D.DashCap.Round;
+
+        readonly List<RadioButton> ToolButtons = new List<RadioButton>();
 
         enum Tool {Pen,Eraser,ColorPicker,Line,Select,Bucket,Zoom};
         Tool CurrentTool = Tool.Pen;
@@ -70,6 +77,14 @@ namespace SpriteArtist
 
         private void InitCanvas()
         {
+            ToolButtons.Add(BTN_Pen);
+            ToolButtons.Add(BTN_Erase);
+            ToolButtons.Add(BTN_ColorPick);
+            ToolButtons.Add(BTN_Line);
+            ToolButtons.Add(BTN_Select);
+            ToolButtons.Add(BTN_Fill);
+            ToolButtons.Add(BTN_Zoom);
+
             Canvas = PNL_Canvas.CreateGraphics();
             this.PNL_Canvas.MouseWheel += PNL_Canvas_MouseWheel;
 
@@ -103,6 +118,7 @@ namespace SpriteArtist
             e.Graphics.PixelOffsetMode = PixelOffsetMode.None;
             e.Graphics.DrawImage(Sprite, new RectangleF(0,0, PNL_Canvas.Width,PNL_Canvas.Height),new RectangleF(-0.5f,-0.5f,Sprite.Width,Sprite.Height),GraphicsUnit.Pixel);
             DrawGrid(e.Graphics);
+            DrawSelectionZone(e.Graphics);
         }
 
         private void PNL_Canvas_MouseMove(object sender, MouseEventArgs e)
@@ -113,25 +129,33 @@ namespace SpriteArtist
             {
                 switch (CurrentTool)
                 {
-                    case Tool.Pen: DrawOnCanvas(MainPen, e,false); break;
-                    case Tool.Eraser: DrawOnCanvas(MainPen, e,true); break;
+                    case Tool.Pen: DrawOnCanvas(MainPen, e, false); break;
+                    case Tool.Eraser: DrawOnCanvas(MainPen, e, true); break;
+                    case Tool.Select: DragSelectedZone(e); break;
                 }
             }
-
             else
-            if (e.Button == MouseButtons.Right)
             {
-                switch (CurrentTool)
+                if (e.Button == MouseButtons.Right)
                 {
-                    case Tool.Pen: DrawOnCanvas(SecondPen, e, false); break;
-                    case Tool.Eraser: DrawOnCanvas(SecondPen, e, true); break;
-                }
-            }  
-            else
+                    switch (CurrentTool)
+                    {
+                        case Tool.Pen: DrawOnCanvas(SecondPen, e, false); break;
+                        case Tool.Eraser: DrawOnCanvas(SecondPen, e, true); break;
+                    }
 
-            if (e.Button == MouseButtons.Middle)
-            {
-                DragCanvas(PNL_Drag_Zone.PointToClient(Cursor.Position));
+                }
+                else
+
+                if (e.Button == MouseButtons.Middle)
+                {
+                    DragCanvas(PNL_Drag_Zone.PointToClient(Cursor.Position));
+                }
+
+                if (DraggingSelection)
+                {
+                    DraggingSelection = false;
+                }
             }
         }
 
@@ -209,14 +233,13 @@ namespace SpriteArtist
 
         private void SetTool()
         {
-            if (BTN_Pen.Checked)
+            for (int i = 0; i < ToolButtons.Count; i++)
             {
-                CurrentTool = Tool.Pen;
-            }
-            else
-            {
-                if (BTN_Erase.Checked)
-                    CurrentTool = Tool.Eraser;
+                if (ToolButtons[i].Checked)
+                {
+                    CurrentTool = Tool.Pen + i;
+                    i = ToolButtons.Count;
+                }
             }
             LBL_Debug.Text = CurrentTool.ToString();
         }
@@ -224,6 +247,8 @@ namespace SpriteArtist
         private void BTN_Pen_CheckedChanged(object sender, EventArgs e) => SetTool();
 
         private void BTN_Erase_CheckedChanged(object sender, EventArgs e) => SetTool();
+
+        private void BTN_Select_CheckedChanged(object sender, EventArgs e) => SetTool();
 
         private void PNL_Canvas_Click(object sender, EventArgs e) => Cursor.Current = Cursors.Cross;
 

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net.Http;
@@ -57,8 +54,7 @@ namespace SpriteArtist
             }
             catch (Exception e)
             {
-                Console.WriteLine("Upload failed: " + e.Message);
-                Console.ReadKey();
+                FinalMessage = "Erreur: " + e.Message;
             }
             return FinalMessage;
         }
@@ -69,16 +65,18 @@ namespace SpriteArtist
             const string ErrorElementStart = "<div class=\"error\">";
             const string ErrorElementEnd = "</div>";
 
-            int StartIndex = HTMLPage.IndexOf(ErrorElementStart) + ErrorElementStart.Length;
+            int StartIndex = (HTMLPage.IndexOf(ErrorElementStart)) + ErrorElementStart.Length;
             NewMessage = HTMLPage.Substring(StartIndex, HTMLPage.Length - StartIndex);
 
-            int EndIndex = NewMessage.IndexOf(ErrorElementEnd);
-            NewMessage = NewMessage.Substring(0,EndIndex);
 
-            if (NewMessage.Length != 1)
-                return NewMessage.Trim();
+            NewMessage = NewMessage.Trim();
+            int EndIndex = NewMessage.IndexOf(ErrorElementEnd);
+            if (EndIndex == 0)
+                NewMessage = "";
             else
-                return "";
+                NewMessage = NewMessage.Substring(0,EndIndex);
+
+            return NewMessage;
         }
     }
 }
