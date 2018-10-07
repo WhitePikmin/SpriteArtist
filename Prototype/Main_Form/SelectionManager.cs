@@ -24,37 +24,39 @@ namespace SpriteArtist
                     Point StartingPoint = GetCursorLocationRelative(e);
                     SelectionZone.X = StartingPoint.X;
                     SelectionZone.Y = StartingPoint.Y;
+                    ActiveSelection = true;
                 }
             Point CursorPoint = GetCursorLocationRelative(e);
             SelectionZone.Width = CursorPoint.X - SelectionZone.X;
             SelectionZone.Height = CursorPoint.Y - SelectionZone.Y;
 
             SelectionZone = FormatRectangleInbound(SelectionZone);
+            PNL_Canvas.Invalidate();
         }
 
         private void DrawSelectionZone(Graphics g_)
         {
-            ActiveSelection = true;
-           // SelectionZone = new Rectangle(2,2,9,9);
-            if (ActiveSelection || DraggingSelection)
+            if (ActiveSelection)
             {
-                Pen RectanglePen = new Pen(Color.Black,2);
-                Rectangle DrawnZone = FormatRectanglePositiveCoord(SelectionZone);
-
-                for (int i = 0; i < 2; i++)
+                if (ActiveSelection || DraggingSelection)
                 {
-                    if (i == 1)
+                    Pen RectanglePen = new Pen(Color.Black, 2);
+                    Rectangle DrawnZone = FormatRectanglePositiveCoord(SelectionZone);
+
+                    for (int i = 0; i < 2; i++)
                     {
-                        RectanglePen.DashStyle = DashStyle.Dot;
-                        RectanglePen.Color = Color.White;
+                        if (i == 1)
+                        {
+                            RectanglePen.DashStyle = DashStyle.Dot;
+                            RectanglePen.Color = Color.White;
+                        }
+                        g_.DrawRectangle(RectanglePen,
+                            DrawnZone.X * Zoom,
+                            DrawnZone.Y * Zoom,
+                            DrawnZone.Width * Zoom,
+                            DrawnZone.Height * Zoom);
                     }
-                    g_.DrawRectangle(RectanglePen,
-                        DrawnZone.X * Zoom,
-                        DrawnZone.Y * Zoom,
-                        DrawnZone.Width * Zoom,
-                        DrawnZone.Height * Zoom);
                 }
-                PNL_Canvas.Invalidate();
             }
         }
 
@@ -84,5 +86,23 @@ namespace SpriteArtist
 
             return rect;
         }
+
+        private void DisplayContextMenu(MouseEventArgs e)
+        {
+           PNL_Canvas.ContextMenuStrip = CTM_Selection_Options;
+        }
+
+        private void CopySelection()
+        {
+            if (ActiveSelection)
+            {
+                SelectionZone = FormatRectanglePositiveCoord(SelectionZone);
+                SelectionZone = FormatRectangleInbound(SelectionZone);
+                
+                Bitmap Copy = Sprite.Clone(SelectionZone, Sprite.PixelFormat);
+                Clipboard.SetDataObject(Copy);
+            }
+        }
+
     }
 }

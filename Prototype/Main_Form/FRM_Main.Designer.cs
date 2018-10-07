@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Main));
             this.MNS_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,6 +120,12 @@
             this.BTN_Pen = new System.Windows.Forms.RadioButton();
             this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
             this.LBL_Debug = new System.Windows.Forms.Label();
+            this.ITM_Cut = new System.Windows.Forms.ToolStripMenuItem();
+            this.ITM_Copy = new System.Windows.Forms.ToolStripMenuItem();
+            this.ITM_Paste = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -126,6 +133,7 @@
             this.PNL_Layer.SuspendLayout();
             this.PNL_Drag_Zone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Pen_Size)).BeginInit();
+            this.CTM_Selection_Options.SuspendLayout();
             this.SuspendLayout();
             // 
             // MNS_MainMenu
@@ -250,7 +258,7 @@
             this.BTNTLS_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Cut.Name = "BTNTLS_Cut";
             this.BTNTLS_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.BTNTLS_Cut.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Cut.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Cut.Text = "Cu&t";
             // 
             // BTNTLS_Copy
@@ -259,8 +267,9 @@
             this.BTNTLS_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Copy.Name = "BTNTLS_Copy";
             this.BTNTLS_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.BTNTLS_Copy.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Copy.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Copy.Text = "&Copy";
+            this.BTNTLS_Copy.Click += new System.EventHandler(this.BTNTLS_Copy_Click);
             // 
             // BTNTLS_Paste
             // 
@@ -959,6 +968,46 @@
             this.LBL_Debug.TabIndex = 22;
             this.LBL_Debug.Text = "Debug";
             // 
+            // ITM_Cut
+            // 
+            this.ITM_Cut.Name = "ITM_Cut";
+            this.ITM_Cut.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Cut.Text = "Couper";
+            // 
+            // ITM_Copy
+            // 
+            this.ITM_Copy.Name = "ITM_Copy";
+            this.ITM_Copy.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Copy.Text = "Copier";
+            // 
+            // ITM_Paste
+            // 
+            this.ITM_Paste.Name = "ITM_Paste";
+            this.ITM_Paste.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Paste.Text = "Coller";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(177, 6);
+            // 
+            // ITM_Delete
+            // 
+            this.ITM_Delete.Name = "ITM_Delete";
+            this.ITM_Delete.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Delete.Text = "Supprimer";
+            // 
+            // CTM_Selection_Options
+            // 
+            this.CTM_Selection_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ITM_Cut,
+            this.ITM_Copy,
+            this.ITM_Paste,
+            this.toolStripSeparator13,
+            this.ITM_Delete});
+            this.CTM_Selection_Options.Name = "CTM_Selection_Options";
+            this.CTM_Selection_Options.Size = new System.Drawing.Size(181, 120);
+            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -998,6 +1047,7 @@
             this.PNL_Layer.ResumeLayout(false);
             this.PNL_Drag_Zone.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Pen_Size)).EndInit();
+            this.CTM_Selection_Options.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1095,6 +1145,12 @@
         private System.Windows.Forms.ToolStripButton BTN_Zoom1x;
         private System.Windows.Forms.OpenFileDialog DLG_Open;
         private System.Windows.Forms.Label LBL_Debug;
+        private System.Windows.Forms.ToolStripMenuItem ITM_Cut;
+        private System.Windows.Forms.ToolStripMenuItem ITM_Copy;
+        private System.Windows.Forms.ToolStripMenuItem ITM_Paste;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripMenuItem ITM_Delete;
+        private System.Windows.Forms.ContextMenuStrip CTM_Selection_Options;
     }
 }
 

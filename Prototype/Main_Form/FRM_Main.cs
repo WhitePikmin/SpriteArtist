@@ -22,6 +22,7 @@ namespace SpriteArtist
         const float ZOOM_MAX = 128;
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
+        int FrameTimer = 0;
 
         bool DisplayGrid = false;
         bool FileChanged = false;
@@ -38,7 +39,7 @@ namespace SpriteArtist
         Point OldDragPoint = new Point();
         Point CurrentDragPoint = new Point();
 
-        Bitmap Sprite = new Bitmap(1, 1);
+        Bitmap Sprite = new Bitmap(1, 1,PixelFormat.Format32bppArgb);
         Graphics Canvas;
         Pen MainPen = new Pen(Color.Black,1);
         Pen SecondPen = new Pen(Color.Black, 1);
@@ -102,6 +103,8 @@ namespace SpriteArtist
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             PNL_Canvas, new object[] { true });
 
+            
+
             FileChanged = false;
         }
 
@@ -142,6 +145,7 @@ namespace SpriteArtist
                     {
                         case Tool.Pen: DrawOnCanvas(SecondPen, e, false); break;
                         case Tool.Eraser: DrawOnCanvas(SecondPen, e, true); break;
+                        case Tool.Select: DisplayContextMenu(e); break;
                     }
 
                 }
@@ -178,6 +182,7 @@ namespace SpriteArtist
                 {
                     case Tool.Pen: DrawSingleDotOnCanvas(SecondPen.Color, e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
+                    
                 }
             }
 
@@ -302,6 +307,9 @@ namespace SpriteArtist
             FRM_SendImage send = new FRM_SendImage(Sprite);
             send.ShowDialog();
         }
+
+        private void BTNTLS_Copy_Click(object sender, EventArgs e) => CopySelection();
+        
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
