@@ -40,6 +40,7 @@ namespace SpriteArtist
         Point CurrentDragPoint = new Point();
 
         Bitmap Sprite = new Bitmap(1, 1,PixelFormat.Format32bppArgb);
+        Bitmap Selection = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
         Graphics Canvas;
         Pen MainPen = new Pen(Color.Black,1);
         Pen SecondPen = new Pen(Color.Black, 1);
@@ -172,6 +173,7 @@ namespace SpriteArtist
                 {
                     case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
+                    case Tool.Select: ActiveSelection = false ; break;
                 }
                 
             }
@@ -308,8 +310,25 @@ namespace SpriteArtist
             send.ShowDialog();
         }
 
-        private void BTNTLS_Copy_Click(object sender, EventArgs e) => CopySelection();
-        
+        private void BTNTLS_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
+
+        private void ITM_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
+
+        private void FRM_Main_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) => DeleteSelection();
+
+        private void BTNTLS_Cut_Click(object sender, EventArgs e) => CutSelection();
+
+        private void BTNTLS_Select_All_Click(object sender, EventArgs e) => SelectAll();
+
+        private void PNL_Canvas_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)

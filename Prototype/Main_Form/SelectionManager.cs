@@ -34,6 +34,31 @@ namespace SpriteArtist
             PNL_Canvas.Invalidate();
         }
 
+        private void SelectAll()
+        {
+            SelectionZone.X = 0;
+            SelectionZone.Y = 0;
+            SelectionZone.Width = Sprite.Width;
+            SelectionZone.Height = Sprite.Height;
+            ActiveSelection = true;
+            PNL_Canvas.Invalidate();
+        }
+
+        private void ReleaseSelection()
+        {
+            if (DraggingSelection)
+            {
+                DraggingSelection = false;
+                ActiveSelection = true;
+                Selection = CopySelection();
+            }
+        }
+
+        private void MoveSelection()
+        {
+
+        }
+
         private void DrawSelectionZone(Graphics g_)
         {
             if (ActiveSelection)
@@ -92,7 +117,7 @@ namespace SpriteArtist
            PNL_Canvas.ContextMenuStrip = CTM_Selection_Options;
         }
 
-        private void CopySelection()
+        private void CopySelectionIntoClipboard()
         {
             if (ActiveSelection)
             {
@@ -100,8 +125,59 @@ namespace SpriteArtist
                 SelectionZone = FormatRectangleInbound(SelectionZone);
                 
                 Bitmap Copy = Sprite.Clone(SelectionZone, Sprite.PixelFormat);
-                Clipboard.SetDataObject(Copy);
+                PlaceInClipboard(Copy);
             }
+        }
+
+        private Bitmap CopySelection()
+        {
+            if (ActiveSelection)
+            {
+                SelectionZone = FormatRectanglePositiveCoord(SelectionZone);
+                SelectionZone = FormatRectangleInbound(SelectionZone);
+
+                return Sprite.Clone(SelectionZone, Sprite.PixelFormat);
+            }
+            return null;
+        }
+
+        private void PlaceInClipboard(Bitmap img)
+        {
+            //Faire en sorte que la transparence soie pris en compte dans le presse papier en copiant en PNG
+            MemoryStream PngStream = new MemoryStream();
+            img.Save(PngStream, ImageFormat.Png);
+            DataObject data = new DataObject("PNG",PngStream);
+
+            Clipboard.Clear();
+            Clipboard.SetDataObject(data,true);
+        }
+
+        private void DeleteSelection()
+        {
+            if (ActiveSelection)
+            {
+                SelectionZone = FormatRectanglePositiveCoord(SelectionZone);
+                SelectionZone = FormatRectangleInbound(SelectionZone);
+
+                int LimitY = SelectionZone.Height + SelectionZone.Y;
+                int LimitX = SelectionZone.Width + SelectionZone.X;
+
+                for (int j = SelectionZone.Y; j < LimitY; j++)
+                {
+                    for (int i = SelectionZone.X; i < LimitX; i++)
+                    {
+                        Sprite.SetPixel(i, j, Color.Transparent);
+                    }
+                }
+                PNL_Canvas.Invalidate();
+                FileChanged = true;
+            }
+        }
+
+        private void CutSelection()
+        {
+            CopySelectionIntoClipboard();
+            DeleteSelection();
         }
 
     }

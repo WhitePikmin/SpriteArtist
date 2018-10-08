@@ -126,6 +126,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -227,6 +228,7 @@
             this.BTNTLS_Cut,
             this.BTNTLS_Copy,
             this.BTNTLS_Paste,
+            this.deleteToolStripMenuItem,
             this.toolStripSeparator4,
             this.BTNTLS_Select_All});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
@@ -237,20 +239,20 @@
             // 
             this.BTNTLS_Undo.Name = "BTNTLS_Undo";
             this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Undo.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Undo.Text = "&Undo";
             // 
             // BTNTLS_Redo
             // 
             this.BTNTLS_Redo.Name = "BTNTLS_Redo";
             this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Redo.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Redo.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // BTNTLS_Cut
             // 
@@ -260,6 +262,7 @@
             this.BTNTLS_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.BTNTLS_Cut.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Cut.Text = "Cu&t";
+            this.BTNTLS_Cut.Click += new System.EventHandler(this.BTNTLS_Cut_Click);
             // 
             // BTNTLS_Copy
             // 
@@ -277,20 +280,21 @@
             this.BTNTLS_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Paste.Name = "BTNTLS_Paste";
             this.BTNTLS_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.BTNTLS_Paste.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Paste.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Paste.Text = "&Paste";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // BTNTLS_Select_All
             // 
             this.BTNTLS_Select_All.Name = "BTNTLS_Select_All";
             this.BTNTLS_Select_All.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.BTNTLS_Select_All.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Select_All.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Select_All.Text = "Select &All";
+            this.BTNTLS_Select_All.Click += new System.EventHandler(this.BTNTLS_Select_All_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -815,6 +819,7 @@
             this.PNL_Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.PNL_Canvas_Paint);
             this.PNL_Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseDown);
             this.PNL_Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseMove);
+            this.PNL_Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseUp);
             // 
             // NUM_Pen_Size
             // 
@@ -971,30 +976,31 @@
             // ITM_Cut
             // 
             this.ITM_Cut.Name = "ITM_Cut";
-            this.ITM_Cut.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Cut.Size = new System.Drawing.Size(129, 22);
             this.ITM_Cut.Text = "Couper";
             // 
             // ITM_Copy
             // 
             this.ITM_Copy.Name = "ITM_Copy";
-            this.ITM_Copy.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Copy.Size = new System.Drawing.Size(129, 22);
             this.ITM_Copy.Text = "Copier";
+            this.ITM_Copy.Click += new System.EventHandler(this.ITM_Copy_Click);
             // 
             // ITM_Paste
             // 
             this.ITM_Paste.Name = "ITM_Paste";
-            this.ITM_Paste.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Paste.Size = new System.Drawing.Size(129, 22);
             this.ITM_Paste.Text = "Coller";
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(126, 6);
             // 
             // ITM_Delete
             // 
             this.ITM_Delete.Name = "ITM_Delete";
-            this.ITM_Delete.Size = new System.Drawing.Size(180, 22);
+            this.ITM_Delete.Size = new System.Drawing.Size(129, 22);
             this.ITM_Delete.Text = "Supprimer";
             // 
             // CTM_Selection_Options
@@ -1006,7 +1012,15 @@
             this.toolStripSeparator13,
             this.ITM_Delete});
             this.CTM_Selection_Options.Name = "CTM_Selection_Options";
-            this.CTM_Selection_Options.Size = new System.Drawing.Size(181, 120);
+            this.CTM_Selection_Options.Size = new System.Drawing.Size(130, 98);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // FRM_Main
             // 
@@ -1036,6 +1050,7 @@
             this.Text = "Pixel Artist";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Main_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Main_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FRM_Main_KeyDown);
             this.MNS_MainMenu.ResumeLayout(false);
             this.MNS_MainMenu.PerformLayout();
             this.TLS_Top.ResumeLayout(false);
@@ -1151,6 +1166,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem ITM_Delete;
         private System.Windows.Forms.ContextMenuStrip CTM_Selection_Options;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 
