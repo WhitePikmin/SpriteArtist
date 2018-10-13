@@ -21,7 +21,7 @@ namespace SpriteArtist
             if (ActiveSelection && !DraggingSelection)
             {
                 Point CursorPoint = GetCursorLocationRelative(e);
-                if (SelectionZone.Contains(CursorPoint))
+                if (SelectionZone.Contains(CursorPoint) || MovingSelection)
                 {
                     MoveSelection(e);
                 }
@@ -58,11 +58,20 @@ namespace SpriteArtist
 
         private void SelectAll()
         {
-            SelectionZone.X = 0;
-            SelectionZone.Y = 0;
-            SelectionZone.Width = Sprite.Width;
-            SelectionZone.Height = Sprite.Height;
-            StartSelecting();
+            if (SelectionZone.X == 0 &&
+            SelectionZone.Y == 0 &&
+            SelectionZone.Width == Sprite.Width &&
+            SelectionZone.Height == Sprite.Height && ActiveSelection)
+                StopSelecting();
+            else
+            {
+                StopSelecting();
+                SelectionZone.X = 0;
+                SelectionZone.Y = 0;
+                SelectionZone.Width = Sprite.Width;
+                SelectionZone.Height = Sprite.Height;
+                StartSelecting();
+            }
             PNL_Canvas.Invalidate();
         }
 
@@ -219,8 +228,7 @@ namespace SpriteArtist
                 SelectionZone = FormatRectanglePositiveCoord(SelectionZone);
                 SelectionZone = FormatRectangleInbound(SelectionZone);
                 
-                Bitmap Copy = Sprite.Clone(SelectionZone, Sprite.PixelFormat);
-                PlaceInClipboard(Copy);
+                PlaceInClipboard(Selection);
             }
         }
 

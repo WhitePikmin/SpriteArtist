@@ -14,8 +14,12 @@ namespace SpriteArtist
     {
         private void DrawOnCanvas(Pen pen_, MouseEventArgs e, bool Erase)
         {
-            Canvas = Graphics.FromImage(Sprite);
-            CurrentPoint = GetCursorLocationRelative(e);
+            if (ActiveSelection)
+                Canvas = Graphics.FromImage(Selection);
+            else
+                Canvas = Graphics.FromImage(Sprite);
+
+            CurrentPoint = AdaptPointToSelection(GetCursorLocationRelative(e));
             Color col_;
             if (Erase)
             {
@@ -41,8 +45,12 @@ namespace SpriteArtist
 
         private void DrawSingleDotOnCanvas(Color col_, MouseEventArgs e)
         {
-            Canvas = Graphics.FromImage(Sprite);
-            OldPoint = GetCursorLocationRelative(e);
+            if(ActiveSelection)
+                Canvas = Graphics.FromImage(Selection);
+            else
+                Canvas = Graphics.FromImage(Sprite);
+
+            OldPoint = AdaptPointToSelection(GetCursorLocationRelative(e));
 
             if (col_ == Color.Transparent)
                 Canvas.CompositingMode = CompositingMode.SourceCopy;
@@ -57,6 +65,15 @@ namespace SpriteArtist
 
             PNL_Canvas.Invalidate();
             FileChanged = true;
+        }
+
+        public Point AdaptPointToSelection(Point p_)
+        {
+            if (ActiveSelection)
+            {
+                return new Point(p_.X - SelectionZone.X,p_.Y - SelectionZone.Y);
+            }
+            return p_;
         }
 
         private void ChangeColorMainPen(Color col)
