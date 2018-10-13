@@ -16,6 +16,7 @@ namespace SpriteArtist
 {
     public partial class FRM_Main : Form
     {
+#region variables init
         ushort Canvas_Width = 640;
         ushort Canvas_Height = 480;
         float Zoom = 1;
@@ -29,6 +30,7 @@ namespace SpriteArtist
 
         bool DraggingSelection = false;
         bool ActiveSelection = false;
+        bool MovingSelection = false;
         Rectangle SelectionZone = new Rectangle(2, 2, 9, 9);
 
         string FileName;
@@ -39,18 +41,23 @@ namespace SpriteArtist
         Point OldDragPoint = new Point();
         Point CurrentDragPoint = new Point();
 
-        Bitmap Sprite = new Bitmap(1, 1,PixelFormat.Format32bppArgb);
+        Bitmap Sprite = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
         Bitmap Selection = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
         Graphics Canvas;
-        Pen MainPen = new Pen(Color.Black,1);
+        Pen MainPen = new Pen(Color.Black, 1);
         Pen SecondPen = new Pen(Color.Black, 1);
         LineCap LineCap = System.Drawing.Drawing2D.LineCap.Round;
         DashCap DashCap = System.Drawing.Drawing2D.DashCap.Round;
 
         readonly List<RadioButton> ToolButtons = new List<RadioButton>();
 
-        enum Tool {Pen,Eraser,ColorPicker,Line,Select,Bucket,Zoom};
+        enum Tool { Pen, Eraser, ColorPicker, Line, Select, Bucket, Zoom };
         Tool CurrentTool = Tool.Pen;
+
+        DebugViewer DebugWindow = new DebugViewer();
+        #endregion
+
+#region intialisation
 
         public FRM_Main(ushort NewWidth, ushort NewHeight)
         {
@@ -89,6 +96,7 @@ namespace SpriteArtist
 
             Canvas = PNL_Canvas.CreateGraphics();
             this.PNL_Canvas.MouseWheel += PNL_Canvas_MouseWheel;
+            this.PNL_Canvas.MouseUp += new MouseEventHandler(MouseUp);
 
             MainPen.SetLineCap(LineCap, LineCap, DashCap);
             SecondPen.SetLineCap(LineCap, LineCap, DashCap);
@@ -104,27 +112,32 @@ namespace SpriteArtist
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             PNL_Canvas, new object[] { true });
 
-            
-
             FileChanged = false;
-        }
 
-        private Point GetCursorLocationRelative(MouseEventArgs e) { return new Point((int)((e.X / Zoom)), (int)((e.Y / Zoom))); }
+        }
 
         private void FRM_Main_Load(object sender, EventArgs e)
         {
-
+            DebugWindow.Show();
         }
+
+        #endregion
+
+        private Point GetCursorLocationRelative(MouseEventArgs e) { return new Point((int)((e.X / Zoom)), (int)((e.Y / Zoom))); }
 
         private void PNL_Canvas_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
             e.Graphics.PixelOffsetMode = PixelOffsetMode.None;
-            e.Graphics.DrawImage(Sprite, new RectangleF(0,0, PNL_Canvas.Width,PNL_Canvas.Height),new RectangleF(-0.5f,-0.5f,Sprite.Width,Sprite.Height),GraphicsUnit.Pixel);
+            e.Graphics.DrawImage(Sprite, new RectangleF(0, 0, PNL_Canvas.Width, PNL_Canvas.Height), new RectangleF(-0.5f, -0.5f, Sprite.Width, Sprite.Height), GraphicsUnit.Pixel);
+            DrawSelection(e.Graphics);
             DrawGrid(e.Graphics);
             DrawSelectionZone(e.Graphics);
+            DebugWindow.UpdateValues(ActiveSelection, DraggingSelection, SelectionZone);
+
         }
 
+#region Mouse Events
         private void PNL_Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             PNL_Canvas.Focus();
@@ -135,7 +148,7 @@ namespace SpriteArtist
                 {
                     case Tool.Pen: DrawOnCanvas(MainPen, e, false); break;
                     case Tool.Eraser: DrawOnCanvas(MainPen, e, true); break;
-                    case Tool.Select: DragSelectedZone(e); break;
+                    case Tool.Select: HandleSelection(e); break;
                 }
             }
             else
@@ -148,7 +161,6 @@ namespace SpriteArtist
                         case Tool.Eraser: DrawOnCanvas(SecondPen, e, true); break;
                         case Tool.Select: DisplayContextMenu(e); break;
                     }
-
                 }
                 else
 
@@ -166,16 +178,14 @@ namespace SpriteArtist
 
         private void PNL_Canvas_MouseDown(object sender, MouseEventArgs e)
         {
-
             if (e.Button == MouseButtons.Left)
             {
                 switch (CurrentTool)
                 {
                     case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
-                    case Tool.Select: ActiveSelection = false ; break;
+                    case Tool.Select: OldPoint = GetCursorLocationRelative(e); break;
                 }
-                
             }
             else
             if (e.Button == MouseButtons.Right)
@@ -187,13 +197,20 @@ namespace SpriteArtist
                     
                 }
             }
-
-
             if (e.Button == MouseButtons.Middle)
             {
                 OldDragPoint = PNL_Drag_Zone.PointToClient(Cursor.Position);
                 CurrentDragPoint = OldDragPoint;
                 
+            }
+        }
+
+        private void MouseUp(object sender, MouseEventArgs e)
+        {
+            if (CurrentTool == Tool.Select)
+            {
+                ReleaseSelection();
+                DebugWindow.UpdateValues(ActiveSelection, DraggingSelection, SelectionZone);
             }
         }
 
@@ -214,7 +231,9 @@ namespace SpriteArtist
                 CurrentDragPoint = OldDragPoint;
             }
         }
+        #endregion
 
+#region Tools click
         private void NUM_Pen_Size_ValueChanged(object sender, EventArgs e) => ChangePenSize((float)NUM_Pen_Size.Value);
 
         private void BTN_MainColor_Click(object sender, EventArgs e)
@@ -262,8 +281,46 @@ namespace SpriteArtist
         private void BTN_Save_Click(object sender, EventArgs e) => SaveFileAs();
 
         private void BTN_Load_Click(object sender, EventArgs e) => OpenFile();
+        
+
+
+
+        private void BTN_Grid_CheckedChanged(object sender, EventArgs e) => SetGridVisible(BTN_Grid.Checked);
+
+        private void BTN_ZoomIn_Click(object sender, EventArgs e) =>  ZoomIn();
+
+        private void BTN_ZoomOut_Click(object sender, EventArgs e) => ZoomOut();
+
+        private void BTN_Zoom1x_Click(object sender, EventArgs e) =>  Zoom1x();
+
+        private void PNL_Canvas_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta < 0)
+                ZoomOut(e);
+            else
+                ZoomIn(e);
+        }
+
+        private void BTN_Upload_Click(object sender, EventArgs e)
+        {
+            FRM_SendImage send = new FRM_SendImage(Sprite);
+            send.ShowDialog();
+        }
+        #endregion
+
+#region toolstrip click
+        private void BTNTLS_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
+
+        private void ITM_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) => DeleteSelection();
+
+        private void BTNTLS_Cut_Click(object sender, EventArgs e) => CutSelection();
+
+        private void BTNTLS_Select_All_Click(object sender, EventArgs e) => SelectAll();
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => this.Close();
+        #endregion
 
         private void FRM_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -288,46 +345,6 @@ namespace SpriteArtist
             }
         }
 
-        private void BTN_Grid_CheckedChanged(object sender, EventArgs e) => SetGridVisible(BTN_Grid.Checked);
-
-        private void BTN_ZoomIn_Click(object sender, EventArgs e) =>  ZoomIn();
-
-        private void BTN_ZoomOut_Click(object sender, EventArgs e) => ZoomOut();
-
-        private void BTN_Zoom1x_Click(object sender, EventArgs e) =>  Zoom1x();
-
-        private void PNL_Canvas_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (e.Delta < 0)
-                ZoomOut(e);
-            else
-                ZoomIn(e);
-        }
-
-        private void BTN_Upload_Click(object sender, EventArgs e)
-        {
-            FRM_SendImage send = new FRM_SendImage(Sprite);
-            send.ShowDialog();
-        }
-
-        private void BTNTLS_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
-
-        private void ITM_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
-
-        private void FRM_Main_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) => DeleteSelection();
-
-        private void BTNTLS_Cut_Click(object sender, EventArgs e) => CutSelection();
-
-        private void BTNTLS_Select_All_Click(object sender, EventArgs e) => SelectAll();
-
-        private void PNL_Canvas_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
 
 
         //Pour les layers qui sont locked

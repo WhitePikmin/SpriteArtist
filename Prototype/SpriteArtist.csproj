@@ -88,6 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebugViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugViewer.Designer.cs">
+      <DependentUpon>DebugViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoubleBufferPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </Compile>
     <Compile Include="ImageUploader.cs" />
     <Compile Include="Main_Form\CanvasManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form\FillManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main_Form\FRM_Main.cs">
@@ -139,6 +148,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DebugViewer.resx">
+      <DependentUpon>DebugViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoubleBufferPanel.resx">
       <DependentUpon>DoubleBufferPanel.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,6 +16,29 @@ namespace SpriteArtist
 {
     public partial class FRM_Main
     {
+        private void HandleSelection(MouseEventArgs e)
+        {
+            if (ActiveSelection && !DraggingSelection)
+            {
+                Point CursorPoint = GetCursorLocationRelative(e);
+                if (SelectionZone.Contains(CursorPoint))
+                {
+                    MoveSelection(e);
+                }
+                else
+                {
+                    StopSelecting();
+                    DragSelectedZone(e);
+                }
+            }
+            else
+            {
+                if (ActiveSelection)
+                    StopSelecting();
+                DragSelectedZone(e);
+            }
+        }
+
         private void DragSelectedZone(MouseEventArgs e)
         {
                 if (!DraggingSelection)
@@ -24,7 +47,6 @@ namespace SpriteArtist
                     Point StartingPoint = GetCursorLocationRelative(e);
                     SelectionZone.X = StartingPoint.X;
                     SelectionZone.Y = StartingPoint.Y;
-                    ActiveSelection = true;
                 }
             Point CursorPoint = GetCursorLocationRelative(e);
             SelectionZone.Width = CursorPoint.X - SelectionZone.X;
@@ -40,7 +62,7 @@ namespace SpriteArtist
             SelectionZone.Y = 0;
             SelectionZone.Width = Sprite.Width;
             SelectionZone.Height = Sprite.Height;
-            ActiveSelection = true;
+            StartSelecting();
             PNL_Canvas.Invalidate();
         }
 
@@ -49,20 +71,85 @@ namespace SpriteArtist
             if (DraggingSelection)
             {
                 DraggingSelection = false;
-                ActiveSelection = true;
-                Selection = CopySelection();
+                if (SelectionZone.Width == 0 || SelectionZone.Height == 0)
+                {
+                    ActiveSelection = false;
+                }
+                else
+                {
+                    StartSelecting();
+                }
+            }
+            else
+            if (MovingSelection)
+            {
+                MovingSelection = false;
             }
         }
 
-        private void MoveSelection()
+        private void StartSelecting()
         {
+            ActiveSelection = true;
+            Selection = CopySelection();
+            DeleteSelection();
+            
+        }
 
+        private void StopSelecting()
+        {
+            ActiveSelection = false;
+            if(Selection != null)
+            PasteImagetoSprite(Selection, SelectionZone.X, SelectionZone.Y);
+        }
+
+        private void PasteImagetoSprite(Bitmap img_,int X, int Y)
+        {
+            int WidthImg = img_.Width + X;
+            int HeightImg = img_.Height + Y;
+
+            for (int j = Y; j < HeightImg; j++)
+            {
+                if(j < Sprite.Height && j >= 0)
+                for (int i = X; i < WidthImg; i++)
+                {
+                        if (i < Sprite.Width && i >= 0)
+                        {
+                            Color NewCol = img_.GetPixel(i - X, j - Y);
+                            int AlphaTemp = NewCol.A + Sprite.GetPixel(i, j).A;
+                            byte Alpha = (byte)AlphaTemp;
+                            if (AlphaTemp > 255)
+                                Alpha = 255;
+                            Sprite.SetPixel(i, j, Color.FromArgb(Alpha,NewCol.R, NewCol.G, NewCol.B));
+                        }
+                }
+            }
+            PNL_Canvas.Invalidate();
+        }
+
+        private void MoveSelection(MouseEventArgs e)
+        {
+            int MoveByX;
+            int MoveByY;
+            MovingSelection = true;
+            
+            CurrentPoint = GetCursorLocationRelative(e);
+
+            MoveByX = OldPoint.X - CurrentPoint.X;
+            MoveByY = OldPoint.Y - CurrentPoint.Y;
+
+            SelectionZone.X -= MoveByX;
+            SelectionZone.Y -= MoveByY;
+
+            SelectionZone = FormatRectanglePositiveCoord(SelectionZone);
+            
+
+            OldPoint = CurrentPoint;
+            PNL_Canvas.Invalidate();
+            DebugWindow.UpdateValues(ActiveSelection, DraggingSelection, SelectionZone);
         }
 
         private void DrawSelectionZone(Graphics g_)
         {
-            if (ActiveSelection)
-            {
                 if (ActiveSelection || DraggingSelection)
                 {
                     Pen RectanglePen = new Pen(Color.Black, 2);
@@ -82,6 +169,14 @@ namespace SpriteArtist
                             DrawnZone.Height * Zoom);
                     }
                 }
+        }
+
+        private void DrawSelection(Graphics g_)
+        {
+            if (ActiveSelection && Selection != null)
+            {
+                Rectangle DrawZone = FormatRectanglePositiveCoord(SelectionZone);
+                g_.DrawImage(Selection, new RectangleF(DrawZone.X * Zoom, DrawZone.Y * Zoom, DrawZone.Width * Zoom, DrawZone.Height * Zoom), new RectangleF(-0.5f, -0.5f, Selection.Width, Selection.Height), GraphicsUnit.Pixel);
             }
         }
 

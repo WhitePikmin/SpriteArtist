@@ -12,3 +12,4 @@ C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototy
 C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\x64\Debug\SpriteArtist.exe
 C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\x64\Debug\SpriteArtist.pdb
 C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\x64\Debug\SpriteArtist.csprojAssemblyReference.cache
+C:\Users\Pik\Desktop\CEGEP Stuff\Projets\Projet fin session\SpriteArtist\Prototype\obj\x64\Debug\SpriteArtist.DebugViewer.resources

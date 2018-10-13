@@ -47,6 +47,7 @@
             this.BTNTLS_Cut = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Paste = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNTLS_Select_All = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +127,6 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -239,20 +239,20 @@
             // 
             this.BTNTLS_Undo.Name = "BTNTLS_Undo";
             this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.BTNTLS_Undo.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Undo.Text = "&Undo";
             // 
             // BTNTLS_Redo
             // 
             this.BTNTLS_Redo.Name = "BTNTLS_Redo";
             this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.BTNTLS_Redo.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Redo.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
             // 
             // BTNTLS_Cut
             // 
@@ -260,7 +260,7 @@
             this.BTNTLS_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Cut.Name = "BTNTLS_Cut";
             this.BTNTLS_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.BTNTLS_Cut.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Cut.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Cut.Text = "Cu&t";
             this.BTNTLS_Cut.Click += new System.EventHandler(this.BTNTLS_Cut_Click);
             // 
@@ -270,7 +270,7 @@
             this.BTNTLS_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Copy.Name = "BTNTLS_Copy";
             this.BTNTLS_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.BTNTLS_Copy.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Copy.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Copy.Text = "&Copy";
             this.BTNTLS_Copy.Click += new System.EventHandler(this.BTNTLS_Copy_Click);
             // 
@@ -280,19 +280,27 @@
             this.BTNTLS_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Paste.Name = "BTNTLS_Paste";
             this.BTNTLS_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.BTNTLS_Paste.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Paste.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Paste.Text = "&Paste";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
             // 
             // BTNTLS_Select_All
             // 
             this.BTNTLS_Select_All.Name = "BTNTLS_Select_All";
             this.BTNTLS_Select_All.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.BTNTLS_Select_All.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Select_All.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Select_All.Text = "Select &All";
             this.BTNTLS_Select_All.Click += new System.EventHandler(this.BTNTLS_Select_All_Click);
             // 
@@ -819,7 +827,6 @@
             this.PNL_Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.PNL_Canvas_Paint);
             this.PNL_Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseDown);
             this.PNL_Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseMove);
-            this.PNL_Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PNL_Canvas_MouseUp);
             // 
             // NUM_Pen_Size
             // 
@@ -1014,14 +1021,6 @@
             this.CTM_Selection_Options.Name = "CTM_Selection_Options";
             this.CTM_Selection_Options.Size = new System.Drawing.Size(130, 98);
             // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1050,7 +1049,6 @@
             this.Text = "Pixel Artist";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Main_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Main_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FRM_Main_KeyDown);
             this.MNS_MainMenu.ResumeLayout(false);
             this.MNS_MainMenu.PerformLayout();
             this.TLS_Top.ResumeLayout(false);
