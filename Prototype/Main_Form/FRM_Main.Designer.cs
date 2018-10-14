@@ -239,20 +239,20 @@
             // 
             this.BTNTLS_Undo.Name = "BTNTLS_Undo";
             this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Undo.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Undo.Text = "&Undo";
             // 
             // BTNTLS_Redo
             // 
             this.BTNTLS_Redo.Name = "BTNTLS_Redo";
             this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Redo.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Redo.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // BTNTLS_Cut
             // 
@@ -260,7 +260,7 @@
             this.BTNTLS_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Cut.Name = "BTNTLS_Cut";
             this.BTNTLS_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.BTNTLS_Cut.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Cut.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Cut.Text = "Cu&t";
             this.BTNTLS_Cut.Click += new System.EventHandler(this.BTNTLS_Cut_Click);
             // 
@@ -270,7 +270,7 @@
             this.BTNTLS_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Copy.Name = "BTNTLS_Copy";
             this.BTNTLS_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.BTNTLS_Copy.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Copy.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Copy.Text = "&Copy";
             this.BTNTLS_Copy.Click += new System.EventHandler(this.BTNTLS_Copy_Click);
             // 
@@ -280,27 +280,28 @@
             this.BTNTLS_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Paste.Name = "BTNTLS_Paste";
             this.BTNTLS_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.BTNTLS_Paste.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Paste.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Paste.Text = "&Paste";
+            this.BTNTLS_Paste.Click += new System.EventHandler(this.BTNTLS_Paste_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // BTNTLS_Select_All
             // 
             this.BTNTLS_Select_All.Name = "BTNTLS_Select_All";
             this.BTNTLS_Select_All.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.BTNTLS_Select_All.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Select_All.Size = new System.Drawing.Size(180, 22);
             this.BTNTLS_Select_All.Text = "Select &All";
             this.BTNTLS_Select_All.Click += new System.EventHandler(this.BTNTLS_Select_All_Click);
             // 
@@ -316,13 +317,13 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // canevaToolStripMenuItem
@@ -490,6 +491,7 @@
             this.BTN_Cut.Name = "BTN_Cut";
             this.BTN_Cut.Size = new System.Drawing.Size(23, 22);
             this.BTN_Cut.Text = "toolStripButton37";
+            this.BTN_Cut.Click += new System.EventHandler(this.BTN_Cut_Click);
             // 
             // BTN_Copy
             // 
@@ -499,6 +501,7 @@
             this.BTN_Copy.Name = "BTN_Copy";
             this.BTN_Copy.Size = new System.Drawing.Size(23, 22);
             this.BTN_Copy.Text = "toolStripButton37";
+            this.BTN_Copy.Click += new System.EventHandler(this.BTN_Copy_Click);
             // 
             // BTN_Paste
             // 
@@ -508,6 +511,7 @@
             this.BTN_Paste.Name = "BTN_Paste";
             this.BTN_Paste.Size = new System.Drawing.Size(23, 22);
             this.BTN_Paste.Text = "toolStripButton37";
+            this.BTN_Paste.Click += new System.EventHandler(this.BTN_Paste_Click);
             // 
             // toolStripSeparator9
             // 

@@ -123,16 +123,54 @@ namespace SpriteArtist
                 {
                         if (i < Sprite.Width && i >= 0)
                         {
-                            Color NewCol = img_.GetPixel(i - X, j - Y);
-                            int AlphaTemp = NewCol.A + Sprite.GetPixel(i, j).A;
-                            byte Alpha = (byte)AlphaTemp;
-                            if (AlphaTemp > 255)
-                                Alpha = 255;
-                            Sprite.SetPixel(i, j, Color.FromArgb(Alpha,NewCol.R, NewCol.G, NewCol.B));
+                            Sprite.SetPixel(i, j, OverColor(img_.GetPixel(i-X,j-Y), Sprite.GetPixel(i, j)));
                         }
                 }
             }
             PNL_Canvas.Invalidate();
+        }
+
+        private void PasteClipboardToSelection()
+        {
+            if (Clipboard.ContainsData("PNG"))
+            {
+                var Clipboarddata = Clipboard.GetData("PNG");
+                if (Clipboarddata is MemoryStream)
+                    StreamToSelection(Clipboarddata as MemoryStream);
+            }
+            else if (Clipboard.ContainsData("CF_BITMAP"))
+            {
+                var Clipboarddata = Clipboard.GetData("CF_BITMAP");
+                if (Clipboarddata is MemoryStream)
+                    StreamToSelection(Clipboarddata as MemoryStream);
+            }
+        }
+
+        private void StreamToSelection(MemoryStream strm)
+        {
+            StopSelecting();
+            ActiveSelection = true;
+            Selection = (Bitmap)Image.FromStream(strm);
+            SelectionZone.X = 0;
+            SelectionZone.Y = 0;
+            SelectionZone.Width = Selection.Width;
+            SelectionZone.Height = Selection.Height;
+            PNL_Canvas.Invalidate();
+        }
+
+        private Color OverColor(Color ColA, Color ColB)
+        {
+            float Alphaf = ColA.A / 255;
+            byte R = (byte)(ColA.R * (Alphaf) + ColB.R * (1 - Alphaf));
+            byte G = (byte)(ColA.G * (Alphaf) + ColB.G * (1 - Alphaf));
+            byte B = (byte)(ColA.B * (Alphaf) + ColB.B * (1 - Alphaf));
+
+            int AlphaTemp = ColA.A + ColB.A;
+            byte A = (byte)AlphaTemp;
+            if (AlphaTemp > 255)
+                A = 255;
+
+            return Color.FromArgb(A, R, G, B);
         }
 
         private void MoveSelection(MouseEventArgs e)
@@ -280,7 +318,9 @@ namespace SpriteArtist
         private void CutSelection()
         {
             CopySelectionIntoClipboard();
-            DeleteSelection();
+            ActiveSelection = false;
+            Selection = null;
+            PNL_Canvas.Invalidate();
         }
 
     }

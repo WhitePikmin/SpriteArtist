@@ -320,6 +320,14 @@ namespace SpriteArtist
         private void BTNTLS_Select_All_Click(object sender, EventArgs e) => SelectAll();
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => this.Close();
+
+        private void BTNTLS_Paste_Click(object sender, EventArgs e) => PasteClipboardToSelection();
+
+        private void BTN_Cut_Click(object sender, EventArgs e) => CutSelection();
+
+        private void BTN_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
+
+        private void BTN_Paste_Click(object sender, EventArgs e) => PasteClipboardToSelection();
         #endregion
 
         private void FRM_Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -344,6 +352,8 @@ namespace SpriteArtist
                     e.Cancel = true;
             }
         }
+
+
 
 
 
