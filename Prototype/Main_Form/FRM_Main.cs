@@ -24,6 +24,7 @@ namespace SpriteArtist
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
         int FrameTimer = 0;
+        int cptColor = 10;
 
         bool DisplayGrid = false;
         bool FileChanged = false;
