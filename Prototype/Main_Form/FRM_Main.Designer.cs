@@ -92,6 +92,30 @@
             this.BTN_Add_Color = new System.Windows.Forms.ToolStripButton();
             this.BTN_Remove_Color = new System.Windows.Forms.ToolStripButton();
             this.BTN_Palette1 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette2 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette3 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette4 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette5 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette6 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette7 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette8 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette9 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette10 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette11 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette12 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette13 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette14 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette15 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette16 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette17 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette18 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette19 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette20 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette21 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette22 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette23 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette24 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_Palette25 = new System.Windows.Forms.ToolStripButton();
             this.DLG_Color = new System.Windows.Forms.ColorDialog();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.BTN_ZoomIn = new System.Windows.Forms.ToolStripButton();
@@ -127,30 +151,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.BTN_Palette2 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette3 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette4 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette5 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette6 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette7 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette8 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette9 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette10 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette11 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette12 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette13 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette14 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette15 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette16 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette17 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette18 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette19 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette21 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette20 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette22 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette23 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette24 = new System.Windows.Forms.ToolStripButton();
-            this.BTN_Palette25 = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BTN_Palette26 = new System.Windows.Forms.ToolStripButton();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
@@ -160,6 +161,7 @@
             this.PNL_Drag_Zone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Pen_Size)).BeginInit();
             this.CTM_Selection_Options.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MNS_MainMenu
@@ -176,7 +178,7 @@
             this.MNS_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MNS_MainMenu.Name = "MNS_MainMenu";
             this.MNS_MainMenu.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.MNS_MainMenu.Size = new System.Drawing.Size(1344, 28);
+            this.MNS_MainMenu.Size = new System.Drawing.Size(1362, 28);
             this.MNS_MainMenu.TabIndex = 1;
             // 
             // fileToolStripMenuItem
@@ -440,7 +442,7 @@
             this.TLS_Top.Location = new System.Drawing.Point(0, 28);
             this.TLS_Top.Name = "TLS_Top";
             this.TLS_Top.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.TLS_Top.Size = new System.Drawing.Size(1344, 27);
+            this.TLS_Top.Size = new System.Drawing.Size(1362, 27);
             this.TLS_Top.TabIndex = 5;
             this.TLS_Top.Text = "toolStrip1";
             // 
@@ -660,10 +662,10 @@
             this.BTN_Palette24,
             this.BTN_Palette25,
             this.BTN_Palette26});
-            this.TLS_Colors.Location = new System.Drawing.Point(48, 55);
+            this.TLS_Colors.Location = new System.Drawing.Point(0, 0);
             this.TLS_Colors.Name = "TLS_Colors";
             this.TLS_Colors.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.TLS_Colors.Size = new System.Drawing.Size(49, 783);
+            this.TLS_Colors.Size = new System.Drawing.Size(49, 671);
             this.TLS_Colors.TabIndex = 7;
             this.TLS_Colors.Text = "toolStrip3";
             // 
@@ -728,6 +730,270 @@
             this.BTN_Palette1.Name = "BTN_Palette1";
             this.BTN_Palette1.Size = new System.Drawing.Size(32, 16);
             // 
+            // BTN_Palette2
+            // 
+            this.BTN_Palette2.AutoSize = false;
+            this.BTN_Palette2.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette2.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette2.Image")));
+            this.BTN_Palette2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette2.Name = "BTN_Palette2";
+            this.BTN_Palette2.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette3
+            // 
+            this.BTN_Palette3.AutoSize = false;
+            this.BTN_Palette3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(56)))), ((int)(((byte)(0)))));
+            this.BTN_Palette3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette3.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette3.Image")));
+            this.BTN_Palette3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette3.Name = "BTN_Palette3";
+            this.BTN_Palette3.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette4
+            // 
+            this.BTN_Palette4.AutoSize = false;
+            this.BTN_Palette4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(92)))), ((int)(((byte)(16)))));
+            this.BTN_Palette4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette4.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette4.Image")));
+            this.BTN_Palette4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette4.Name = "BTN_Palette4";
+            this.BTN_Palette4.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette5
+            // 
+            this.BTN_Palette5.AutoSize = false;
+            this.BTN_Palette5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(0)))));
+            this.BTN_Palette5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette5.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette5.Image")));
+            this.BTN_Palette5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette5.Name = "BTN_Palette5";
+            this.BTN_Palette5.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette6
+            // 
+            this.BTN_Palette6.AutoSize = false;
+            this.BTN_Palette6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(0)))));
+            this.BTN_Palette6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette6.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette6.Image")));
+            this.BTN_Palette6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette6.Name = "BTN_Palette6";
+            this.BTN_Palette6.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette7
+            // 
+            this.BTN_Palette7.AutoSize = false;
+            this.BTN_Palette7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(216)))), ((int)(((byte)(84)))));
+            this.BTN_Palette7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette7.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette7.Image")));
+            this.BTN_Palette7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette7.Name = "BTN_Palette7";
+            this.BTN_Palette7.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette8
+            // 
+            this.BTN_Palette8.AutoSize = false;
+            this.BTN_Palette8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.BTN_Palette8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette8.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette8.Image")));
+            this.BTN_Palette8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette8.Name = "BTN_Palette8";
+            this.BTN_Palette8.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette9
+            // 
+            this.BTN_Palette9.AutoSize = false;
+            this.BTN_Palette9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(88)))), ((int)(((byte)(248)))));
+            this.BTN_Palette9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette9.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette9.Image")));
+            this.BTN_Palette9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette9.Name = "BTN_Palette9";
+            this.BTN_Palette9.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette10
+            // 
+            this.BTN_Palette10.AutoSize = false;
+            this.BTN_Palette10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(188)))));
+            this.BTN_Palette10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette10.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette10.Image")));
+            this.BTN_Palette10.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette10.Name = "BTN_Palette10";
+            this.BTN_Palette10.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette11
+            // 
+            this.BTN_Palette11.AutoSize = false;
+            this.BTN_Palette11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(120)))), ((int)(((byte)(248)))));
+            this.BTN_Palette11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette11.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette11.Image")));
+            this.BTN_Palette11.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette11.Name = "BTN_Palette11";
+            this.BTN_Palette11.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette12
+            // 
+            this.BTN_Palette12.AutoSize = false;
+            this.BTN_Palette12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(132)))));
+            this.BTN_Palette12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette12.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette12.Image")));
+            this.BTN_Palette12.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette12.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette12.Name = "BTN_Palette12";
+            this.BTN_Palette12.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette13
+            // 
+            this.BTN_Palette13.AutoSize = false;
+            this.BTN_Palette13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.BTN_Palette13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette13.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette13.Image")));
+            this.BTN_Palette13.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette13.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette13.Name = "BTN_Palette13";
+            this.BTN_Palette13.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette14
+            // 
+            this.BTN_Palette14.AutoSize = false;
+            this.BTN_Palette14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.BTN_Palette14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette14.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette14.Image")));
+            this.BTN_Palette14.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette14.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette14.Name = "BTN_Palette14";
+            this.BTN_Palette14.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette15
+            // 
+            this.BTN_Palette15.AutoSize = false;
+            this.BTN_Palette15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.BTN_Palette15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette15.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette15.Image")));
+            this.BTN_Palette15.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette15.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette15.Name = "BTN_Palette15";
+            this.BTN_Palette15.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette16
+            // 
+            this.BTN_Palette16.AutoSize = false;
+            this.BTN_Palette16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(48)))), ((int)(((byte)(0)))));
+            this.BTN_Palette16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette16.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette16.Image")));
+            this.BTN_Palette16.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette16.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette16.Name = "BTN_Palette16";
+            this.BTN_Palette16.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette17
+            // 
+            this.BTN_Palette17.AutoSize = false;
+            this.BTN_Palette17.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette17.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette17.Image")));
+            this.BTN_Palette17.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette17.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette17.Name = "BTN_Palette17";
+            this.BTN_Palette17.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette18
+            // 
+            this.BTN_Palette18.AutoSize = false;
+            this.BTN_Palette18.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette18.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette18.Image")));
+            this.BTN_Palette18.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette18.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette18.Name = "BTN_Palette18";
+            this.BTN_Palette18.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette19
+            // 
+            this.BTN_Palette19.AutoSize = false;
+            this.BTN_Palette19.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette19.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette19.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette19.Image")));
+            this.BTN_Palette19.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette19.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette19.Name = "BTN_Palette19";
+            this.BTN_Palette19.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette20
+            // 
+            this.BTN_Palette20.AutoSize = false;
+            this.BTN_Palette20.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette20.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette20.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette20.Image")));
+            this.BTN_Palette20.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette20.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette20.Name = "BTN_Palette20";
+            this.BTN_Palette20.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette21
+            // 
+            this.BTN_Palette21.AutoSize = false;
+            this.BTN_Palette21.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette21.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette21.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette21.Image")));
+            this.BTN_Palette21.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette21.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette21.Name = "BTN_Palette21";
+            this.BTN_Palette21.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette22
+            // 
+            this.BTN_Palette22.AutoSize = false;
+            this.BTN_Palette22.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette22.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette22.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette22.Image")));
+            this.BTN_Palette22.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette22.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette22.Name = "BTN_Palette22";
+            this.BTN_Palette22.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette23
+            // 
+            this.BTN_Palette23.AutoSize = false;
+            this.BTN_Palette23.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette23.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette23.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette23.Image")));
+            this.BTN_Palette23.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette23.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette23.Name = "BTN_Palette23";
+            this.BTN_Palette23.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette24
+            // 
+            this.BTN_Palette24.AutoSize = false;
+            this.BTN_Palette24.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette24.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette24.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette24.Image")));
+            this.BTN_Palette24.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette24.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette24.Name = "BTN_Palette24";
+            this.BTN_Palette24.Size = new System.Drawing.Size(32, 16);
+            // 
+            // BTN_Palette25
+            // 
+            this.BTN_Palette25.AutoSize = false;
+            this.BTN_Palette25.BackColor = System.Drawing.Color.White;
+            this.BTN_Palette25.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BTN_Palette25.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette25.Image")));
+            this.BTN_Palette25.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.BTN_Palette25.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_Palette25.Name = "BTN_Palette25";
+            this.BTN_Palette25.Size = new System.Drawing.Size(32, 16);
+            // 
             // toolStrip5
             // 
             this.toolStrip5.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -738,10 +1004,10 @@
             this.BTN_Zoom1x,
             this.BTN_ZoomOut,
             this.TXB_ZoomLevel});
-            this.toolStrip5.Location = new System.Drawing.Point(97, 811);
+            this.toolStrip5.Location = new System.Drawing.Point(48, 726);
             this.toolStrip5.Name = "toolStrip5";
             this.toolStrip5.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip5.Size = new System.Drawing.Size(1247, 27);
+            this.toolStrip5.Size = new System.Drawing.Size(1314, 27);
             this.toolStrip5.TabIndex = 9;
             this.toolStrip5.Text = "TLS_Bottom";
             // 
@@ -794,17 +1060,17 @@
             this.PNL_Layer.Controls.Add(this.button2);
             this.PNL_Layer.Controls.Add(this.button1);
             this.PNL_Layer.Controls.Add(this.listBox1);
-            this.PNL_Layer.Location = new System.Drawing.Point(1105, 60);
-            this.PNL_Layer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PNL_Layer.Location = new System.Drawing.Point(1123, 60);
+            this.PNL_Layer.Margin = new System.Windows.Forms.Padding(4);
             this.PNL_Layer.Name = "PNL_Layer";
-            this.PNL_Layer.Size = new System.Drawing.Size(239, 747);
+            this.PNL_Layer.Size = new System.Drawing.Size(239, 662);
             this.PNL_Layer.TabIndex = 10;
             this.PNL_Layer.Visible = false;
             // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(188, 39);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(35, 28);
             this.button6.TabIndex = 6;
@@ -813,7 +1079,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(188, 4);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(35, 28);
             this.button5.TabIndex = 5;
@@ -822,7 +1088,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(145, 208);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(35, 28);
             this.button4.TabIndex = 4;
@@ -831,7 +1097,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(103, 208);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(35, 28);
             this.button3.TabIndex = 3;
@@ -840,7 +1106,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(47, 208);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 28);
             this.button2.TabIndex = 2;
@@ -849,7 +1115,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(4, 208);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 28);
             this.button1.TabIndex = 1;
@@ -864,7 +1130,7 @@
             "Luigi",
             "Arrière plan"});
             this.listBox1.Location = new System.Drawing.Point(4, 4);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(175, 196);
             this.listBox1.TabIndex = 0;
@@ -876,9 +1142,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PNL_Drag_Zone.Controls.Add(this.PNL_Canvas);
             this.PNL_Drag_Zone.Location = new System.Drawing.Point(113, 60);
-            this.PNL_Drag_Zone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PNL_Drag_Zone.Margin = new System.Windows.Forms.Padding(4);
             this.PNL_Drag_Zone.Name = "PNL_Drag_Zone";
-            this.PNL_Drag_Zone.Size = new System.Drawing.Size(1231, 747);
+            this.PNL_Drag_Zone.Size = new System.Drawing.Size(1249, 662);
             this.PNL_Drag_Zone.TabIndex = 11;
             this.PNL_Drag_Zone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Drag_Zone_MouseDown);
             this.PNL_Drag_Zone.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Drag_Zone_MouseMove);
@@ -888,8 +1154,8 @@
             this.PNL_Canvas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PNL_Canvas.BackColor = System.Drawing.Color.White;
             this.PNL_Canvas.BackgroundImage = global::SpriteArtist.Properties.Resources.checkerboard;
-            this.PNL_Canvas.Location = new System.Drawing.Point(77, 39);
-            this.PNL_Canvas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PNL_Canvas.Location = new System.Drawing.Point(86, -3);
+            this.PNL_Canvas.Margin = new System.Windows.Forms.Padding(4);
             this.PNL_Canvas.Name = "PNL_Canvas";
             this.PNL_Canvas.Size = new System.Drawing.Size(853, 591);
             this.PNL_Canvas.TabIndex = 4;
@@ -901,7 +1167,7 @@
             // NUM_Pen_Size
             // 
             this.NUM_Pen_Size.Location = new System.Drawing.Point(456, 33);
-            this.NUM_Pen_Size.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NUM_Pen_Size.Margin = new System.Windows.Forms.Padding(4);
             this.NUM_Pen_Size.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -932,7 +1198,7 @@
             this.TLS_Tools.Location = new System.Drawing.Point(0, 55);
             this.TLS_Tools.Name = "TLS_Tools";
             this.TLS_Tools.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.TLS_Tools.Size = new System.Drawing.Size(48, 783);
+            this.TLS_Tools.Size = new System.Drawing.Size(48, 698);
             this.TLS_Tools.TabIndex = 6;
             this.TLS_Tools.Text = "toolStrip2";
             // 
@@ -947,7 +1213,7 @@
             this.BTN_Grid.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTN_Grid.Image = global::SpriteArtist.Properties.Resources.GridToggle_16xMD;
             this.BTN_Grid.Location = new System.Drawing.Point(567, 31);
-            this.BTN_Grid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Grid.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Grid.Name = "BTN_Grid";
             this.BTN_Grid.Size = new System.Drawing.Size(31, 27);
             this.BTN_Grid.TabIndex = 21;
@@ -960,7 +1226,7 @@
             this.BTN_Zoom.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Zoom.Image = global::SpriteArtist.Properties.Resources.Zoom_16x;
             this.BTN_Zoom.Location = new System.Drawing.Point(5, 345);
-            this.BTN_Zoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Zoom.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Zoom.Name = "BTN_Zoom";
             this.BTN_Zoom.Size = new System.Drawing.Size(43, 39);
             this.BTN_Zoom.TabIndex = 19;
@@ -972,7 +1238,7 @@
             this.BTN_Fill.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Fill.Image = global::SpriteArtist.Properties.Resources.color;
             this.BTN_Fill.Location = new System.Drawing.Point(5, 298);
-            this.BTN_Fill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Fill.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Fill.Name = "BTN_Fill";
             this.BTN_Fill.Size = new System.Drawing.Size(43, 39);
             this.BTN_Fill.TabIndex = 18;
@@ -984,7 +1250,7 @@
             this.BTN_Select.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Select.Image = global::SpriteArtist.Properties.Resources.RectangleSelectionTool_16x;
             this.BTN_Select.Location = new System.Drawing.Point(5, 251);
-            this.BTN_Select.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Select.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Select.Name = "BTN_Select";
             this.BTN_Select.Size = new System.Drawing.Size(43, 39);
             this.BTN_Select.TabIndex = 17;
@@ -997,7 +1263,7 @@
             this.BTN_Line.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Line.Image = global::SpriteArtist.Properties.Resources.line_icon;
             this.BTN_Line.Location = new System.Drawing.Point(5, 204);
-            this.BTN_Line.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Line.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Line.Name = "BTN_Line";
             this.BTN_Line.Size = new System.Drawing.Size(43, 39);
             this.BTN_Line.TabIndex = 16;
@@ -1009,7 +1275,7 @@
             this.BTN_ColorPick.BackColor = System.Drawing.Color.Transparent;
             this.BTN_ColorPick.Image = global::SpriteArtist.Properties.Resources.ColorPicker_12x_16x;
             this.BTN_ColorPick.Location = new System.Drawing.Point(5, 158);
-            this.BTN_ColorPick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_ColorPick.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_ColorPick.Name = "BTN_ColorPick";
             this.BTN_ColorPick.Size = new System.Drawing.Size(43, 39);
             this.BTN_ColorPick.TabIndex = 15;
@@ -1021,7 +1287,7 @@
             this.BTN_Erase.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Erase.Image = global::SpriteArtist.Properties.Resources.Eraser_16x;
             this.BTN_Erase.Location = new System.Drawing.Point(5, 111);
-            this.BTN_Erase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Erase.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Erase.Name = "BTN_Erase";
             this.BTN_Erase.Size = new System.Drawing.Size(43, 39);
             this.BTN_Erase.TabIndex = 14;
@@ -1035,7 +1301,7 @@
             this.BTN_Pen.Checked = true;
             this.BTN_Pen.Image = global::SpriteArtist.Properties.Resources.PenToolFilled_16x;
             this.BTN_Pen.Location = new System.Drawing.Point(5, 64);
-            this.BTN_Pen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Pen.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Pen.Name = "BTN_Pen";
             this.BTN_Pen.Size = new System.Drawing.Size(43, 39);
             this.BTN_Pen.TabIndex = 13;
@@ -1054,7 +1320,7 @@
             this.LBL_Debug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LBL_Debug.AutoSize = true;
             this.LBL_Debug.BackColor = System.Drawing.SystemColors.Control;
-            this.LBL_Debug.Location = new System.Drawing.Point(1, 811);
+            this.LBL_Debug.Location = new System.Drawing.Point(1, 726);
             this.LBL_Debug.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LBL_Debug.Name = "LBL_Debug";
             this.LBL_Debug.Size = new System.Drawing.Size(50, 17);
@@ -1103,269 +1369,15 @@
             this.CTM_Selection_Options.Name = "CTM_Selection_Options";
             this.CTM_Selection_Options.Size = new System.Drawing.Size(148, 106);
             // 
-            // BTN_Palette2
+            // panel1
             // 
-            this.BTN_Palette2.AutoSize = false;
-            this.BTN_Palette2.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette2.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette2.Image")));
-            this.BTN_Palette2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette2.Name = "BTN_Palette2";
-            this.BTN_Palette2.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette3
-            // 
-            this.BTN_Palette3.AutoSize = false;
-            this.BTN_Palette3.BackColor = System.Drawing.Color.Red;
-            this.BTN_Palette3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette3.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette3.Image")));
-            this.BTN_Palette3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette3.Name = "BTN_Palette3";
-            this.BTN_Palette3.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette4
-            // 
-            this.BTN_Palette4.AutoSize = false;
-            this.BTN_Palette4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.BTN_Palette4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette4.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette4.Image")));
-            this.BTN_Palette4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette4.Name = "BTN_Palette4";
-            this.BTN_Palette4.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette5
-            // 
-            this.BTN_Palette5.AutoSize = false;
-            this.BTN_Palette5.BackColor = System.Drawing.Color.Yellow;
-            this.BTN_Palette5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette5.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette5.Image")));
-            this.BTN_Palette5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette5.Name = "BTN_Palette5";
-            this.BTN_Palette5.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette6
-            // 
-            this.BTN_Palette6.AutoSize = false;
-            this.BTN_Palette6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(60)))));
-            this.BTN_Palette6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette6.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette6.Image")));
-            this.BTN_Palette6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette6.Name = "BTN_Palette6";
-            this.BTN_Palette6.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette7
-            // 
-            this.BTN_Palette7.AutoSize = false;
-            this.BTN_Palette7.BackColor = System.Drawing.Color.Cyan;
-            this.BTN_Palette7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette7.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette7.Image")));
-            this.BTN_Palette7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette7.Name = "BTN_Palette7";
-            this.BTN_Palette7.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette8
-            // 
-            this.BTN_Palette8.AutoSize = false;
-            this.BTN_Palette8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
-            this.BTN_Palette8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette8.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette8.Image")));
-            this.BTN_Palette8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette8.Name = "BTN_Palette8";
-            this.BTN_Palette8.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette9
-            // 
-            this.BTN_Palette9.AutoSize = false;
-            this.BTN_Palette9.BackColor = System.Drawing.Color.Blue;
-            this.BTN_Palette9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette9.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette9.Image")));
-            this.BTN_Palette9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette9.Name = "BTN_Palette9";
-            this.BTN_Palette9.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette10
-            // 
-            this.BTN_Palette10.AutoSize = false;
-            this.BTN_Palette10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(127)))));
-            this.BTN_Palette10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette10.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette10.Image")));
-            this.BTN_Palette10.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette10.Name = "BTN_Palette10";
-            this.BTN_Palette10.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette11
-            // 
-            this.BTN_Palette11.AutoSize = false;
-            this.BTN_Palette11.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette11.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette11.Image")));
-            this.BTN_Palette11.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette11.Name = "BTN_Palette11";
-            this.BTN_Palette11.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette12
-            // 
-            this.BTN_Palette12.AutoSize = false;
-            this.BTN_Palette12.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette12.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette12.Image")));
-            this.BTN_Palette12.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette12.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette12.Name = "BTN_Palette12";
-            this.BTN_Palette12.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette13
-            // 
-            this.BTN_Palette13.AutoSize = false;
-            this.BTN_Palette13.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette13.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette13.Image")));
-            this.BTN_Palette13.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette13.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette13.Name = "BTN_Palette13";
-            this.BTN_Palette13.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette14
-            // 
-            this.BTN_Palette14.AutoSize = false;
-            this.BTN_Palette14.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette14.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette14.Image")));
-            this.BTN_Palette14.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette14.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette14.Name = "BTN_Palette14";
-            this.BTN_Palette14.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette15
-            // 
-            this.BTN_Palette15.AutoSize = false;
-            this.BTN_Palette15.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette15.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette15.Image")));
-            this.BTN_Palette15.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette15.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette15.Name = "BTN_Palette15";
-            this.BTN_Palette15.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette16
-            // 
-            this.BTN_Palette16.AutoSize = false;
-            this.BTN_Palette16.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette16.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette16.Image")));
-            this.BTN_Palette16.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette16.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette16.Name = "BTN_Palette16";
-            this.BTN_Palette16.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette17
-            // 
-            this.BTN_Palette17.AutoSize = false;
-            this.BTN_Palette17.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette17.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette17.Image")));
-            this.BTN_Palette17.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette17.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette17.Name = "BTN_Palette17";
-            this.BTN_Palette17.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette18
-            // 
-            this.BTN_Palette18.AutoSize = false;
-            this.BTN_Palette18.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette18.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette18.Image")));
-            this.BTN_Palette18.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette18.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette18.Name = "BTN_Palette18";
-            this.BTN_Palette18.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette19
-            // 
-            this.BTN_Palette19.AutoSize = false;
-            this.BTN_Palette19.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette19.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette19.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette19.Image")));
-            this.BTN_Palette19.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette19.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette19.Name = "BTN_Palette19";
-            this.BTN_Palette19.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette21
-            // 
-            this.BTN_Palette21.AutoSize = false;
-            this.BTN_Palette21.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette21.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette21.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette21.Image")));
-            this.BTN_Palette21.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette21.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette21.Name = "BTN_Palette21";
-            this.BTN_Palette21.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette20
-            // 
-            this.BTN_Palette20.AutoSize = false;
-            this.BTN_Palette20.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette20.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette20.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette20.Image")));
-            this.BTN_Palette20.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette20.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette20.Name = "BTN_Palette20";
-            this.BTN_Palette20.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette22
-            // 
-            this.BTN_Palette22.AutoSize = false;
-            this.BTN_Palette22.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette22.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette22.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette22.Image")));
-            this.BTN_Palette22.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette22.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette22.Name = "BTN_Palette22";
-            this.BTN_Palette22.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette23
-            // 
-            this.BTN_Palette23.AutoSize = false;
-            this.BTN_Palette23.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette23.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette23.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette23.Image")));
-            this.BTN_Palette23.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette23.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette23.Name = "BTN_Palette23";
-            this.BTN_Palette23.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette24
-            // 
-            this.BTN_Palette24.AutoSize = false;
-            this.BTN_Palette24.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette24.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette24.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette24.Image")));
-            this.BTN_Palette24.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette24.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette24.Name = "BTN_Palette24";
-            this.BTN_Palette24.Size = new System.Drawing.Size(32, 16);
-            // 
-            // BTN_Palette25
-            // 
-            this.BTN_Palette25.AutoSize = false;
-            this.BTN_Palette25.BackColor = System.Drawing.Color.White;
-            this.BTN_Palette25.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BTN_Palette25.Image = ((System.Drawing.Image)(resources.GetObject("BTN_Palette25.Image")));
-            this.BTN_Palette25.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BTN_Palette25.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Palette25.Name = "BTN_Palette25";
-            this.BTN_Palette25.Size = new System.Drawing.Size(32, 16);
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.TLS_Colors);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(48, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(58, 671);
+            this.panel1.TabIndex = 5;
             // 
             // BTN_Palette26
             // 
@@ -1383,7 +1395,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1344, 838);
+            this.ClientSize = new System.Drawing.Size(1362, 753);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.LBL_Debug);
             this.Controls.Add(this.BTN_Grid);
             this.Controls.Add(this.BTN_Zoom);
@@ -1397,14 +1410,14 @@
             this.Controls.Add(this.PNL_Drag_Zone);
             this.Controls.Add(this.PNL_Layer);
             this.Controls.Add(this.toolStrip5);
-            this.Controls.Add(this.TLS_Colors);
             this.Controls.Add(this.TLS_Tools);
             this.Controls.Add(this.TLS_Top);
             this.Controls.Add(this.MNS_MainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1380, 800);
             this.Name = "FRM_Main";
-            this.Text = "Pixel Artist";
+            this.Text = "Sprite Artist";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Main_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Main_Load);
             this.MNS_MainMenu.ResumeLayout(false);
@@ -1419,6 +1432,8 @@
             this.PNL_Drag_Zone.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Pen_Size)).EndInit();
             this.CTM_Selection_Options.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1547,6 +1562,7 @@
         private System.Windows.Forms.ToolStripButton BTN_Palette23;
         private System.Windows.Forms.ToolStripButton BTN_Palette24;
         private System.Windows.Forms.ToolStripButton BTN_Palette25;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripButton BTN_Palette26;
     }
 }
