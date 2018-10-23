@@ -24,6 +24,10 @@ namespace SpriteArtist
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
         int FrameTimer = 0;
+        int cptColor = 16;
+        const int MaxColorPalette = 30;
+        const int NotColorButtons = 5;
+        
 
         bool DisplayGrid = false;
         bool FileChanged = false;
@@ -94,6 +98,8 @@ namespace SpriteArtist
             ToolButtons.Add(BTN_Fill);
             ToolButtons.Add(BTN_Zoom);
 
+            InitializeColorPalette();
+
             Canvas = PNL_Canvas.CreateGraphics();
             this.PNL_Canvas.MouseWheel += PNL_Canvas_MouseWheel;
             this.PNL_Canvas.MouseUp += new MouseEventHandler(MouseUp);
@@ -114,6 +120,14 @@ namespace SpriteArtist
 
             FileChanged = false;
 
+        }
+
+        private void InitializeColorPalette()
+        {
+            for (int i = cptColor; i < MaxColorPalette; ++i)
+            {
+                TLS_Colors.Items[i + NotColorButtons].Visible = false;
+            }
         }
 
         private void FRM_Main_Load(object sender, EventArgs e)
@@ -205,7 +219,7 @@ namespace SpriteArtist
             }
         }
 
-        private void MouseUp(object sender, MouseEventArgs e)
+        private new void MouseUp(object sender, MouseEventArgs e)
         {
             if (CurrentTool == Tool.Select)
             {
@@ -255,6 +269,41 @@ namespace SpriteArtist
         private void BTN_Add_Color_Click(object sender, EventArgs e)
         {
             
+            if (cptColor + NotColorButtons < MaxColorPalette + NotColorButtons)
+            {
+                TLS_Colors.Items[cptColor + NotColorButtons].Visible = true;
+                ++cptColor;
+            }
+        }
+
+        private void BTN_Remove_Color_Click(object sender, EventArgs e)
+        {
+            if(cptColor + NotColorButtons > NotColorButtons)
+            {
+                TLS_Colors.Items[cptColor + NotColorButtons].Visible = false;
+                --cptColor;
+            }
+        }
+
+        private void BTN_Palette_MouseDown(object sender, MouseEventArgs e)
+        {
+            ToolStripButton button = (ToolStripButton)sender;
+            if (e.Button == MouseButtons.Left)
+            {
+                ChangeColorMainPen(button.BackColor);
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                if (DLG_Color.ShowDialog() == DialogResult.OK)
+                {
+                    ChangeColorMainPen(DLG_Color.Color);
+                    TLS_Colors.Items[button.Name].BackColor = DLG_Color.Color;
+                }
+            }
+            else if (e.Button == MouseButtons.Middle)
+            {
+                ChangeColorSecondPen(button.BackColor);
+            }
         }
 
         private void SetTool()
@@ -352,10 +401,6 @@ namespace SpriteArtist
                     e.Cancel = true;
             }
         }
-
-
-
-
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
