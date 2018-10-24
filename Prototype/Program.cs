@@ -17,7 +17,7 @@ namespace SpriteArtist
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRM_Main(1920,1080));
+            Application.Run(new FRM_Main(1000,1000));
         }
     }
 }

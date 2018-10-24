@@ -19,10 +19,16 @@ namespace SpriteArtist
 
         public void UpdateValues(bool ActiveSelection, bool DraggingSelection, Rectangle SelectionZone)
         {
+            //LBL_Values.Text =
+              //  "ActiveSelection:   " + ActiveSelection.ToString() + "\n" +
+              //  "DraggingSelection: " + DraggingSelection.ToString() + "\n" +
+              //  "SelectionZone:     " + SelectionZone.ToString() + "\n";
+        }
+
+        public void UpdateValues(int NbPainter)
+        {
             LBL_Values.Text =
-                "ActiveSelection:   " + ActiveSelection.ToString() + "\n" +
-                "DraggingSelection: " + DraggingSelection.ToString() + "\n" +
-                "SelectionZone:     " + SelectionZone.ToString();
+                "NbPainters:     " + NbPainter.ToString(); 
         }
     }
 }

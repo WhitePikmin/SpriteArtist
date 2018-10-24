@@ -20,7 +20,7 @@ namespace SpriteArtist
         ushort Canvas_Width = 640;
         ushort Canvas_Height = 480;
         float Zoom = 1;
-        const float ZOOM_MAX = 128;
+        const float ZOOM_MAX = 16;
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
         int FrameTimer = 0;

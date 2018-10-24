@@ -22,63 +22,85 @@ namespace SpriteArtist
 
             OldPoint = AdaptPointToSelection(GetCursorLocationRelative(e));
 
-            /*
+            Bitmap img = new Bitmap(1,1);
+            bool ActiveFill = false;
             if (ActiveSelection)
             {
                 if (OldPoint.X < Selection.Width && OldPoint.X >= 0)
                 {
                     if (OldPoint.Y < Selection.Height && OldPoint.Y >= 0)
                     {
-                        Color OldCol = Selection.GetPixel(OldPoint.X, OldPoint.Y);
-                        if(!OldCol.Equals(NewCol))
-                            Fill_SetPixel(ref Selection, ref OldCol, ref NewCol, OldPoint.X, OldPoint.Y);
+                        img = Selection;
+                        ActiveFill = true;
                     }
                 }
             }
             else
             {
-            */
+                img = Sprite;
+                ActiveFill = true;
+            }
+
+            if (ActiveFill)
+            {
+                Begin_Fill(ref img,OldPoint,NewCol);
+                if (ActiveSelection)
+                    Selection = img;
+                else
+                    Sprite = img;
+            }
+
+            PNL_Canvas.Invalidate();
+            FileChanged = true;
+        }
+
+        private void Begin_Fill(ref Bitmap img, Point StartPoint, Color NewCol)
+        {
             Color OldCol = Sprite.GetPixel(OldPoint.X, OldPoint.Y);
             if (!OldCol.Equals(NewCol))
             {
                 List<Point> Painters = new List<Point>();
-                Bitmap img = Sprite;
-                Painters.Add(OldPoint);
-                img.SetPixel(OldPoint.X,OldPoint.Y, NewCol);
-                int i = 0;
-                int NbPainters = 0;
-                while(i <= NbPainters)
-                {
-                    int Max_i = Painters.Count;
-                        int X = Painters[i].X;
-                        int Y = Painters[i].Y;
-                        //Painters.RemoveAt(i);
-                        
-                        for (int j = -1; j < 6; j+=2)
-                        {
-                            int x_ = 0;
-                            int y_ = 0;
-                            if (j < 2)
-                                x_ = j;
-                            else
-                                y_ = j-4;
 
-                            if (Fill_PixelToChange(ref img, ref OldCol,X + x_,Y + y_))
-                            {
-                                img.SetPixel(X + x_, Y + y_, NewCol);
-                                Painters.Add(new Point(X + x_,Y + y_));
-                                NbPainters++;
-                            }
+                Painters.Add(OldPoint);
+                img.SetPixel(OldPoint.X, OldPoint.Y, NewCol);
+                int i = 0;
+
+                int x_ = 0;
+                int y_ = 0;
+
+                int X = OldPoint.X;
+                int Y = OldPoint.Y;
+                int LastPainterIndex;
+
+                while (Painters.Count != 0)
+                {
+                    LastPainterIndex = Painters.Count - 1;
+                    X = Painters[LastPainterIndex].X;
+                    Y = Painters[LastPainterIndex].Y;
+
+                    Painters.RemoveAt(LastPainterIndex);
+                    for (int j = -1; j < 6; j += 2)
+                    {
+                        if (j < 2)
+                        {
+                            x_ = j;
+                            y_ = 0;
                         }
+                        else
+                        {
+                            x_ = 0;
+                            y_ = j - 4;
+                        }
+
+                        if (Fill_PixelToChange(ref img, ref OldCol, X + x_, Y + y_))
+                        {
+                            img.SetPixel(X + x_, Y + y_, NewCol);
+                            Painters.Add(new Point(X + x_, Y + y_));
+                        }
+                    }
                     i++;
                 }
-                Sprite = img;
             }
-
-            //}
-
-            PNL_Canvas.Invalidate();
-            FileChanged = true;
         }
 
         private bool Fill_PixelToChange(ref Bitmap img,ref Color Col, int X, int Y)
