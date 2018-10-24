@@ -20,7 +20,7 @@ namespace SpriteArtist
         ushort Canvas_Width = 640;
         ushort Canvas_Height = 480;
         float Zoom = 1;
-        const float ZOOM_MAX = 128;
+        const float ZOOM_MAX = 16;
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
         int FrameTimer = 0;
@@ -174,6 +174,7 @@ namespace SpriteArtist
                         case Tool.Pen: DrawOnCanvas(SecondPen, e, false); break;
                         case Tool.Eraser: DrawOnCanvas(SecondPen, e, true); break;
                         case Tool.Select: DisplayContextMenu(e); break;
+                        
                     }
                 }
                 else
@@ -199,6 +200,7 @@ namespace SpriteArtist
                     case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
                     case Tool.Select: OldPoint = GetCursorLocationRelative(e); break;
+                    case Tool.Bucket: Fill(MainPen.Color, e); break;
                 }
             }
             else
@@ -208,7 +210,8 @@ namespace SpriteArtist
                 {
                     case Tool.Pen: DrawSingleDotOnCanvas(SecondPen.Color, e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
-                    
+                    case Tool.Bucket: Fill(SecondPen.Color, e); break;
+
                 }
             }
             if (e.Button == MouseButtons.Middle)
