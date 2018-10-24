@@ -37,11 +37,34 @@ namespace SpriteArtist
             usedPen.SetLineCap(LineCap, LineCap, DashCap);
 
             Canvas.DrawLine(usedPen, OldPoint, CurrentPoint);
+            if (LineCap == LineCap.Flat)
+            {
+                int PenWidthHalf = (int)Math.Ceiling(MainPen.Width / 2);
+                Canvas.FillRectangle(new SolidBrush(col_), CurrentPoint.X + 1 - PenWidthHalf, CurrentPoint.Y + 1 - PenWidthHalf, MainPen.Width, MainPen.Width);
+                Canvas.FillRectangle(new SolidBrush(col_), OldPoint.X + 1 - PenWidthHalf, OldPoint.Y + 1 - PenWidthHalf, MainPen.Width, MainPen.Width);
+            }
+
             OldPoint = CurrentPoint;
             PNL_Canvas.Invalidate();
             FileChanged = true;
         }
 
+        private void TogglePenShape()
+        {
+            if (LineCap == LineCap.Round)
+            {
+                LineCap = LineCap.Flat;
+                BTN_ShapePen.Image = SpriteArtist.Properties.Resources.square;
+                
+            }
+            else
+            {
+                LineCap = LineCap.Round;
+                BTN_ShapePen.Image = SpriteArtist.Properties.Resources.circle;
+            }
+        }
+
+        private void BTN_ShapePen_Click(object sender, EventArgs e) => TogglePenShape();
 
         private void DrawSingleDotOnCanvas(Color col_, MouseEventArgs e)
         {
@@ -58,7 +81,7 @@ namespace SpriteArtist
                 Canvas.CompositingMode = CompositingMode.SourceOver;
 
             int PenWidthHalf = (int)Math.Ceiling(MainPen.Width / 2);
-            if (MainPen.Width < 3)
+            if (MainPen.Width < 3 || LineCap == LineCap.Flat)
                 Canvas.FillRectangle(new SolidBrush(col_), OldPoint.X + 1 - PenWidthHalf, OldPoint.Y + 1 - PenWidthHalf, MainPen.Width, MainPen.Width);
             else
                 Canvas.FillEllipse(new SolidBrush(col_), OldPoint.X - PenWidthHalf, OldPoint.Y - PenWidthHalf, MainPen.Width, MainPen.Width);

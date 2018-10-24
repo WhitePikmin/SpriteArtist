@@ -77,10 +77,7 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_Resize = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.BTN_Shape_Circle = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTN_Shape_Square = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton32 = new System.Windows.Forms.ToolStripButton();
+            this.BTN_ShapePen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton45 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton47 = new System.Windows.Forms.ToolStripButton();
@@ -239,20 +236,20 @@
             // 
             this.BTNTLS_Undo.Name = "BTNTLS_Undo";
             this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.BTNTLS_Undo.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Undo.Text = "&Undo";
             // 
             // BTNTLS_Redo
             // 
             this.BTNTLS_Redo.Name = "BTNTLS_Redo";
             this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.BTNTLS_Redo.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Redo.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(161, 6);
             // 
             // BTNTLS_Cut
             // 
@@ -260,7 +257,7 @@
             this.BTNTLS_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Cut.Name = "BTNTLS_Cut";
             this.BTNTLS_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.BTNTLS_Cut.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Cut.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Cut.Text = "Cu&t";
             this.BTNTLS_Cut.Click += new System.EventHandler(this.BTNTLS_Cut_Click);
             // 
@@ -270,7 +267,7 @@
             this.BTNTLS_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Copy.Name = "BTNTLS_Copy";
             this.BTNTLS_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.BTNTLS_Copy.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Copy.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Copy.Text = "&Copy";
             this.BTNTLS_Copy.Click += new System.EventHandler(this.BTNTLS_Copy_Click);
             // 
@@ -280,7 +277,7 @@
             this.BTNTLS_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Paste.Name = "BTNTLS_Paste";
             this.BTNTLS_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.BTNTLS_Paste.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Paste.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Paste.Text = "&Paste";
             this.BTNTLS_Paste.Click += new System.EventHandler(this.BTNTLS_Paste_Click);
             // 
@@ -288,20 +285,20 @@
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
             // 
             // BTNTLS_Select_All
             // 
             this.BTNTLS_Select_All.Name = "BTNTLS_Select_All";
             this.BTNTLS_Select_All.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.BTNTLS_Select_All.Size = new System.Drawing.Size(180, 22);
+            this.BTNTLS_Select_All.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Select_All.Text = "Select &All";
             this.BTNTLS_Select_All.Click += new System.EventHandler(this.BTNTLS_Select_All_Click);
             // 
@@ -317,13 +314,13 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // canevaToolStripMenuItem
@@ -403,8 +400,7 @@
             this.toolStripSeparator9,
             this.BTN_Resize,
             this.toolStripSeparator11,
-            this.toolStripSplitButton1,
-            this.toolStripButton32,
+            this.BTN_ShapePen,
             this.toolStripSeparator12,
             this.toolStripButton45,
             this.toolStripButton47,
@@ -532,39 +528,15 @@
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripSplitButton1
+            // BTN_ShapePen
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BTN_Shape_Circle,
-            this.BTN_Shape_Square});
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(16, 22);
-            this.toolStripSplitButton1.Text = "BTN_Split_Brush_Shape";
-            // 
-            // BTN_Shape_Circle
-            // 
-            this.BTN_Shape_Circle.Image = global::SpriteArtist.Properties.Resources.circle;
-            this.BTN_Shape_Circle.Name = "BTN_Shape_Circle";
-            this.BTN_Shape_Circle.Size = new System.Drawing.Size(110, 22);
-            this.BTN_Shape_Circle.Text = "Circle";
-            // 
-            // BTN_Shape_Square
-            // 
-            this.BTN_Shape_Square.Image = global::SpriteArtist.Properties.Resources.square;
-            this.BTN_Shape_Square.Name = "BTN_Shape_Square";
-            this.BTN_Shape_Square.Size = new System.Drawing.Size(110, 22);
-            this.BTN_Shape_Square.Text = "Square";
-            // 
-            // toolStripButton32
-            // 
-            this.toolStripButton32.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton32.Image = global::SpriteArtist.Properties.Resources.circle;
-            this.toolStripButton32.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton32.Name = "toolStripButton32";
-            this.toolStripButton32.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton32.Text = "BTN_Grid";
+            this.BTN_ShapePen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BTN_ShapePen.Image = global::SpriteArtist.Properties.Resources.circle;
+            this.BTN_ShapePen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_ShapePen.Name = "BTN_ShapePen";
+            this.BTN_ShapePen.Size = new System.Drawing.Size(23, 22);
+            this.BTN_ShapePen.Text = "BTN_Grid";
+            this.BTN_ShapePen.Click += new System.EventHandler(this.BTN_ShapePen_Click);
             // 
             // toolStripSeparator12
             // 
@@ -906,6 +878,7 @@
             this.BTN_Fill.Size = new System.Drawing.Size(32, 32);
             this.BTN_Fill.TabIndex = 18;
             this.BTN_Fill.UseVisualStyleBackColor = false;
+            this.BTN_Fill.CheckedChanged += new System.EventHandler(this.BTN_Fill_CheckedChanged);
             // 
             // BTN_Select
             // 
@@ -1125,8 +1098,7 @@
         private System.Windows.Forms.ToolStripButton BTN_MainColor;
         private System.Windows.Forms.ToolStripButton BTN_SecondColor;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton32;
+        private System.Windows.Forms.ToolStripButton BTN_ShapePen;
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStripButton BTN_ZoomIn;
         private System.Windows.Forms.ToolStripButton BTN_ZoomOut;
@@ -1142,8 +1114,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ToolStripMenuItem BTN_Shape_Circle;
-        private System.Windows.Forms.ToolStripMenuItem BTN_Shape_Square;
         private System.Windows.Forms.ToolStripButton BTN_New_File;
         private System.Windows.Forms.Panel PNL_Drag_Zone;
         private System.Windows.Forms.NumericUpDown NUM_Pen_Size;

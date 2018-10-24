@@ -185,6 +185,7 @@ namespace SpriteArtist
                     case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
                     case Tool.Select: OldPoint = GetCursorLocationRelative(e); break;
+                    case Tool.Bucket: Fill(MainPen.Color,e); break;
                 }
             }
             else
@@ -194,7 +195,8 @@ namespace SpriteArtist
                 {
                     case Tool.Pen: DrawSingleDotOnCanvas(SecondPen.Color, e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
-                    
+                    case Tool.Bucket: Fill(SecondPen.Color, e); break;
+
                 }
             }
             if (e.Button == MouseButtons.Middle)
