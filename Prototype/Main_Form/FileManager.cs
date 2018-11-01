@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace SpriteArtist
 {
@@ -20,7 +22,25 @@ namespace SpriteArtist
                     case ".bmp": format = ImageFormat.Bmp; break;
                     case ".gif": format = ImageFormat.Gif; break;
                 }
-                Sprite.Save(DLG_Save.FileName, format);
+                if (OGAnimationFrame.Count > 1 && format == ImageFormat.Png)
+                {
+                    Bitmap imgSaving = new Bitmap(Sprite.Width * OGAnimationFrame.Count, Sprite.Height);
+                    for (int i = 0; i < OGAnimationFrame.Count; i++)
+                    {
+
+                        for (int j = 0; j < Sprite.Width; j++)
+                        {
+
+                            for (int k = 0; k < Sprite.Height; k++)
+                            {
+                                imgSaving.SetPixel(i * Sprite.Width + j, k, OGAnimationFrame[i].Image.GetPixel(j, k));
+                            }
+                        }
+                    }
+                    imgSaving.Save(DLG_Save.FileName, ImageFormat.Png);
+                }
+                else
+                    Sprite.Save(DLG_Save.FileName, format);
                 FileName = DLG_Save.FileName;
                 FileChanged = false;
                 return DialogResult.OK;
@@ -34,7 +54,8 @@ namespace SpriteArtist
         }
 
         private DialogResult OpenFile()
-        {            if (DLG_Open.ShowDialog() == DialogResult.OK)
+        {
+            if (DLG_Open.ShowDialog() == DialogResult.OK)
             {
                 bool Open;
                 if (FileChanged)
@@ -59,7 +80,14 @@ namespace SpriteArtist
             }
             return DialogResult.Cancel;
         }
+        private void SaveAsSprite(string path)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo();
 
+            psi.FileName = "Script\\sprite.exe";
+            psi.Arguments = path;
+            Process.Start(psi);
+        }
         private void LoadImage(Bitmap ImageOpened)
         {
             Sprite = ImageOpened;

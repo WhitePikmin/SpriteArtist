@@ -75,6 +75,7 @@ namespace SpriteArtist
 
             Sprite = new Bitmap(Sprite, new Size(Canvas_Width, Canvas_Height));
             Canvas = Graphics.FromImage(Sprite);
+            Add_Flow_Layout_Panel(ref AddBitmapToAnimation());
 
             InitCanvas();
         }
@@ -87,6 +88,12 @@ namespace SpriteArtist
 
             InitCanvas();
         }
+		        private void ResetCanvas(ushort Width, ushort Height)
+        {
+            Sprite = new Bitmap(Sprite, new Size(Width, Height));
+            Canvas = Graphics.FromImage(Sprite);
+
+        }													 
 
         private void InitCanvas()
         {
@@ -132,7 +139,7 @@ namespace SpriteArtist
 
         private void FRM_Main_Load(object sender, EventArgs e)
         {
-            DebugWindow.Show();
+           // DebugWindow.Show();
         }
 
         #endregion
@@ -145,6 +152,7 @@ namespace SpriteArtist
             e.Graphics.PixelOffsetMode = PixelOffsetMode.None;
             e.Graphics.DrawImage(Sprite, new RectangleF(0, 0, PNL_Canvas.Width, PNL_Canvas.Height), new RectangleF(-0.5f, -0.5f, Sprite.Width, Sprite.Height), GraphicsUnit.Pixel);
             DrawSelection(e.Graphics);
+            DrawLineOverlay(e.Graphics);
             DrawGrid(e.Graphics);
             DrawSelectionZone(e.Graphics);
             DebugWindow.UpdateValues(ActiveSelection, DraggingSelection, SelectionZone);
@@ -163,6 +171,7 @@ namespace SpriteArtist
                     case Tool.Pen: DrawOnCanvas(MainPen, e, false); break;
                     case Tool.Eraser: DrawOnCanvas(MainPen, e, true); break;
                     case Tool.Select: HandleSelection(e); break;
+                    case Tool.Line: DragLine(ref MainPen, e); break;
                 }
             }
             else
@@ -174,7 +183,8 @@ namespace SpriteArtist
                         case Tool.Pen: DrawOnCanvas(SecondPen, e, false); break;
                         case Tool.Eraser: DrawOnCanvas(SecondPen, e, true); break;
                         case Tool.Select: DisplayContextMenu(e); break;
-                        
+                        case Tool.Line: DragLine(ref MainPen, e); break;
+
                     }
                 }
                 else
@@ -201,6 +211,8 @@ namespace SpriteArtist
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
                     case Tool.Select: OldPoint = GetCursorLocationRelative(e); break;
                     case Tool.Bucket: Fill(MainPen.Color, e); break;
+                    case Tool.ColorPicker: PickColor(e, true); break;
+                    case Tool.Line: StartLine(MainPen.Color, e); break;
                 }
             }
             else
@@ -211,6 +223,8 @@ namespace SpriteArtist
                     case Tool.Pen: DrawSingleDotOnCanvas(SecondPen.Color, e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
                     case Tool.Bucket: Fill(SecondPen.Color, e); break;
+                    case Tool.ColorPicker: PickColor(e, false); break;
+                    case Tool.Line: StartLine(SecondPen.Color, e); break;
 
                 }
             }
@@ -228,6 +242,14 @@ namespace SpriteArtist
             {
                 ReleaseSelection();
                 DebugWindow.UpdateValues(ActiveSelection, DraggingSelection, SelectionZone);
+            }
+            else
+            {
+                if(CurrentTool == Tool.Line)
+                    ReleaseLine(e);
+				                
+				Update_Flow_Layout_Panel();
+           
             }
         }
 
@@ -269,46 +291,6 @@ namespace SpriteArtist
             }
         }
 
-        private void BTN_Add_Color_Click(object sender, EventArgs e)
-        {
-            
-            if (cptColor + NotColorButtons < MaxColorPalette + NotColorButtons)
-            {
-                TLS_Colors.Items[cptColor + NotColorButtons].Visible = true;
-                ++cptColor;
-            }
-        }
-
-        private void BTN_Remove_Color_Click(object sender, EventArgs e)
-        {
-            if(cptColor + NotColorButtons > NotColorButtons)
-            {
-                TLS_Colors.Items[cptColor + NotColorButtons].Visible = false;
-                --cptColor;
-            }
-        }
-
-        private void BTN_Palette_MouseDown(object sender, MouseEventArgs e)
-        {
-            ToolStripButton button = (ToolStripButton)sender;
-            if (e.Button == MouseButtons.Left)
-            {
-                ChangeColorMainPen(button.BackColor);
-            }
-            else if (e.Button == MouseButtons.Right)
-            {
-                if (DLG_Color.ShowDialog() == DialogResult.OK)
-                {
-                    ChangeColorMainPen(DLG_Color.Color);
-                    TLS_Colors.Items[button.Name].BackColor = DLG_Color.Color;
-                }
-            }
-            else if (e.Button == MouseButtons.Middle)
-            {
-                ChangeColorSecondPen(button.BackColor);
-            }
-        }
-
         private void SetTool()
         {
             for (int i = 0; i < ToolButtons.Count; i++)
@@ -324,18 +306,19 @@ namespace SpriteArtist
 
         private void BTN_Pen_CheckedChanged(object sender, EventArgs e) => SetTool();
 
+        private void BTN_ColorPick_CheckedChanged(object sender, EventArgs e) => SetTool();
+
         private void BTN_Erase_CheckedChanged(object sender, EventArgs e) => SetTool();
 
         private void BTN_Select_CheckedChanged(object sender, EventArgs e) => SetTool();
+
+        private void BTN_Line_CheckedChanged(object sender, EventArgs e) => SetTool();
 
         private void PNL_Canvas_Click(object sender, EventArgs e) => Cursor.Current = Cursors.Cross;
 
         private void BTN_Save_Click(object sender, EventArgs e) => SaveFileAs();
 
         private void BTN_Load_Click(object sender, EventArgs e) => OpenFile();
-        
-
-
 
         private void BTN_Grid_CheckedChanged(object sender, EventArgs e) => SetGridVisible(BTN_Grid.Checked);
 
@@ -358,6 +341,12 @@ namespace SpriteArtist
             FRM_SendImage send = new FRM_SendImage(Sprite);
             send.ShowDialog();
         }
+		        private void OpenAnimationOptionMenu()
+        {
+            
+        }
+        //private void AddBitmapToAnimation() => AnimationFrame.Add(new Bitmap(Sprite)); 
+									  
         #endregion
 
 #region toolstrip click
@@ -380,6 +369,8 @@ namespace SpriteArtist
         private void BTN_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
 
         private void BTN_Paste_Click(object sender, EventArgs e) => PasteClipboardToSelection();
+		        private void aperçusToolStripMenuItem_Click(object sender, EventArgs e) => OpenAnimationOptionMenu();
+        //private void prochaineImageToolStripMenuItem_Click(object sender, EventArgs e) => AddBitmapToAnimation();																									  
         #endregion
 
         private void FRM_Main_FormClosing(object sender, FormClosingEventArgs e)

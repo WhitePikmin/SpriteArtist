@@ -56,6 +56,7 @@
             this.canevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activerAnimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,18 +78,16 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_Resize = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.BTN_Shape_Circle = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTN_Shape_Square = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_ShapePen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton45 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton47 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_Shape_Square = new System.Windows.Forms.ToolStripMenuItem();
             this.TLS_Colors = new System.Windows.Forms.ToolStrip();
             this.BTN_MainColor = new System.Windows.Forms.ToolStripButton();
-            this.BTN_SecondColor = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_SecondColor = new System.Windows.Forms.ToolStripButton();
             this.BTN_Add_Color = new System.Windows.Forms.ToolStripButton();
             this.BTN_Remove_Color = new System.Windows.Forms.ToolStripButton();
             this.BTN_Palette1 = new System.Windows.Forms.ToolStripButton();
@@ -136,6 +135,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.PNL_Drag_Zone = new System.Windows.Forms.Panel();
+            this.PNL_Animation = new System.Windows.Forms.Panel();
+            this.BTN_Stop = new System.Windows.Forms.Button();
+            this.BTN_Start = new System.Windows.Forms.Button();
+            this.BTN_Supp_Frame = new System.Windows.Forms.Button();
+            this.BTN_Add_Frame = new System.Windows.Forms.Button();
+            this.FLP_All_Frame = new System.Windows.Forms.FlowLayoutPanel();
+            this.LB_fps_value = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TBAR_FrameRate = new System.Windows.Forms.TrackBar();
+            this.PBX_Animation = new System.Windows.Forms.PictureBox();
             this.PNL_Canvas = new System.Windows.Forms.Panel();
             this.NUM_Pen_Size = new System.Windows.Forms.NumericUpDown();
             this.TLS_Tools = new System.Windows.Forms.ToolStrip();
@@ -148,6 +157,7 @@
             this.BTN_ColorPick = new System.Windows.Forms.RadioButton();
             this.BTN_Erase = new System.Windows.Forms.RadioButton();
             this.BTN_Pen = new System.Windows.Forms.RadioButton();
+            this.TMR_FrameRate = new System.Windows.Forms.Timer(this.components);
             this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
             this.LBL_Debug = new System.Windows.Forms.Label();
             this.ITM_Cut = new System.Windows.Forms.ToolStripMenuItem();
@@ -163,9 +173,11 @@
             this.toolStrip5.SuspendLayout();
             this.PNL_Layer.SuspendLayout();
             this.PNL_Drag_Zone.SuspendLayout();
+            this.PNL_Animation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAR_FrameRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBX_Animation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Pen_Size)).BeginInit();
             this.CTM_Selection_Options.SuspendLayout();
-            this.PNL_Colors.SuspendLayout();
             this.SuspendLayout();
             // 
             // MNS_MainMenu
@@ -372,9 +384,18 @@
             // 
             // animationToolStripMenuItem
             // 
+            this.animationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activerAnimationToolStripMenuItem});
             this.animationToolStripMenuItem.Name = "animationToolStripMenuItem";
             this.animationToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.animationToolStripMenuItem.Text = "&Animation";
+            // 
+            // activerAnimationToolStripMenuItem
+            // 
+            this.activerAnimationToolStripMenuItem.Name = "activerAnimationToolStripMenuItem";
+            this.activerAnimationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.activerAnimationToolStripMenuItem.Text = "Activer animation";
+            this.activerAnimationToolStripMenuItem.Click += new System.EventHandler(this.activerAnimationToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -436,7 +457,6 @@
             this.toolStripSeparator9,
             this.BTN_Resize,
             this.toolStripSeparator11,
-            this.toolStripSplitButton1,
             this.BTN_ShapePen,
             this.toolStripSeparator12,
             this.toolStripButton45,
@@ -565,31 +585,6 @@
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BTN_Shape_Circle,
-            this.BTN_Shape_Square});
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(16, 24);
-            this.toolStripSplitButton1.Text = "BTN_Split_Brush_Shape";
-            // 
-            // BTN_Shape_Circle
-            // 
-            this.BTN_Shape_Circle.Image = global::SpriteArtist.Properties.Resources.circle;
-            this.BTN_Shape_Circle.Name = "BTN_Shape_Circle";
-            this.BTN_Shape_Circle.Size = new System.Drawing.Size(110, 22);
-            this.BTN_Shape_Circle.Text = "Circle";
-            // 
-            // BTN_Shape_Square
-            // 
-            this.BTN_Shape_Square.Image = global::SpriteArtist.Properties.Resources.square;
-            this.BTN_Shape_Square.Name = "BTN_Shape_Square";
-            this.BTN_Shape_Square.Size = new System.Drawing.Size(110, 22);
-            this.BTN_Shape_Square.Text = "Square";
-            // 
             // BTN_ShapePen
             // 
             this.BTN_ShapePen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -629,6 +624,11 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
             // 
+            // BTN_Shape_Square
+            // 
+            this.BTN_Shape_Square.Name = "BTN_Shape_Square";
+            this.BTN_Shape_Square.Size = new System.Drawing.Size(32, 19);
+            // 
             // TLS_Colors
             // 
             this.TLS_Colors.AutoSize = false;
@@ -637,8 +637,8 @@
             this.TLS_Colors.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.TLS_Colors.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BTN_MainColor,
-            this.BTN_SecondColor,
             this.toolStripSeparator10,
+            this.BTN_SecondColor,
             this.BTN_Add_Color,
             this.BTN_Remove_Color,
             this.BTN_Palette1,
@@ -671,10 +671,10 @@
             this.BTN_Palette30,
             this.BTN_Palette31,
             this.BTN_Palette32});
-            this.TLS_Colors.Location = new System.Drawing.Point(0, 0);
+            this.TLS_Colors.Location = new System.Drawing.Point(38, 51);
             this.TLS_Colors.Name = "TLS_Colors";
             this.TLS_Colors.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.TLS_Colors.Size = new System.Drawing.Size(49, 534);
+            this.TLS_Colors.Size = new System.Drawing.Size(50, 531);
             this.TLS_Colors.TabIndex = 7;
             this.TLS_Colors.Text = "toolStrip3";
             // 
@@ -690,6 +690,11 @@
             this.BTN_MainColor.Size = new System.Drawing.Size(48, 48);
             this.BTN_MainColor.Click += new System.EventHandler(this.BTN_MainColor_Click);
             // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(48, 6);
+            // 
             // BTN_SecondColor
             // 
             this.BTN_SecondColor.AutoSize = false;
@@ -701,11 +706,6 @@
             this.BTN_SecondColor.Name = "BTN_SecondColor";
             this.BTN_SecondColor.Size = new System.Drawing.Size(32, 32);
             this.BTN_SecondColor.Click += new System.EventHandler(this.BTN_SecondColor_Click);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(47, 6);
             // 
             // BTN_Add_Color
             // 
@@ -1099,10 +1099,10 @@
             this.BTN_Zoom1x,
             this.BTN_ZoomOut,
             this.TXB_ZoomLevel});
-            this.toolStrip5.Location = new System.Drawing.Point(40, 585);
+            this.toolStrip5.Location = new System.Drawing.Point(38, 582);
             this.toolStrip5.Name = "toolStrip5";
             this.toolStrip5.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip5.Size = new System.Drawing.Size(982, 27);
+            this.toolStrip5.Size = new System.Drawing.Size(984, 27);
             this.toolStrip5.TabIndex = 9;
             this.toolStrip5.Text = "TLS_Bottom";
             // 
@@ -1223,23 +1223,134 @@
             // 
             // PNL_Drag_Zone
             // 
+            this.PNL_Drag_Zone.AllowDrop = true;
             this.PNL_Drag_Zone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PNL_Drag_Zone.Controls.Add(this.PNL_Animation);
             this.PNL_Drag_Zone.Controls.Add(this.PNL_Canvas);
-            this.PNL_Drag_Zone.Location = new System.Drawing.Point(82, 49);
+            this.PNL_Drag_Zone.Location = new System.Drawing.Point(88, 51);
+            this.PNL_Drag_Zone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.PNL_Drag_Zone.Name = "PNL_Drag_Zone";
-            this.PNL_Drag_Zone.Size = new System.Drawing.Size(939, 538);
+            this.PNL_Drag_Zone.Size = new System.Drawing.Size(933, 531);
             this.PNL_Drag_Zone.TabIndex = 11;
             this.PNL_Drag_Zone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Drag_Zone_MouseDown);
             this.PNL_Drag_Zone.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Drag_Zone_MouseMove);
+            // 
+            // PNL_Animation
+            // 
+            this.PNL_Animation.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PNL_Animation.Controls.Add(this.BTN_Stop);
+            this.PNL_Animation.Controls.Add(this.BTN_Start);
+            this.PNL_Animation.Controls.Add(this.BTN_Supp_Frame);
+            this.PNL_Animation.Controls.Add(this.BTN_Add_Frame);
+            this.PNL_Animation.Controls.Add(this.FLP_All_Frame);
+            this.PNL_Animation.Controls.Add(this.LB_fps_value);
+            this.PNL_Animation.Controls.Add(this.label1);
+            this.PNL_Animation.Controls.Add(this.TBAR_FrameRate);
+            this.PNL_Animation.Controls.Add(this.PBX_Animation);
+            this.PNL_Animation.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PNL_Animation.Location = new System.Drawing.Point(807, 0);
+            this.PNL_Animation.Name = "PNL_Animation";
+            this.PNL_Animation.Size = new System.Drawing.Size(126, 531);
+            this.PNL_Animation.TabIndex = 5;
+            this.PNL_Animation.Visible = false;
+            // 
+            // BTN_Stop
+            // 
+            this.BTN_Stop.Location = new System.Drawing.Point(7, 208);
+            this.BTN_Stop.Name = "BTN_Stop";
+            this.BTN_Stop.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Stop.TabIndex = 6;
+            this.BTN_Stop.Text = "Stop";
+            this.BTN_Stop.UseVisualStyleBackColor = true;
+            this.BTN_Stop.Click += new System.EventHandler(this.BTN_Stop_Click);
+            // 
+            // BTN_Start
+            // 
+            this.BTN_Start.Location = new System.Drawing.Point(7, 179);
+            this.BTN_Start.Name = "BTN_Start";
+            this.BTN_Start.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Start.TabIndex = 6;
+            this.BTN_Start.Text = "Start";
+            this.BTN_Start.UseVisualStyleBackColor = true;
+            this.BTN_Start.Click += new System.EventHandler(this.BTN_Start_Click);
+            // 
+            // BTN_Supp_Frame
+            // 
+            this.BTN_Supp_Frame.Location = new System.Drawing.Point(7, 266);
+            this.BTN_Supp_Frame.Name = "BTN_Supp_Frame";
+            this.BTN_Supp_Frame.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Supp_Frame.TabIndex = 5;
+            this.BTN_Supp_Frame.Text = "Supprimer";
+            this.BTN_Supp_Frame.UseVisualStyleBackColor = true;
+            this.BTN_Supp_Frame.Click += new System.EventHandler(this.BTN_Supp_Frame_Click);
+            // 
+            // BTN_Add_Frame
+            // 
+            this.BTN_Add_Frame.Location = new System.Drawing.Point(7, 237);
+            this.BTN_Add_Frame.Name = "BTN_Add_Frame";
+            this.BTN_Add_Frame.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Add_Frame.TabIndex = 5;
+            this.BTN_Add_Frame.Text = "Ajouter";
+            this.BTN_Add_Frame.UseVisualStyleBackColor = true;
+            this.BTN_Add_Frame.Click += new System.EventHandler(this.BTN_Add_Frame_Click);
+            // 
+            // FLP_All_Frame
+            // 
+            this.FLP_All_Frame.AllowDrop = true;
+            this.FLP_All_Frame.AutoScroll = true;
+            this.FLP_All_Frame.Location = new System.Drawing.Point(7, 295);
+            this.FLP_All_Frame.Name = "FLP_All_Frame";
+            this.FLP_All_Frame.Size = new System.Drawing.Size(111, 298);
+            this.FLP_All_Frame.TabIndex = 4;
+            this.FLP_All_Frame.DragDrop += new System.Windows.Forms.DragEventHandler(this.FLP_All_Frame_DragDrop);
+            this.FLP_All_Frame.DragEnter += new System.Windows.Forms.DragEventHandler(this.FLP_All_Frame_DragEnter);
+            // 
+            // LB_fps_value
+            // 
+            this.LB_fps_value.AutoSize = true;
+            this.LB_fps_value.Location = new System.Drawing.Point(44, 12);
+            this.LB_fps_value.Name = "LB_fps_value";
+            this.LB_fps_value.Size = new System.Drawing.Size(13, 13);
+            this.LB_fps_value.TabIndex = 3;
+            this.LB_fps_value.Text = "1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "FPS: ";
+            // 
+            // TBAR_FrameRate
+            // 
+            this.TBAR_FrameRate.Location = new System.Drawing.Point(3, 142);
+            this.TBAR_FrameRate.Maximum = 15;
+            this.TBAR_FrameRate.Minimum = 1;
+            this.TBAR_FrameRate.Name = "TBAR_FrameRate";
+            this.TBAR_FrameRate.Size = new System.Drawing.Size(120, 45);
+            this.TBAR_FrameRate.TabIndex = 1;
+            this.TBAR_FrameRate.Value = 1;
+            this.TBAR_FrameRate.ValueChanged += new System.EventHandler(this.TBAR_FrameRate_ValueChanged);
+            // 
+            // PBX_Animation
+            // 
+            this.PBX_Animation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PBX_Animation.Location = new System.Drawing.Point(7, 30);
+            this.PBX_Animation.Name = "PBX_Animation";
+            this.PBX_Animation.Size = new System.Drawing.Size(111, 106);
+            this.PBX_Animation.TabIndex = 0;
+            this.PBX_Animation.TabStop = false;
             // 
             // PNL_Canvas
             // 
             this.PNL_Canvas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PNL_Canvas.BackColor = System.Drawing.Color.White;
             this.PNL_Canvas.BackgroundImage = global::SpriteArtist.Properties.Resources.checkerboard;
-            this.PNL_Canvas.Location = new System.Drawing.Point(66, -2);
+            this.PNL_Canvas.Location = new System.Drawing.Point(63, -6);
             this.PNL_Canvas.Name = "PNL_Canvas";
             this.PNL_Canvas.Size = new System.Drawing.Size(640, 480);
             this.PNL_Canvas.TabIndex = 4;
@@ -1281,7 +1392,7 @@
             this.TLS_Tools.Location = new System.Drawing.Point(0, 51);
             this.TLS_Tools.Name = "TLS_Tools";
             this.TLS_Tools.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.TLS_Tools.Size = new System.Drawing.Size(40, 561);
+            this.TLS_Tools.Size = new System.Drawing.Size(38, 558);
             this.TLS_Tools.TabIndex = 6;
             this.TLS_Tools.Text = "toolStrip2";
             // 
@@ -1323,7 +1434,6 @@
             this.BTN_Fill.Size = new System.Drawing.Size(32, 32);
             this.BTN_Fill.TabIndex = 18;
             this.BTN_Fill.UseVisualStyleBackColor = false;
-            this.BTN_Fill.CheckedChanged += new System.EventHandler(this.BTN_Fill_CheckedChanged);
             // 
             // BTN_Select
             // 
@@ -1347,6 +1457,7 @@
             this.BTN_Line.Size = new System.Drawing.Size(32, 32);
             this.BTN_Line.TabIndex = 16;
             this.BTN_Line.UseVisualStyleBackColor = false;
+            this.BTN_Line.CheckedChanged += new System.EventHandler(this.BTN_Line_CheckedChanged);
             // 
             // BTN_ColorPick
             // 
@@ -1358,6 +1469,7 @@
             this.BTN_ColorPick.Size = new System.Drawing.Size(32, 32);
             this.BTN_ColorPick.TabIndex = 15;
             this.BTN_ColorPick.UseVisualStyleBackColor = false;
+            this.BTN_ColorPick.CheckedChanged += new System.EventHandler(this.BTN_ColorPick_CheckedChanged);
             // 
             // BTN_Erase
             // 
@@ -1384,6 +1496,10 @@
             this.BTN_Pen.TabStop = true;
             this.BTN_Pen.UseVisualStyleBackColor = false;
             this.BTN_Pen.CheckedChanged += new System.EventHandler(this.BTN_Pen_CheckedChanged);
+            // 
+            // TMR_FrameRate
+            // 
+            this.TMR_FrameRate.Tick += new System.EventHandler(this.TMR_FrameRate_Tick);
             // 
             // DLG_Open
             // 
@@ -1447,12 +1563,11 @@
             // PNL_Colors
             // 
             this.PNL_Colors.AutoScroll = true;
-            this.PNL_Colors.Controls.Add(this.TLS_Colors);
             this.PNL_Colors.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PNL_Colors.Location = new System.Drawing.Point(40, 51);
+            this.PNL_Colors.Location = new System.Drawing.Point(88, 51);
             this.PNL_Colors.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_Colors.Name = "PNL_Colors";
-            this.PNL_Colors.Size = new System.Drawing.Size(55, 534);
+            this.PNL_Colors.Size = new System.Drawing.Size(50, 531);
             this.PNL_Colors.TabIndex = 5;
             // 
             // FRM_Main
@@ -1460,8 +1575,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1022, 612);
+            this.ClientSize = new System.Drawing.Size(1022, 609);
             this.Controls.Add(this.PNL_Colors);
+            this.Controls.Add(this.TLS_Colors);
             this.Controls.Add(this.LBL_Debug);
             this.Controls.Add(this.BTN_Grid);
             this.Controls.Add(this.BTN_Zoom);
@@ -1479,6 +1595,7 @@
             this.Controls.Add(this.TLS_Top);
             this.Controls.Add(this.MNS_MainMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "FRM_Main";
             this.Text = "Sprite Artist";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Main_FormClosing);
@@ -1493,16 +1610,18 @@
             this.toolStrip5.PerformLayout();
             this.PNL_Layer.ResumeLayout(false);
             this.PNL_Drag_Zone.ResumeLayout(false);
+            this.PNL_Animation.ResumeLayout(false);
+            this.PNL_Animation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBAR_FrameRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBX_Animation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Pen_Size)).EndInit();
             this.CTM_Selection_Options.ResumeLayout(false);
-            this.PNL_Colors.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.MenuStrip MNS_MainMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BTNTLS_New_File;
@@ -1556,7 +1675,6 @@
         private System.Windows.Forms.ToolStripButton BTN_MainColor;
         private System.Windows.Forms.ToolStripButton BTN_SecondColor;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripButton BTN_ShapePen;
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStripButton BTN_ZoomIn;
@@ -1573,8 +1691,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ToolStripMenuItem BTN_Shape_Circle;
-        private System.Windows.Forms.ToolStripMenuItem BTN_Shape_Square;
         private System.Windows.Forms.ToolStripButton BTN_New_File;
         private System.Windows.Forms.Panel PNL_Drag_Zone;
         private System.Windows.Forms.NumericUpDown NUM_Pen_Size;
@@ -1630,6 +1746,19 @@
         private System.Windows.Forms.ToolStripButton BTN_Palette30;
         private System.Windows.Forms.ToolStripButton BTN_Palette31;
         private System.Windows.Forms.ToolStripButton BTN_Palette32;
+        private System.Windows.Forms.ToolStripMenuItem BTN_Shape_Square;
+        private System.Windows.Forms.Panel PNL_Animation;
+        private System.Windows.Forms.PictureBox PBX_Animation;
+        private System.Windows.Forms.TrackBar TBAR_FrameRate;
+        private System.Windows.Forms.Timer TMR_FrameRate;
+        private System.Windows.Forms.Label LB_fps_value;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel FLP_All_Frame;
+        private System.Windows.Forms.Button BTN_Add_Frame;
+        private System.Windows.Forms.Button BTN_Start;
+        private System.Windows.Forms.Button BTN_Stop;
+        private System.Windows.Forms.ToolStripMenuItem activerAnimationToolStripMenuItem;
+        private System.Windows.Forms.Button BTN_Supp_Frame;
     }
 }
 

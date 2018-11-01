@@ -130,6 +130,25 @@ namespace SpriteArtist
             PNL_Canvas.Invalidate();
         }
 
+        private void PasteImagetoSelection(Bitmap img_, int X, int Y)
+        {
+            int WidthImg = img_.Width + X;
+            int HeightImg = img_.Height + Y;
+
+            for (int j = Y; j < HeightImg; j++)
+            {
+                if (j < Selection.Height && j >= 0)
+                    for (int i = X; i < WidthImg; i++)
+                    {
+                        if (i < Selection.Width && i >= 0)
+                        {
+                            Selection.SetPixel(i, j, OverColor(img_.GetPixel(i - X, j - Y), Selection.GetPixel(i, j)));
+                        }
+                    }
+            }
+            PNL_Canvas.Invalidate();
+        }
+
         private void PasteClipboardToSelection()
         {
             if (Clipboard.ContainsData("PNG"))
