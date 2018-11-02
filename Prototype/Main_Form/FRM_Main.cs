@@ -55,7 +55,7 @@ namespace SpriteArtist
 
         readonly List<RadioButton> ToolButtons = new List<RadioButton>();
 
-        enum Tool { Pen, Eraser, ColorPicker, Line, Select, Bucket, Zoom };
+        enum Tool { Pen, Eraser, ColorPicker, Line, Select, MagicWand, Bucket, Zoom};
         Tool CurrentTool = Tool.Pen;
 
         DebugViewer DebugWindow = new DebugViewer();
@@ -102,6 +102,7 @@ namespace SpriteArtist
             ToolButtons.Add(BTN_ColorPick);
             ToolButtons.Add(BTN_Line);
             ToolButtons.Add(BTN_Select);
+            ToolButtons.Add(BTN_MagicWand);
             ToolButtons.Add(BTN_Fill);
             ToolButtons.Add(BTN_Zoom);
 
@@ -210,6 +211,7 @@ namespace SpriteArtist
                     case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
                     case Tool.Select: OldPoint = GetCursorLocationRelative(e); break;
+                    case Tool.MagicWand: MagicWand(e); break;
                     case Tool.Bucket: Fill(MainPen.Color, e); break;
                     case Tool.ColorPicker: PickColor(e, true); break;
                     case Tool.Line: StartLine(MainPen.Color, e); break;

@@ -167,6 +167,7 @@
             this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.PNL_Colors = new System.Windows.Forms.Panel();
+            this.BTN_MagicWand = new System.Windows.Forms.RadioButton();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -1418,7 +1419,7 @@
             this.BTN_Zoom.Appearance = System.Windows.Forms.Appearance.Button;
             this.BTN_Zoom.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Zoom.Image = global::SpriteArtist.Properties.Resources.Zoom_16x;
-            this.BTN_Zoom.Location = new System.Drawing.Point(4, 280);
+            this.BTN_Zoom.Location = new System.Drawing.Point(4, 318);
             this.BTN_Zoom.Name = "BTN_Zoom";
             this.BTN_Zoom.Size = new System.Drawing.Size(32, 32);
             this.BTN_Zoom.TabIndex = 19;
@@ -1429,7 +1430,7 @@
             this.BTN_Fill.Appearance = System.Windows.Forms.Appearance.Button;
             this.BTN_Fill.BackColor = System.Drawing.Color.Transparent;
             this.BTN_Fill.Image = global::SpriteArtist.Properties.Resources.color;
-            this.BTN_Fill.Location = new System.Drawing.Point(4, 242);
+            this.BTN_Fill.Location = new System.Drawing.Point(4, 280);
             this.BTN_Fill.Name = "BTN_Fill";
             this.BTN_Fill.Size = new System.Drawing.Size(32, 32);
             this.BTN_Fill.TabIndex = 18;
@@ -1570,12 +1571,25 @@
             this.PNL_Colors.Size = new System.Drawing.Size(50, 531);
             this.PNL_Colors.TabIndex = 5;
             // 
+            // BTN_MagicWand
+            // 
+            this.BTN_MagicWand.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_MagicWand.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_MagicWand.Image = global::SpriteArtist.Properties.Resources.wand;
+            this.BTN_MagicWand.Location = new System.Drawing.Point(4, 242);
+            this.BTN_MagicWand.Name = "BTN_MagicWand";
+            this.BTN_MagicWand.Size = new System.Drawing.Size(32, 32);
+            this.BTN_MagicWand.TabIndex = 23;
+            this.BTN_MagicWand.UseVisualStyleBackColor = false;
+            this.BTN_MagicWand.CheckedChanged += new System.EventHandler(this.BTN_MagicWand_CheckedChanged);
+            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1022, 609);
+            this.Controls.Add(this.BTN_MagicWand);
             this.Controls.Add(this.PNL_Colors);
             this.Controls.Add(this.TLS_Colors);
             this.Controls.Add(this.LBL_Debug);
@@ -1759,6 +1773,7 @@
         private System.Windows.Forms.Button BTN_Stop;
         private System.Windows.Forms.ToolStripMenuItem activerAnimationToolStripMenuItem;
         private System.Windows.Forms.Button BTN_Supp_Frame;
+        private System.Windows.Forms.RadioButton BTN_MagicWand;
     }
 }
 
