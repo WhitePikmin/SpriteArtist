@@ -57,6 +57,7 @@
             this.calquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activerAnimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activerCalqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,6 +140,7 @@
             this.BTN_Stop = new System.Windows.Forms.Button();
             this.BTN_Start = new System.Windows.Forms.Button();
             this.BTN_Supp_Frame = new System.Windows.Forms.Button();
+            this.BTN_Add_LastFrame = new System.Windows.Forms.Button();
             this.BTN_Add_Frame = new System.Windows.Forms.Button();
             this.FLP_All_Frame = new System.Windows.Forms.FlowLayoutPanel();
             this.LB_fps_value = new System.Windows.Forms.Label();
@@ -149,14 +151,6 @@
             this.NUM_Pen_Size = new System.Windows.Forms.NumericUpDown();
             this.TLS_Tools = new System.Windows.Forms.ToolStrip();
             this.DLG_Save = new System.Windows.Forms.SaveFileDialog();
-            this.BTN_Grid = new System.Windows.Forms.CheckBox();
-            this.BTN_Zoom = new System.Windows.Forms.RadioButton();
-            this.BTN_Fill = new System.Windows.Forms.RadioButton();
-            this.BTN_Select = new System.Windows.Forms.RadioButton();
-            this.BTN_Line = new System.Windows.Forms.RadioButton();
-            this.BTN_ColorPick = new System.Windows.Forms.RadioButton();
-            this.BTN_Erase = new System.Windows.Forms.RadioButton();
-            this.BTN_Pen = new System.Windows.Forms.RadioButton();
             this.TMR_FrameRate = new System.Windows.Forms.Timer(this.components);
             this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
             this.LBL_Debug = new System.Windows.Forms.Label();
@@ -167,6 +161,14 @@
             this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.PNL_Colors = new System.Windows.Forms.Panel();
+            this.BTN_Grid = new System.Windows.Forms.CheckBox();
+            this.BTN_Zoom = new System.Windows.Forms.RadioButton();
+            this.BTN_Fill = new System.Windows.Forms.RadioButton();
+            this.BTN_Select = new System.Windows.Forms.RadioButton();
+            this.BTN_Line = new System.Windows.Forms.RadioButton();
+            this.BTN_ColorPick = new System.Windows.Forms.RadioButton();
+            this.BTN_Erase = new System.Windows.Forms.RadioButton();
+            this.BTN_Pen = new System.Windows.Forms.RadioButton();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -385,7 +387,8 @@
             // animationToolStripMenuItem
             // 
             this.animationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activerAnimationToolStripMenuItem});
+            this.activerAnimationToolStripMenuItem,
+            this.activerCalqueToolStripMenuItem});
             this.animationToolStripMenuItem.Name = "animationToolStripMenuItem";
             this.animationToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.animationToolStripMenuItem.Text = "&Animation";
@@ -396,6 +399,13 @@
             this.activerAnimationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.activerAnimationToolStripMenuItem.Text = "Activer animation";
             this.activerAnimationToolStripMenuItem.Click += new System.EventHandler(this.activerAnimationToolStripMenuItem_Click);
+            // 
+            // activerCalqueToolStripMenuItem
+            // 
+            this.activerCalqueToolStripMenuItem.Name = "activerCalqueToolStripMenuItem";
+            this.activerCalqueToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.activerCalqueToolStripMenuItem.Text = "Activer calque";
+            this.activerCalqueToolStripMenuItem.Click += new System.EventHandler(this.activerCalqueToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1243,6 +1253,7 @@
             this.PNL_Animation.Controls.Add(this.BTN_Stop);
             this.PNL_Animation.Controls.Add(this.BTN_Start);
             this.PNL_Animation.Controls.Add(this.BTN_Supp_Frame);
+            this.PNL_Animation.Controls.Add(this.BTN_Add_LastFrame);
             this.PNL_Animation.Controls.Add(this.BTN_Add_Frame);
             this.PNL_Animation.Controls.Add(this.FLP_All_Frame);
             this.PNL_Animation.Controls.Add(this.LB_fps_value);
@@ -1258,27 +1269,27 @@
             // 
             // BTN_Stop
             // 
-            this.BTN_Stop.Location = new System.Drawing.Point(7, 208);
+            this.BTN_Stop.Image = global::SpriteArtist.Properties.Resources.square;
+            this.BTN_Stop.Location = new System.Drawing.Point(72, 177);
             this.BTN_Stop.Name = "BTN_Stop";
-            this.BTN_Stop.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Stop.Size = new System.Drawing.Size(30, 30);
             this.BTN_Stop.TabIndex = 6;
-            this.BTN_Stop.Text = "Stop";
             this.BTN_Stop.UseVisualStyleBackColor = true;
             this.BTN_Stop.Click += new System.EventHandler(this.BTN_Stop_Click);
             // 
             // BTN_Start
             // 
-            this.BTN_Start.Location = new System.Drawing.Point(7, 179);
+            this.BTN_Start.Image = global::SpriteArtist.Properties.Resources.start;
+            this.BTN_Start.Location = new System.Drawing.Point(20, 177);
             this.BTN_Start.Name = "BTN_Start";
-            this.BTN_Start.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Start.Size = new System.Drawing.Size(30, 30);
             this.BTN_Start.TabIndex = 6;
-            this.BTN_Start.Text = "Start";
             this.BTN_Start.UseVisualStyleBackColor = true;
             this.BTN_Start.Click += new System.EventHandler(this.BTN_Start_Click);
             // 
             // BTN_Supp_Frame
             // 
-            this.BTN_Supp_Frame.Location = new System.Drawing.Point(7, 266);
+            this.BTN_Supp_Frame.Location = new System.Drawing.Point(7, 263);
             this.BTN_Supp_Frame.Name = "BTN_Supp_Frame";
             this.BTN_Supp_Frame.Size = new System.Drawing.Size(111, 23);
             this.BTN_Supp_Frame.TabIndex = 5;
@@ -1286,9 +1297,19 @@
             this.BTN_Supp_Frame.UseVisualStyleBackColor = true;
             this.BTN_Supp_Frame.Click += new System.EventHandler(this.BTN_Supp_Frame_Click);
             // 
+            // BTN_Add_LastFrame
+            // 
+            this.BTN_Add_LastFrame.Location = new System.Drawing.Point(7, 238);
+            this.BTN_Add_LastFrame.Name = "BTN_Add_LastFrame";
+            this.BTN_Add_LastFrame.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Add_LastFrame.TabIndex = 5;
+            this.BTN_Add_LastFrame.Text = "Ajouter Dernier";
+            this.BTN_Add_LastFrame.UseVisualStyleBackColor = true;
+            this.BTN_Add_LastFrame.Click += new System.EventHandler(this.BTN_Add_LastFrame_Click);
+            // 
             // BTN_Add_Frame
             // 
-            this.BTN_Add_Frame.Location = new System.Drawing.Point(7, 237);
+            this.BTN_Add_Frame.Location = new System.Drawing.Point(7, 213);
             this.BTN_Add_Frame.Name = "BTN_Add_Frame";
             this.BTN_Add_Frame.Size = new System.Drawing.Size(111, 23);
             this.BTN_Add_Frame.TabIndex = 5;
@@ -1299,10 +1320,12 @@
             // FLP_All_Frame
             // 
             this.FLP_All_Frame.AllowDrop = true;
+            this.FLP_All_Frame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.FLP_All_Frame.AutoScroll = true;
             this.FLP_All_Frame.Location = new System.Drawing.Point(7, 295);
             this.FLP_All_Frame.Name = "FLP_All_Frame";
-            this.FLP_All_Frame.Size = new System.Drawing.Size(111, 298);
+            this.FLP_All_Frame.Size = new System.Drawing.Size(111, 233);
             this.FLP_All_Frame.TabIndex = 4;
             this.FLP_All_Frame.DragDrop += new System.Windows.Forms.DragEventHandler(this.FLP_All_Frame_DragDrop);
             this.FLP_All_Frame.DragEnter += new System.Windows.Forms.DragEventHandler(this.FLP_All_Frame_DragEnter);
@@ -1401,6 +1424,79 @@
             this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp|Image GIF|*.gif";
             this.DLG_Save.Title = "Sauvegarder Image";
             // 
+            // TMR_FrameRate
+            // 
+            this.TMR_FrameRate.Tick += new System.EventHandler(this.TMR_FrameRate_Tick);
+            // 
+            // DLG_Open
+            // 
+            this.DLG_Open.FileName = "Sprite";
+            this.DLG_Open.Filter = "Image PNG|*.png|Image Bitmap |*.bmp|Image GIF |*.gif|Tout les fichiers |*.*";
+            this.DLG_Open.Title = "Ouvrir une image";
+            // 
+            // LBL_Debug
+            // 
+            this.LBL_Debug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBL_Debug.AutoSize = true;
+            this.LBL_Debug.BackColor = System.Drawing.SystemColors.Control;
+            this.LBL_Debug.Location = new System.Drawing.Point(1, 590);
+            this.LBL_Debug.Name = "LBL_Debug";
+            this.LBL_Debug.Size = new System.Drawing.Size(39, 13);
+            this.LBL_Debug.TabIndex = 22;
+            this.LBL_Debug.Text = "Debug";
+            // 
+            // ITM_Cut
+            // 
+            this.ITM_Cut.Name = "ITM_Cut";
+            this.ITM_Cut.Size = new System.Drawing.Size(129, 22);
+            this.ITM_Cut.Text = "Couper";
+            // 
+            // ITM_Copy
+            // 
+            this.ITM_Copy.Name = "ITM_Copy";
+            this.ITM_Copy.Size = new System.Drawing.Size(129, 22);
+            this.ITM_Copy.Text = "Copier";
+            this.ITM_Copy.Click += new System.EventHandler(this.ITM_Copy_Click);
+            // 
+            // ITM_Paste
+            // 
+            this.ITM_Paste.Name = "ITM_Paste";
+            this.ITM_Paste.Size = new System.Drawing.Size(129, 22);
+            this.ITM_Paste.Text = "Coller";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(126, 6);
+            // 
+            // ITM_Delete
+            // 
+            this.ITM_Delete.Name = "ITM_Delete";
+            this.ITM_Delete.Size = new System.Drawing.Size(129, 22);
+            this.ITM_Delete.Text = "Supprimer";
+            // 
+            // CTM_Selection_Options
+            // 
+            this.CTM_Selection_Options.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CTM_Selection_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ITM_Cut,
+            this.ITM_Copy,
+            this.ITM_Paste,
+            this.toolStripSeparator13,
+            this.ITM_Delete});
+            this.CTM_Selection_Options.Name = "CTM_Selection_Options";
+            this.CTM_Selection_Options.Size = new System.Drawing.Size(130, 98);
+            // 
+            // PNL_Colors
+            // 
+            this.PNL_Colors.AutoScroll = true;
+            this.PNL_Colors.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PNL_Colors.Location = new System.Drawing.Point(88, 51);
+            this.PNL_Colors.Margin = new System.Windows.Forms.Padding(2);
+            this.PNL_Colors.Name = "PNL_Colors";
+            this.PNL_Colors.Size = new System.Drawing.Size(50, 531);
+            this.PNL_Colors.TabIndex = 5;
+            // 
             // BTN_Grid
             // 
             this.BTN_Grid.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1496,79 +1592,6 @@
             this.BTN_Pen.TabStop = true;
             this.BTN_Pen.UseVisualStyleBackColor = false;
             this.BTN_Pen.CheckedChanged += new System.EventHandler(this.BTN_Pen_CheckedChanged);
-            // 
-            // TMR_FrameRate
-            // 
-            this.TMR_FrameRate.Tick += new System.EventHandler(this.TMR_FrameRate_Tick);
-            // 
-            // DLG_Open
-            // 
-            this.DLG_Open.FileName = "Sprite";
-            this.DLG_Open.Filter = "Image PNG|*.png|Image Bitmap |*.bmp|Image GIF |*.gif|Tout les fichiers |*.*";
-            this.DLG_Open.Title = "Ouvrir une image";
-            // 
-            // LBL_Debug
-            // 
-            this.LBL_Debug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LBL_Debug.AutoSize = true;
-            this.LBL_Debug.BackColor = System.Drawing.SystemColors.Control;
-            this.LBL_Debug.Location = new System.Drawing.Point(1, 590);
-            this.LBL_Debug.Name = "LBL_Debug";
-            this.LBL_Debug.Size = new System.Drawing.Size(39, 13);
-            this.LBL_Debug.TabIndex = 22;
-            this.LBL_Debug.Text = "Debug";
-            // 
-            // ITM_Cut
-            // 
-            this.ITM_Cut.Name = "ITM_Cut";
-            this.ITM_Cut.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Cut.Text = "Couper";
-            // 
-            // ITM_Copy
-            // 
-            this.ITM_Copy.Name = "ITM_Copy";
-            this.ITM_Copy.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Copy.Text = "Copier";
-            this.ITM_Copy.Click += new System.EventHandler(this.ITM_Copy_Click);
-            // 
-            // ITM_Paste
-            // 
-            this.ITM_Paste.Name = "ITM_Paste";
-            this.ITM_Paste.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Paste.Text = "Coller";
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(126, 6);
-            // 
-            // ITM_Delete
-            // 
-            this.ITM_Delete.Name = "ITM_Delete";
-            this.ITM_Delete.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Delete.Text = "Supprimer";
-            // 
-            // CTM_Selection_Options
-            // 
-            this.CTM_Selection_Options.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.CTM_Selection_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ITM_Cut,
-            this.ITM_Copy,
-            this.ITM_Paste,
-            this.toolStripSeparator13,
-            this.ITM_Delete});
-            this.CTM_Selection_Options.Name = "CTM_Selection_Options";
-            this.CTM_Selection_Options.Size = new System.Drawing.Size(130, 98);
-            // 
-            // PNL_Colors
-            // 
-            this.PNL_Colors.AutoScroll = true;
-            this.PNL_Colors.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PNL_Colors.Location = new System.Drawing.Point(88, 51);
-            this.PNL_Colors.Margin = new System.Windows.Forms.Padding(2);
-            this.PNL_Colors.Name = "PNL_Colors";
-            this.PNL_Colors.Size = new System.Drawing.Size(50, 531);
-            this.PNL_Colors.TabIndex = 5;
             // 
             // FRM_Main
             // 
@@ -1759,6 +1782,8 @@
         private System.Windows.Forms.Button BTN_Stop;
         private System.Windows.Forms.ToolStripMenuItem activerAnimationToolStripMenuItem;
         private System.Windows.Forms.Button BTN_Supp_Frame;
+        private System.Windows.Forms.Button BTN_Add_LastFrame;
+        private System.Windows.Forms.ToolStripMenuItem activerCalqueToolStripMenuItem;
     }
 }
 

@@ -83,9 +83,7 @@ namespace SpriteArtist
         public FRM_Main(Bitmap ImageOpened)
         {
             InitializeComponent();
-
             LoadImage(ImageOpened);
-
             InitCanvas();
         }
 		        private void ResetCanvas(ushort Width, ushort Height)
@@ -338,8 +336,27 @@ namespace SpriteArtist
 
         private void BTN_Upload_Click(object sender, EventArgs e)
         {
-            FRM_SendImage send = new FRM_SendImage(Sprite);
-            send.ShowDialog();
+            if (OGAnimationFrame.Count > 1)
+            { 
+                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\temp.png";
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                Bitmap imageSave = new Bitmap(AnimationSave());
+                imageSave.Save(path, ImageFormat.Png);
+                addImageComment(path, OGAnimationFrame[0].Image.Width.ToString(), TBAR_FrameRate.Value.ToString());
+                Bitmap bm = new Bitmap(path);
+
+                FRM_SendImage send = new FRM_SendImage(bm);
+                send.ShowDialog();
+            }    
+            else
+            {
+                FRM_SendImage send = new FRM_SendImage(Sprite);
+                send.ShowDialog();
+            }
+            
         }
 		        private void OpenAnimationOptionMenu()
         {
@@ -395,6 +412,7 @@ namespace SpriteArtist
                     e.Cancel = true;
             }
         }
+
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
