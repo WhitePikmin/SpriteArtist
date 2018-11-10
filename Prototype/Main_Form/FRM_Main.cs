@@ -23,7 +23,6 @@ namespace SpriteArtist
         const float ZOOM_MAX = 16;
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
-        int FrameTimer = 0;
         int cptColor = 16;
         const int MaxColorPalette = 30;
         const int NotColorButtons = 5;
@@ -107,6 +106,16 @@ namespace SpriteArtist
             ToolButtons.Add(BTN_Zoom);
 
             InitializeColorPalette();
+
+
+            //Set all pixels transparent
+            for (int i = 0; i < Sprite.Height; i++)
+            {
+                for (int j = 0; j < Sprite.Width; j++)
+                {
+                    Sprite.SetPixel(j, i, Color.Transparent);
+                }
+            }
 
             Canvas = PNL_Canvas.CreateGraphics();
             this.PNL_Canvas.MouseWheel += PNL_Canvas_MouseWheel;
@@ -210,7 +219,7 @@ namespace SpriteArtist
                 {
                     case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
                     case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
-                    case Tool.Select: OldPoint = GetCursorLocationRelative(e); break;
+                    case Tool.Select: HandleClickSelection(e); break;
                     case Tool.MagicWand: MagicWand(e); break;
                     case Tool.Bucket: Fill(MainPen.Color, e); break;
                     case Tool.ColorPicker: PickColor(e, true); break;
@@ -356,7 +365,13 @@ namespace SpriteArtist
 
         private void ITM_Copy_Click(object sender, EventArgs e) => CopySelectionIntoClipboard();
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) => DeleteSelection();
+        private void ITM_Cut_Click(object sender, EventArgs e) => CutSelection();
+
+        private void ITM_Paste_Click(object sender, EventArgs e) => PasteClipboardToSelection();
+
+        private void ITM_Delete_Click(object sender, EventArgs e) => RemoveSelection();
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) => RemoveSelection();
 
         private void BTNTLS_Cut_Click(object sender, EventArgs e) => CutSelection();
 

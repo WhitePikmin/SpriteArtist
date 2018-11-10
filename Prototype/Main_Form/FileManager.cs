@@ -27,10 +27,8 @@ namespace SpriteArtist
                     Bitmap imgSaving = new Bitmap(Sprite.Width * OGAnimationFrame.Count, Sprite.Height);
                     for (int i = 0; i < OGAnimationFrame.Count; i++)
                     {
-
                         for (int j = 0; j < Sprite.Width; j++)
                         {
-
                             for (int k = 0; k < Sprite.Height; k++)
                             {
                                 imgSaving.SetPixel(i * Sprite.Width + j, k, OGAnimationFrame[i].Image.GetPixel(j, k));

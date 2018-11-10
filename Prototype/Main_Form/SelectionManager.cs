@@ -16,6 +16,16 @@ namespace SpriteArtist
 {
     public partial class FRM_Main
     {
+        private void HandleClickSelection(MouseEventArgs e)
+        {
+            OldPoint = GetCursorLocationRelative(e);
+            if (ActiveSelection)
+                if (!PointInRectangle(OldPoint, SelectionZone))
+                {
+                    StopSelecting();
+                }
+        }
+
         private void HandleSelection(MouseEventArgs e)
         {
             if (ActiveSelection && !DraggingSelection)
@@ -106,9 +116,9 @@ namespace SpriteArtist
 
         private void StopSelecting()
         {
-            ActiveSelection = false;
-            if(Selection != null)
+            if(Selection != null && ActiveSelection)
             PasteImagetoSprite(Selection, SelectionZone.X, SelectionZone.Y);
+            ActiveSelection = false;
         }
 
         private void PasteImagetoSprite(Bitmap img_,int X, int Y)
@@ -246,6 +256,11 @@ namespace SpriteArtist
             }
         }
 
+        private bool PointInRectangle(Point p_, Rectangle r_)
+        {
+            return ((p_.X > r_.X && p_.X < r_.X + r_.Width) && (p_.Y > r_.Y && p_.Y < r_.Y + r_.Height));
+        }
+
         private Rectangle FormatRectanglePositiveCoord(Rectangle rect)
         {
             if (rect.Width < 0)
@@ -275,6 +290,7 @@ namespace SpriteArtist
 
         private void DisplayContextMenu(MouseEventArgs e)
         {
+            if(ActiveSelection)
            PNL_Canvas.ContextMenuStrip = CTM_Selection_Options;
         }
 
@@ -334,12 +350,17 @@ namespace SpriteArtist
             }
         }
 
-        private void CutSelection()
+        private void RemoveSelection()
         {
-            CopySelectionIntoClipboard();
             ActiveSelection = false;
             Selection = null;
             PNL_Canvas.Invalidate();
+        }
+
+        private void CutSelection()
+        {
+            CopySelectionIntoClipboard();
+            RemoveSelection();
         }
 
     }

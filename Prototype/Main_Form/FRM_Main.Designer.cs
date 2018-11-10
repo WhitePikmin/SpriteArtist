@@ -47,7 +47,7 @@
             this.BTNTLS_Cut = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Paste = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BTNTLS_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNTLS_Select_All = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,14 +126,6 @@
             this.BTN_Zoom1x = new System.Windows.Forms.ToolStripButton();
             this.BTN_ZoomOut = new System.Windows.Forms.ToolStripButton();
             this.TXB_ZoomLevel = new System.Windows.Forms.ToolStripTextBox();
-            this.PNL_Layer = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.PNL_Drag_Zone = new System.Windows.Forms.Panel();
             this.PNL_Animation = new System.Windows.Forms.Panel();
             this.BTN_Stop = new System.Windows.Forms.Button();
@@ -172,7 +164,6 @@
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
             this.toolStrip5.SuspendLayout();
-            this.PNL_Layer.SuspendLayout();
             this.PNL_Drag_Zone.SuspendLayout();
             this.PNL_Animation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBAR_FrameRate)).BeginInit();
@@ -273,7 +264,7 @@
             this.BTNTLS_Cut,
             this.BTNTLS_Copy,
             this.BTNTLS_Paste,
-            this.deleteToolStripMenuItem,
+            this.BTNTLS_Delete,
             this.toolStripSeparator4,
             this.BTNTLS_Select_All});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
@@ -329,13 +320,13 @@
             this.BTNTLS_Paste.Text = "&Paste";
             this.BTNTLS_Paste.Click += new System.EventHandler(this.BTNTLS_Paste_Click);
             // 
-            // deleteToolStripMenuItem
+            // BTNTLS_Delete
             // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.BTNTLS_Delete.Name = "BTNTLS_Delete";
+            this.BTNTLS_Delete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.BTNTLS_Delete.Size = new System.Drawing.Size(164, 22);
+            this.BTNTLS_Delete.Text = "Delete";
+            this.BTNTLS_Delete.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -1144,84 +1135,6 @@
             this.TXB_ZoomLevel.Size = new System.Drawing.Size(100, 27);
             this.TXB_ZoomLevel.Text = "300%";
             // 
-            // PNL_Layer
-            // 
-            this.PNL_Layer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PNL_Layer.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.PNL_Layer.Controls.Add(this.button6);
-            this.PNL_Layer.Controls.Add(this.button5);
-            this.PNL_Layer.Controls.Add(this.button4);
-            this.PNL_Layer.Controls.Add(this.button3);
-            this.PNL_Layer.Controls.Add(this.button2);
-            this.PNL_Layer.Controls.Add(this.button1);
-            this.PNL_Layer.Controls.Add(this.listBox1);
-            this.PNL_Layer.Location = new System.Drawing.Point(842, 49);
-            this.PNL_Layer.Name = "PNL_Layer";
-            this.PNL_Layer.Size = new System.Drawing.Size(179, 538);
-            this.PNL_Layer.TabIndex = 10;
-            this.PNL_Layer.Visible = false;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(141, 32);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(26, 23);
-            this.button6.TabIndex = 6;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(141, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(26, 23);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(109, 169);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(26, 23);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(77, 169);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(26, 23);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(35, 169);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 23);
-            this.button2.TabIndex = 2;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 23);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Mario",
-            "Luigi",
-            "Arrière plan"});
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(132, 160);
-            this.listBox1.TabIndex = 0;
-            // 
             // PNL_Drag_Zone
             // 
             this.PNL_Drag_Zone.AllowDrop = true;
@@ -1233,7 +1146,7 @@
             this.PNL_Drag_Zone.Location = new System.Drawing.Point(88, 51);
             this.PNL_Drag_Zone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.PNL_Drag_Zone.Name = "PNL_Drag_Zone";
-            this.PNL_Drag_Zone.Size = new System.Drawing.Size(933, 531);
+            this.PNL_Drag_Zone.Size = new System.Drawing.Size(934, 531);
             this.PNL_Drag_Zone.TabIndex = 11;
             this.PNL_Drag_Zone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PNL_Drag_Zone_MouseDown);
             this.PNL_Drag_Zone.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PNL_Drag_Zone_MouseMove);
@@ -1251,7 +1164,7 @@
             this.PNL_Animation.Controls.Add(this.TBAR_FrameRate);
             this.PNL_Animation.Controls.Add(this.PBX_Animation);
             this.PNL_Animation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PNL_Animation.Location = new System.Drawing.Point(807, 0);
+            this.PNL_Animation.Location = new System.Drawing.Point(808, 0);
             this.PNL_Animation.Name = "PNL_Animation";
             this.PNL_Animation.Size = new System.Drawing.Size(126, 531);
             this.PNL_Animation.TabIndex = 5;
@@ -1351,7 +1264,7 @@
             this.PNL_Canvas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PNL_Canvas.BackColor = System.Drawing.Color.White;
             this.PNL_Canvas.BackgroundImage = global::SpriteArtist.Properties.Resources.checkerboard;
-            this.PNL_Canvas.Location = new System.Drawing.Point(63, -6);
+            this.PNL_Canvas.Location = new System.Drawing.Point(88, 11);
             this.PNL_Canvas.Name = "PNL_Canvas";
             this.PNL_Canvas.Size = new System.Drawing.Size(640, 480);
             this.PNL_Canvas.TabIndex = 4;
@@ -1524,6 +1437,7 @@
             this.ITM_Cut.Name = "ITM_Cut";
             this.ITM_Cut.Size = new System.Drawing.Size(129, 22);
             this.ITM_Cut.Text = "Couper";
+            this.ITM_Cut.Click += new System.EventHandler(this.ITM_Cut_Click);
             // 
             // ITM_Copy
             // 
@@ -1537,6 +1451,7 @@
             this.ITM_Paste.Name = "ITM_Paste";
             this.ITM_Paste.Size = new System.Drawing.Size(129, 22);
             this.ITM_Paste.Text = "Coller";
+            this.ITM_Paste.Click += new System.EventHandler(this.ITM_Paste_Click);
             // 
             // toolStripSeparator13
             // 
@@ -1548,6 +1463,7 @@
             this.ITM_Delete.Name = "ITM_Delete";
             this.ITM_Delete.Size = new System.Drawing.Size(129, 22);
             this.ITM_Delete.Text = "Supprimer";
+            this.ITM_Delete.Click += new System.EventHandler(this.ITM_Delete_Click);
             // 
             // CTM_Selection_Options
             // 
@@ -1568,7 +1484,7 @@
             this.PNL_Colors.Location = new System.Drawing.Point(88, 51);
             this.PNL_Colors.Margin = new System.Windows.Forms.Padding(2);
             this.PNL_Colors.Name = "PNL_Colors";
-            this.PNL_Colors.Size = new System.Drawing.Size(50, 531);
+            this.PNL_Colors.Size = new System.Drawing.Size(1, 531);
             this.PNL_Colors.TabIndex = 5;
             // 
             // BTN_MagicWand
@@ -1603,7 +1519,6 @@
             this.Controls.Add(this.BTN_Pen);
             this.Controls.Add(this.NUM_Pen_Size);
             this.Controls.Add(this.PNL_Drag_Zone);
-            this.Controls.Add(this.PNL_Layer);
             this.Controls.Add(this.toolStrip5);
             this.Controls.Add(this.TLS_Tools);
             this.Controls.Add(this.TLS_Top);
@@ -1622,7 +1537,6 @@
             this.TLS_Colors.PerformLayout();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
-            this.PNL_Layer.ResumeLayout(false);
             this.PNL_Drag_Zone.ResumeLayout(false);
             this.PNL_Animation.ResumeLayout(false);
             this.PNL_Animation.PerformLayout();
@@ -1697,14 +1611,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripButton toolStripButton45;
         private System.Windows.Forms.ToolStripButton toolStripButton47;
-        private System.Windows.Forms.Panel PNL_Layer;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ToolStripButton BTN_New_File;
         private System.Windows.Forms.Panel PNL_Drag_Zone;
         private System.Windows.Forms.NumericUpDown NUM_Pen_Size;
@@ -1729,7 +1635,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripMenuItem ITM_Delete;
         private System.Windows.Forms.ContextMenuStrip CTM_Selection_Options;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BTNTLS_Delete;
         private System.Windows.Forms.ToolStripButton BTN_Palette2;
         private System.Windows.Forms.ToolStripButton BTN_Palette3;
         private System.Windows.Forms.ToolStripButton BTN_Palette4;
