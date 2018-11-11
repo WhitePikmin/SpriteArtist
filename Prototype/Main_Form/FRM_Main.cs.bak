@@ -23,7 +23,6 @@ namespace SpriteArtist
         const float ZOOM_MAX = 16;
         const float ZOOM_MIN = 0.5f;
         const float INITIAL_ZOOM = 4;
-        int FrameTimer = 0;
         int cptColor = 16;
         const int MaxColorPalette = 30;
         const int NotColorButtons = 5;
@@ -350,27 +349,8 @@ namespace SpriteArtist
 
         private void BTN_Upload_Click(object sender, EventArgs e)
         {
-            if (OGAnimationFrame.Count > 1)
-            { 
-                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\temp.png";
-                if (File.Exists(path))
-                {
-                    File.Delete(path);
-                }
-                Bitmap imageSave = new Bitmap(AnimationSave());
-                imageSave.Save(path, ImageFormat.Png);
-                addImageComment(path, OGAnimationFrame[0].Image.Width.ToString(), TBAR_FrameRate.Value.ToString());
-                Bitmap bm = new Bitmap(path);
-
-                FRM_SendImage send = new FRM_SendImage(bm);
-                send.ShowDialog();
-            }    
-            else
-            {
-                FRM_SendImage send = new FRM_SendImage(Sprite);
-                send.ShowDialog();
-            }
-            
+            FRM_SendImage send = new FRM_SendImage(Sprite);
+            send.ShowDialog();
         }
 		        private void OpenAnimationOptionMenu()
         {

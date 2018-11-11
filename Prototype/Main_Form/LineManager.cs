@@ -17,6 +17,7 @@ namespace SpriteArtist
         Color LineColor = Color.Black;
         Point LineStart = new Point(0, 0);
         Point LineEnd = new Point(0, 0);
+        Graphics LineCanvas;
 
         void StartLine(Color Col, MouseEventArgs e)
         {
@@ -25,6 +26,16 @@ namespace SpriteArtist
                 LineStart = AdaptPointToSelection(GetCursorLocationRelative(e));
                 LineColor = Col;
                 DraggingLine = true;
+
+                if (ActiveSelection)
+                    CreateLineOverlay(ref Selection);
+                else
+                    CreateLineOverlay(ref Sprite);
+
+                LineCanvas = Graphics.FromImage(LineOverlay);
+                LineCanvas.CompositingMode = CompositingMode.SourceCopy;
+
+
             }
         }
 
@@ -32,19 +43,14 @@ namespace SpriteArtist
         {
             if (DraggingLine)
             {
-                LineEnd = AdaptPointToSelection(GetCursorLocationRelative(e));
-
-                if (ActiveSelection)
-                    ClearLineOverlay(ref Selection);
-                else
-                    ClearLineOverlay(ref Sprite);
-
-                Canvas = Graphics.FromImage(LineOverlay);
-
                 Pen usedPen = new Pen(LineColor, pen_.Width);
                 usedPen.SetLineCap(LineCap, LineCap, DashCap);
 
-                Canvas.DrawLine(usedPen, LineStart, LineEnd);
+                ClearLineOverlay(usedPen);
+
+                LineEnd = AdaptPointToSelection(GetCursorLocationRelative(e));
+                usedPen.Color = LineColor;
+                LineCanvas.DrawLine(usedPen, LineStart, LineEnd);
                 PNL_Canvas.Invalidate();
             }
         }
@@ -82,16 +88,16 @@ namespace SpriteArtist
             }
         }
 
-        void ClearLineOverlay(ref Bitmap img)
+        void CreateLineOverlay(ref Bitmap img)
         {
-            if (LineOverlay.Width != img.Width && LineOverlay.Height != img.Height)
                 LineOverlay = new Bitmap(img.Width, img.Height);
-            else
-                for (int i = 0; i < LineOverlay.Height; i++)//Clear LineOverlay
-                {
-                    for (int j = 0; j < LineOverlay.Width; j++)
-                        LineOverlay.SetPixel(j, i, Color.Transparent);
-                }
+        }
+
+        void ClearLineOverlay(Pen pen_)
+        {
+            pen_.Color = Color.Transparent;
+            pen_.Width += 1;
+            LineCanvas.DrawLine(pen_, LineStart, LineEnd);
         }
     }
 }
