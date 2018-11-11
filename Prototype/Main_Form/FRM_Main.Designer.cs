@@ -513,6 +513,7 @@
             this.BTN_Undo.Name = "BTN_Undo";
             this.BTN_Undo.Size = new System.Drawing.Size(24, 24);
             this.BTN_Undo.Text = "toolStripButton3";
+            this.BTN_Undo.Click += new System.EventHandler(this.BTN_Undo_Click);
             // 
             // BTN_Redo
             // 
@@ -522,6 +523,7 @@
             this.BTN_Redo.Name = "BTN_Redo";
             this.BTN_Redo.Size = new System.Drawing.Size(24, 24);
             this.BTN_Redo.Text = "toolStripButton4";
+            this.BTN_Redo.Click += new System.EventHandler(this.BTN_Redo_Click);
             // 
             // toolStripSeparator8
             // 
