@@ -1,0 +1,15 @@
+E:\Desktop\SpriteArtist-master\Prototype\bin\x64\Release\SpriteArtist.exe.config
+E:\Desktop\SpriteArtist-master\Prototype\bin\x64\Release\SpriteArtist.exe
+E:\Desktop\SpriteArtist-master\Prototype\bin\x64\Release\SpriteArtist.pdb
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.csprojAssemblyReference.cache
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.DebugViewer.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.DoubleBufferPanel.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.FRM_Intro.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.FRM_SendImage.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.FRM_Main.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.FRM_New.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.Properties.Resources.resources
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.csproj.GenerateResource.cache
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.csproj.CoreCompileInputs.cache
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.exe
+E:\Desktop\SpriteArtist-master\Prototype\obj\x64\Release\SpriteArtist.pdb
