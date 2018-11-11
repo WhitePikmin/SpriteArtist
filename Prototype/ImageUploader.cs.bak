@@ -28,7 +28,7 @@ namespace SpriteArtist
             string FinalMessage = "";
             try
             {
-                Uri Link = new Uri(@"http://www.spriteartist.com/InsertionPixelArt.php");
+                Uri Link = new Uri(@"http://spriteartist.com/InsertionPixelArt.php");
 
                 HttpClient hc = new HttpClient();
 
