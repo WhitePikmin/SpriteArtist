@@ -10,15 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SpriteArtist
 {
     public partial class FRM_Main
     {
+
         List<FrameWithIndex> OGAnimationFrame = new List<FrameWithIndex>();
 
         double _Fps = 1;
         int _Index = 0;
         private int _FrameNum = 0;
+        bool Calque = false;
 
         private void TMR_FrameRate_Tick(object sender, EventArgs e)
         {
@@ -61,25 +64,7 @@ namespace SpriteArtist
         }
         private void Update_Flow_Layout_Panel()
         {
-            // Peut Etre mettre frame count a 0
-            // vider Flow_LAyout_Panel
-            // Reremplir layout panel
-            //FLP_All_Frame.Controls.Clear();
             _FrameNum = 0;
-            /*foreach (FrameWithIndex image in OGAnimationFrame)
-            {
-                PictureBox newPictureBox = new PictureBox();
-                newPictureBox.Name = _FrameNum.ToString();
-                Bitmap resized = new Bitmap(image.Image, new Size(50, 50));
-                newPictureBox.Image = resized;
-                newPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-                newPictureBox.Width = 60;
-                newPictureBox.Height = 60;    
-                newPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.p_MouseDown);
-                newPictureBox.Paint += new PaintEventHandler(this.PictureBox_Paint);
-                FLP_All_Frame.Controls.Add(newPictureBox);
-                _FrameNum++;
-            }*/
             for (int i = 0; i < OGAnimationFrame.Count; i++)
             {
                 PictureBox pbx = (PictureBox)FLP_All_Frame.Controls[i];
@@ -101,10 +86,8 @@ namespace SpriteArtist
             {
                 pbx.BackColor = Color.Transparent;
                 pbx.Padding = new Padding(0);
-
             }
         }
-        private void BTN_Add_Frame_Click(object sender, EventArgs e) => Add_Flow_Layout_Panel(ref AddBitmapToAnimation());
         private ref Bitmap AddBitmapToAnimation()
         {
             Bitmap bitmap = new Bitmap(Sprite.Width, Sprite.Height, PixelFormat.Format32bppArgb);
@@ -113,6 +96,37 @@ namespace SpriteArtist
             Sprite = bitmap;
             PNL_Canvas.Invalidate();
             return ref Sprite;
+        }
+        private ref Bitmap AddLastFrameToAnimation()
+        {
+            Bitmap bitmap = new Bitmap(OGAnimationFrame.Last().Image, Sprite.Width, Sprite.Height);
+
+            OGAnimationFrame.Add(new FrameWithIndex(bitmap, OGAnimationFrame.Count));
+            Sprite = bitmap;
+            PNL_Canvas.Invalidate();
+            return ref Sprite;
+        }
+        #region evenement
+        private void BTN_Add_Frame_Click(object sender, EventArgs e) => Add_Flow_Layout_Panel(ref AddBitmapToAnimation());
+        private void BTN_Add_LastFrame_Click(object sender, EventArgs e) => Add_Flow_Layout_Panel(ref AddLastFrameToAnimation());
+
+        private void activerCalqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*Calque = !Calque; // Inverse l'état du calque ex: Activer -> Desactiver
+            for (int i = 0; i < FLP_All_Frame.Controls.Count; i++)
+            {
+                PictureBox pbx = (PictureBox)FLP_All_Frame.Controls[i];
+                if (pbx.BackColor == Color.DarkGray)
+                {
+                    PictureBox pb = new PictureBox();
+                    PNL_Canvas.Controls.Add(pb);
+                    pb.Location = new Point(0, 0);
+                    pb.BackColor = Color.Transparent;
+                    pb.Width = PNL_Canvas.Width;
+                    pb.Height = PNL_Canvas.Height;
+                    pb.Image = OGAnimationFrame[i - 1].Image;    
+                }
+            }*/
         }
         private void BTN_Start_Click(object sender, EventArgs e)
         {
@@ -183,8 +197,8 @@ namespace SpriteArtist
                 }
             }
         }
-
     }
+#endregion
     public class FrameWithIndex
     {
         public Bitmap Image { get; set; }
