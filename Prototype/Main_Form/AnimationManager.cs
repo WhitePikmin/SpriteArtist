@@ -94,6 +94,7 @@ namespace SpriteArtist
 
             OGAnimationFrame.Add(new FrameWithIndex(bitmap, OGAnimationFrame.Count));
             Sprite = bitmap;
+            ClearTimelines();
             PNL_Canvas.Invalidate();
             return ref Sprite;
         }
@@ -103,6 +104,7 @@ namespace SpriteArtist
 
             OGAnimationFrame.Add(new FrameWithIndex(bitmap, OGAnimationFrame.Count));
             Sprite = bitmap;
+            ClearTimelines();
             PNL_Canvas.Invalidate();
             return ref Sprite;
         }
@@ -169,6 +171,7 @@ namespace SpriteArtist
                 OGAnimationFrame[int.Parse(picture.Name)].OldIndex = OGAnimationFrame[int.Parse(picture.Name)].NewIndex;
                 OGAnimationFrame[int.Parse(picture.Name)].NewIndex = index;
                 OGAnimationFrame = OGAnimationFrame.OrderBy(x => x.NewIndex).ToList();
+                ClearTimelines();
                 Sprite = OGAnimationFrame[int.Parse(picture.Name)].Image;
                 PNL_Canvas.Invalidate();
                 Update_Flow_Layout_Panel();

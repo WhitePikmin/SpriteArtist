@@ -59,6 +59,7 @@ namespace SpriteArtist
         {
             if (DraggingLine)
             {
+                UpdateTimeline();
                 if (ActiveSelection)
                     PasteImagetoSelection(LineOverlay, 0, 0);
                 else

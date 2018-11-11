@@ -14,6 +14,7 @@ namespace SpriteArtist
     {
         private void DrawOnCanvas(Pen pen_, MouseEventArgs e, bool Erase)
         {
+            
             if (ActiveSelection)
                 Canvas = Graphics.FromImage(Selection);
             else
@@ -25,7 +26,7 @@ namespace SpriteArtist
             {
                 //Pour que l'efface puisse marcher: être capable de rendre un pixel transparent
                 Canvas.CompositingMode = CompositingMode.SourceCopy;
-                col_ = Color.Transparent;
+                col_ = Color.FromArgb(0, 0, 0, 0);
             }
             else
             {
@@ -36,6 +37,7 @@ namespace SpriteArtist
             Pen usedPen = new Pen(col_, pen_.Width);
             usedPen.SetLineCap(LineCap, LineCap, DashCap);
 
+            
             Canvas.DrawLine(usedPen, OldPoint, CurrentPoint);
             if (LineCap == LineCap.Flat)
             {

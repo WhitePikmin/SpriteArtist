@@ -43,6 +43,7 @@ namespace SpriteArtist
 
             if (ActiveFill)
             {
+                
                 Begin_Fill(ref img, OldPoint, NewCol);
                 if (ActiveSelection)
                     Selection = img;
@@ -58,6 +59,7 @@ namespace SpriteArtist
             Color OldCol = Sprite.GetPixel(StartPoint.X,StartPoint.Y);
             if (OldCol.ToArgb() != NewCol.ToArgb())
             {
+                UpdateTimeline();
                 List<Point> Painters = new List<Point>();
 
                 Painters.Add(OldPoint);

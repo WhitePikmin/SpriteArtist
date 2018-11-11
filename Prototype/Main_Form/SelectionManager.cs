@@ -93,6 +93,7 @@ namespace SpriteArtist
                 if (SelectionZone.Width == 0 || SelectionZone.Height == 0)
                 {
                     ActiveSelection = false;
+                    ClearTimelineSelection();
                 }
                 else
                 {
@@ -118,13 +119,15 @@ namespace SpriteArtist
         {
             if(Selection != null && ActiveSelection)
             PasteImagetoSprite(Selection, SelectionZone.X, SelectionZone.Y);
-            ActiveSelection = false;
+            ClearTimelineSelection();
         }
 
         private void PasteImagetoSprite(Bitmap img_,int X, int Y)
         {
             int WidthImg = img_.Width + X;
             int HeightImg = img_.Height + Y;
+            ActiveSelection = false;
+            UpdateTimeline();
 
             for (int j = Y; j < HeightImg; j++)
             {
@@ -342,7 +345,7 @@ namespace SpriteArtist
                 {
                     for (int i = SelectionZone.X; i < LimitX; i++)
                     {
-                        Sprite.SetPixel(i, j, Color.Transparent);
+                        Sprite.SetPixel(i, j, Color.FromArgb(0, 0, 0, 0));
                     }
                 }
                 PNL_Canvas.Invalidate();
@@ -355,6 +358,7 @@ namespace SpriteArtist
             ActiveSelection = false;
             Selection = null;
             PNL_Canvas.Invalidate();
+            ClearTimelineSelection();
         }
 
         private void CutSelection()

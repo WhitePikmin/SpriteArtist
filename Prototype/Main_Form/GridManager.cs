@@ -31,7 +31,7 @@ namespace SpriteArtist
                 for (int i = 0; i < Canvas_Height + 1; i++)
                 {
                     Point Begin = new Point(0, (int)(i * Zoom) - Offset);
-                    Point End = new Point(LineHeight, (int)(i * Zoom) - Offset);
+                    Point End = new Point(LineWidth, (int)(i * Zoom) - Offset);
                     g_.DrawLine(GridLine, Begin, End);
                 }
             }

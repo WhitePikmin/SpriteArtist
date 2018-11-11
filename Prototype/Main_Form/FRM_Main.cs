@@ -113,7 +113,7 @@ namespace SpriteArtist
             {
                 for (int j = 0; j < Sprite.Width; j++)
                 {
-                    Sprite.SetPixel(j, i, Color.Transparent);
+                    Sprite.SetPixel(j, i, Color.FromArgb(0, 0, 0, 0));
                 }
             }
 
@@ -136,7 +136,6 @@ namespace SpriteArtist
             PNL_Canvas, new object[] { true });
 
             FileChanged = false;
-
         }
 
         private void InitializeColorPalette()
@@ -217,8 +216,8 @@ namespace SpriteArtist
             {
                 switch (CurrentTool)
                 {
-                    case Tool.Pen: DrawSingleDotOnCanvas(MainPen.Color,e); break;
-                    case Tool.Eraser: DrawSingleDotOnCanvas(Color.Transparent, e); break;
+                    case Tool.Pen: UpdateTimeline(); DrawSingleDotOnCanvas(MainPen.Color,e); break;
+                    case Tool.Eraser: UpdateTimeline(); DrawSingleDotOnCanvas(Color.Transparent, e); break;
                     case Tool.Select: HandleClickSelection(e); break;
                     case Tool.MagicWand: MagicWand(e); break;
                     case Tool.Bucket: Fill(MainPen.Color, e); break;
@@ -412,6 +411,10 @@ namespace SpriteArtist
                     e.Cancel = true;
             }
         }
+
+        private void BTN_Undo_Click(object sender, EventArgs e) => Undo();
+
+        private void BTN_Redo_Click(object sender, EventArgs e) => Redo();
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)
