@@ -109,6 +109,7 @@ namespace SpriteArtist
 
         private void StartSelecting()
         {
+            UpdateTimeline();
             ActiveSelection = true;
             Selection = CopySelection();
             DeleteSelection();
@@ -127,7 +128,7 @@ namespace SpriteArtist
             int WidthImg = img_.Width + X;
             int HeightImg = img_.Height + Y;
             ActiveSelection = false;
-            UpdateTimeline();
+            
 
             for (int j = Y; j < HeightImg; j++)
             {
@@ -348,6 +349,7 @@ namespace SpriteArtist
                         Sprite.SetPixel(i, j, Color.FromArgb(0, 0, 0, 0));
                     }
                 }
+                
                 PNL_Canvas.Invalidate();
                 FileChanged = true;
             }

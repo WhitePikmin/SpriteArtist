@@ -47,5 +47,10 @@ namespace SpriteArtist
             }
           
         }
+
+        private void FRM_Intro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

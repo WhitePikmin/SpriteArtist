@@ -73,16 +73,6 @@ namespace SpriteArtist.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _585051_snowypuzzle_super_mario_world_mario_sprite_2 {
-            get {
-                object obj = ResourceManager.GetObject("585051_snowypuzzle_super-mario-world-mario-sprite-2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Add_grey_16x {
             get {
                 object obj = ResourceManager.GetObject("Add_grey_16x", resourceCulture);
@@ -273,6 +263,16 @@ namespace SpriteArtist.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Question_16x {
+            get {
+                object obj = ResourceManager.GetObject("Question_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RectangleSelectionTool_16x {
             get {
                 object obj = ResourceManager.GetObject("RectangleSelectionTool_16x", resourceCulture);
@@ -343,6 +343,16 @@ namespace SpriteArtist.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap start {
+            get {
+                object obj = ResourceManager.GetObject("start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Undo_16x {
             get {
                 object obj = ResourceManager.GetObject("Undo_16x", resourceCulture);
@@ -366,16 +376,6 @@ namespace SpriteArtist.Properties {
         internal static System.Drawing.Bitmap wand {
             get {
                 object obj = ResourceManager.GetObject("wand", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap wheel_5_ryb {
-            get {
-                object obj = ResourceManager.GetObject("wheel-5-ryb", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

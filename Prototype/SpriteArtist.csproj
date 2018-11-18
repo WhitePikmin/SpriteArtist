@@ -160,6 +160,9 @@
     <Compile Include="Main_Form\SelectionManager.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Main_Form\UndoManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DebugViewer.resx">
@@ -307,7 +310,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="reimuspritedown.ico" />
-    <Content Include="Resources\start.png" />
+    <None Include="Resources\Question_16x.png" />
+    <None Include="Resources\square1.png" />
+    <None Include="Resources\start.png" />
     <None Include="Resources\wand.png" />
     <None Include="Resources\MagicWand.bmp" />
   </ItemGroup>

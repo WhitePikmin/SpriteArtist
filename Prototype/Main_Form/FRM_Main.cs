@@ -36,7 +36,7 @@ namespace SpriteArtist
         bool MovingSelection = false;
         Rectangle SelectionZone = new Rectangle(2, 2, 9, 9);
 
-        string FileName;
+        string FileName = "";
 
         Point OldPoint = new Point();
         Point CurrentPoint = new Point();
@@ -311,7 +311,6 @@ namespace SpriteArtist
                     i = ToolButtons.Count;
                 }
             }
-            LBL_Debug.Text = CurrentTool.ToString();
         }
 
         private void BTN_Pen_CheckedChanged(object sender, EventArgs e) => SetTool();
@@ -326,7 +325,7 @@ namespace SpriteArtist
 
         private void PNL_Canvas_Click(object sender, EventArgs e) => Cursor.Current = Cursors.Cross;
 
-        private void BTN_Save_Click(object sender, EventArgs e) => SaveFileAs();
+        private void BTN_Save_Click(object sender, EventArgs e) => SimpleSave();
 
         private void BTN_Load_Click(object sender, EventArgs e) => OpenFile();
 
@@ -415,6 +414,28 @@ namespace SpriteArtist
         private void BTN_Undo_Click(object sender, EventArgs e) => Undo();
 
         private void BTN_Redo_Click(object sender, EventArgs e) => Redo();
+
+        private void BTNTLS_Upload_Click(object sender, EventArgs e)
+        {
+            FRM_SendImage send = new FRM_SendImage(Sprite);
+            send.ShowDialog();
+        }
+
+        private void BTNTLS_New_File_Click(object sender, EventArgs e) => NewFile();
+
+        private void BTN_New_File_Click(object sender, EventArgs e) => NewFile();
+
+        private void BTNTLS_Save_Click(object sender, EventArgs e) => SimpleSave();
+
+        private void BTNTLS_Save_As_Click(object sender, EventArgs e) => SaveFileAs();
+
+        private void BTNTLS_Undo_Click(object sender, EventArgs e) => Undo();
+
+        private void BTNTLS_Redo_Click(object sender, EventArgs e) => Redo();
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => System.Diagnostics.Process.Start("http://spriteartist.com/propos.php");
+
+
 
         //Pour les layers qui sont locked
         /*private void listBox1_DrawItem(object sender, DrawItemEventArgs e)

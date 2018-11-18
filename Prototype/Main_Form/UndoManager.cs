@@ -83,9 +83,18 @@ namespace SpriteArtist
                 if (TimelinePointer != 0)
                 {
                     if (TimelinePointer == Timeline.Count)
-                        Timeline.Add(Sprite);
+                        Timeline.Add((Bitmap)Sprite.Clone());
 
-                    Sprite = Timeline[TimelinePointer-1];
+                    int UndoPointer = TimelinePointer - 1;
+
+                    for (int i = 0; i < Sprite.Height; i++)
+                    {
+                        for (int j = 0; j < Sprite.Width; j++)
+                        {
+                            Sprite.SetPixel(j, i, Timeline[UndoPointer].GetPixel(j,i));
+                        }
+                    }
+
                     TimelinePointer--;
                 }
             }
@@ -108,7 +117,13 @@ namespace SpriteArtist
                     if (TimelinePointer < Timeline.Count - 1)
                     {
                         TimelinePointer++;
-                        Sprite = Timeline[TimelinePointer];
+                        for (int i = 0; i < Sprite.Height; i++)
+                        {
+                            for (int j = 0; j < Sprite.Width; j++)
+                            {
+                                Sprite.SetPixel(j, i, Timeline[TimelinePointer].GetPixel(j, i));
+                            }
+                        }
                     }
                 }
                 PNL_Canvas.Invalidate();
