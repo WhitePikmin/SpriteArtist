@@ -92,6 +92,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FRM_Intro";
             this.Text = "Sprite Artist";
+            this.Load += new System.EventHandler(this.FRM_Intro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

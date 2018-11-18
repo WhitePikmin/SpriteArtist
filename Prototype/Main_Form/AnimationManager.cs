@@ -49,8 +49,11 @@ namespace SpriteArtist
 
         private void Add_Flow_Layout_Panel(ref Bitmap bitmap)
         {
+            RefreshSelect();
             PictureBox newPictureBox = new PictureBox();
             newPictureBox.Name = _FrameNum.ToString();
+            newPictureBox.BackColor = Color.DarkGray;
+            newPictureBox.Padding = new Padding(5);
             Bitmap resized = new Bitmap(bitmap, new Size(30, 30));
 
             newPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -110,7 +113,8 @@ namespace SpriteArtist
         }
         #region evenement
         private void BTN_Add_Frame_Click(object sender, EventArgs e) => Add_Flow_Layout_Panel(ref AddBitmapToAnimation());
-        private void BTN_Add_LastFrame_Click(object sender, EventArgs e) => Add_Flow_Layout_Panel(ref AddLastFrameToAnimation());
+        private void BTN_Duplicate_Frame_Click(object sender, EventArgs e) => Add_Flow_Layout_Panel(ref AddLastFrameToAnimation());
+
 
         private void activerCalqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -190,13 +194,29 @@ namespace SpriteArtist
         }
         private void BTN_Supp_Frame_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < FLP_All_Frame.Controls.Count; i++)
+            if (FLP_All_Frame.Controls.Count > 1)
             {
-                PictureBox pbx = (PictureBox)FLP_All_Frame.Controls[i];
-                if (pbx.BackColor == Color.DarkGray)
+                bool StopDeleting = false; 
+                for (int i = 0; i < FLP_All_Frame.Controls.Count && !StopDeleting; i++)
                 {
-                    FLP_All_Frame.Controls.RemoveAt(i);
-                    OGAnimationFrame.RemoveAt(i);
+                    PictureBox pbx = (PictureBox)FLP_All_Frame.Controls[i];
+                    if (pbx.BackColor == Color.DarkGray)
+                    {
+                        FLP_All_Frame.Controls.RemoveAt(i);
+                        OGAnimationFrame.RemoveAt(i);
+                        i--;
+                        if (i == -1)
+                            i = FLP_All_Frame.Controls.Count - 1;
+                        PictureBox NewSelectedPBox = (PictureBox)FLP_All_Frame.Controls[i];
+                        NewSelectedPBox.BackColor = Color.DarkGray;
+                        NewSelectedPBox.Padding = new Padding(5);
+
+                        Sprite = OGAnimationFrame[i].Image;
+                        PNL_Canvas.Invalidate();
+                        Update_Flow_Layout_Panel();
+
+                        StopDeleting = true;
+                    }
                 }
             }
         }

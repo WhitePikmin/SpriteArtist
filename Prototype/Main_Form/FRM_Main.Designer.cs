@@ -37,7 +37,7 @@
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.BTNTLS_Save = new System.Windows.Forms.ToolStripMenuItem();
             this.BTNTLS_Save_As = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTNTLS_Upload = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,18 +50,9 @@
             this.BTNTLS_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.BTNTLS_Select_All = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.canevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activerAnimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TLS_Top = new System.Windows.Forms.ToolStrip();
             this.BTN_New_File = new System.Windows.Forms.ToolStripButton();
@@ -75,8 +66,6 @@
             this.BTN_Cut = new System.Windows.Forms.ToolStripButton();
             this.BTN_Copy = new System.Windows.Forms.ToolStripButton();
             this.BTN_Paste = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTN_Resize = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_ShapePen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
@@ -128,6 +117,7 @@
             this.TXB_ZoomLevel = new System.Windows.Forms.ToolStripTextBox();
             this.PNL_Drag_Zone = new System.Windows.Forms.Panel();
             this.PNL_Animation = new System.Windows.Forms.Panel();
+            this.BTN_Duplicate_Frame = new System.Windows.Forms.Button();
             this.BTN_Stop = new System.Windows.Forms.Button();
             this.BTN_Start = new System.Windows.Forms.Button();
             this.BTN_Supp_Frame = new System.Windows.Forms.Button();
@@ -141,6 +131,16 @@
             this.NUM_Pen_Size = new System.Windows.Forms.NumericUpDown();
             this.TLS_Tools = new System.Windows.Forms.ToolStrip();
             this.DLG_Save = new System.Windows.Forms.SaveFileDialog();
+            this.TMR_FrameRate = new System.Windows.Forms.Timer(this.components);
+            this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ITM_Cut = new System.Windows.Forms.ToolStripMenuItem();
+            this.ITM_Copy = new System.Windows.Forms.ToolStripMenuItem();
+            this.ITM_Paste = new System.Windows.Forms.ToolStripMenuItem();
+            this.PNL_Colors = new System.Windows.Forms.Panel();
+            this.BTN_MagicWand = new System.Windows.Forms.RadioButton();
             this.BTN_Grid = new System.Windows.Forms.CheckBox();
             this.BTN_Zoom = new System.Windows.Forms.RadioButton();
             this.BTN_Fill = new System.Windows.Forms.RadioButton();
@@ -149,17 +149,6 @@
             this.BTN_ColorPick = new System.Windows.Forms.RadioButton();
             this.BTN_Erase = new System.Windows.Forms.RadioButton();
             this.BTN_Pen = new System.Windows.Forms.RadioButton();
-            this.TMR_FrameRate = new System.Windows.Forms.Timer(this.components);
-            this.DLG_Open = new System.Windows.Forms.OpenFileDialog();
-            this.LBL_Debug = new System.Windows.Forms.Label();
-            this.ITM_Cut = new System.Windows.Forms.ToolStripMenuItem();
-            this.ITM_Copy = new System.Windows.Forms.ToolStripMenuItem();
-            this.ITM_Paste = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.ITM_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.CTM_Selection_Options = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.PNL_Colors = new System.Windows.Forms.Panel();
-            this.BTN_MagicWand = new System.Windows.Forms.RadioButton();
             this.MNS_MainMenu.SuspendLayout();
             this.TLS_Top.SuspendLayout();
             this.TLS_Colors.SuspendLayout();
@@ -178,9 +167,6 @@
             this.MNS_MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.toolsToolStripMenuItem,
-            this.canevaToolStripMenuItem,
-            this.calquesToolStripMenuItem,
             this.animationToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.MNS_MainMenu.Location = new System.Drawing.Point(0, 0);
@@ -196,7 +182,7 @@
             this.toolStripSeparator,
             this.BTNTLS_Save,
             this.BTNTLS_Save_As,
-            this.toolStripSeparator1,
+            this.BTNTLS_Upload,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -205,54 +191,63 @@
             // 
             // BTNTLS_New_File
             // 
+            this.BTNTLS_New_File.Image = global::SpriteArtist.Properties.Resources.NewFile_16x;
             this.BTNTLS_New_File.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_New_File.Name = "BTNTLS_New_File";
             this.BTNTLS_New_File.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.BTNTLS_New_File.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_New_File.Text = "&New";
+            this.BTNTLS_New_File.Size = new System.Drawing.Size(225, 22);
+            this.BTNTLS_New_File.Text = "&Nouveau";
+            this.BTNTLS_New_File.Click += new System.EventHandler(this.BTNTLS_New_File_Click);
             // 
             // BTNTLS_Load
             // 
+            this.BTNTLS_Load.Image = global::SpriteArtist.Properties.Resources.OpenFolder_16x;
             this.BTNTLS_Load.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Load.Name = "BTNTLS_Load";
             this.BTNTLS_Load.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.BTNTLS_Load.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_Load.Text = "&Open";
+            this.BTNTLS_Load.Size = new System.Drawing.Size(225, 22);
+            this.BTNTLS_Load.Text = "&Ouvrir";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(222, 6);
             // 
             // BTNTLS_Save
             // 
+            this.BTNTLS_Save.Image = global::SpriteArtist.Properties.Resources.Save_16x;
             this.BTNTLS_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Save.Name = "BTNTLS_Save";
             this.BTNTLS_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.BTNTLS_Save.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_Save.Text = "&Save";
+            this.BTNTLS_Save.Size = new System.Drawing.Size(225, 22);
+            this.BTNTLS_Save.Text = "Enregi&strer";
+            this.BTNTLS_Save.Click += new System.EventHandler(this.BTNTLS_Save_Click);
             // 
             // BTNTLS_Save_As
             // 
             this.BTNTLS_Save_As.Name = "BTNTLS_Save_As";
-            this.BTNTLS_Save_As.Size = new System.Drawing.Size(146, 22);
-            this.BTNTLS_Save_As.Text = "Save &As";
+            this.BTNTLS_Save_As.Size = new System.Drawing.Size(225, 22);
+            this.BTNTLS_Save_As.Text = "Enregistrer sous";
+            this.BTNTLS_Save_As.Click += new System.EventHandler(this.BTNTLS_Save_As_Click);
             // 
-            // toolStripSeparator1
+            // BTNTLS_Upload
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.BTNTLS_Upload.Image = global::SpriteArtist.Properties.Resources.Upload_16x;
+            this.BTNTLS_Upload.Name = "BTNTLS_Upload";
+            this.BTNTLS_Upload.Size = new System.Drawing.Size(225, 22);
+            this.BTNTLS_Upload.Text = "Partager sur SpriteArtist.com";
+            this.BTNTLS_Upload.Click += new System.EventHandler(this.BTNTLS_Upload_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(222, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.exitToolStripMenuItem.Text = "&Quitter";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
@@ -273,17 +268,21 @@
             // 
             // BTNTLS_Undo
             // 
+            this.BTNTLS_Undo.Image = global::SpriteArtist.Properties.Resources.Undo_16x;
             this.BTNTLS_Undo.Name = "BTNTLS_Undo";
             this.BTNTLS_Undo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.BTNTLS_Undo.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Undo.Text = "&Undo";
+            this.BTNTLS_Undo.Click += new System.EventHandler(this.BTNTLS_Undo_Click);
             // 
             // BTNTLS_Redo
             // 
+            this.BTNTLS_Redo.Image = global::SpriteArtist.Properties.Resources.Redo_16x;
             this.BTNTLS_Redo.Name = "BTNTLS_Redo";
             this.BTNTLS_Redo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.BTNTLS_Redo.Size = new System.Drawing.Size(164, 22);
             this.BTNTLS_Redo.Text = "&Redo";
+            this.BTNTLS_Redo.Click += new System.EventHandler(this.BTNTLS_Redo_Click);
             // 
             // toolStripSeparator3
             // 
@@ -292,7 +291,7 @@
             // 
             // BTNTLS_Cut
             // 
-            this.BTNTLS_Cut.Image = ((System.Drawing.Image)(resources.GetObject("BTNTLS_Cut.Image")));
+            this.BTNTLS_Cut.Image = global::SpriteArtist.Properties.Resources.Cut_16x;
             this.BTNTLS_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Cut.Name = "BTNTLS_Cut";
             this.BTNTLS_Cut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
@@ -302,7 +301,7 @@
             // 
             // BTNTLS_Copy
             // 
-            this.BTNTLS_Copy.Image = ((System.Drawing.Image)(resources.GetObject("BTNTLS_Copy.Image")));
+            this.BTNTLS_Copy.Image = global::SpriteArtist.Properties.Resources.Copy_16x;
             this.BTNTLS_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Copy.Name = "BTNTLS_Copy";
             this.BTNTLS_Copy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
@@ -312,7 +311,7 @@
             // 
             // BTNTLS_Paste
             // 
-            this.BTNTLS_Paste.Image = ((System.Drawing.Image)(resources.GetObject("BTNTLS_Paste.Image")));
+            this.BTNTLS_Paste.Image = global::SpriteArtist.Properties.Resources.Paste_16x;
             this.BTNTLS_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTNTLS_Paste.Name = "BTNTLS_Paste";
             this.BTNTLS_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
@@ -341,39 +340,6 @@
             this.BTNTLS_Select_All.Text = "Select &All";
             this.BTNTLS_Select_All.Click += new System.EventHandler(this.BTNTLS_Select_All_Click);
             // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customizeToolStripMenuItem,
-            this.optionsToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.toolsToolStripMenuItem.Text = "Ou&tils";
-            // 
-            // customizeToolStripMenuItem
-            // 
-            this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.customizeToolStripMenuItem.Text = "&Customize";
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.optionsToolStripMenuItem.Text = "&Options";
-            // 
-            // canevaToolStripMenuItem
-            // 
-            this.canevaToolStripMenuItem.Name = "canevaToolStripMenuItem";
-            this.canevaToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.canevaToolStripMenuItem.Text = "&Canevas";
-            // 
-            // calquesToolStripMenuItem
-            // 
-            this.calquesToolStripMenuItem.Name = "calquesToolStripMenuItem";
-            this.calquesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.calquesToolStripMenuItem.Text = "Ca&lques";
-            // 
             // animationToolStripMenuItem
             // 
             this.animationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -384,51 +350,27 @@
             // 
             // activerAnimationToolStripMenuItem
             // 
+            this.activerAnimationToolStripMenuItem.Image = global::SpriteArtist.Properties.Resources.ASX_Copy_blue_16x;
             this.activerAnimationToolStripMenuItem.Name = "activerAnimationToolStripMenuItem";
-            this.activerAnimationToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.activerAnimationToolStripMenuItem.Text = "Activer animation";
+            this.activerAnimationToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.activerAnimationToolStripMenuItem.Text = "Utiliser l\'animation";
             this.activerAnimationToolStripMenuItem.Click += new System.EventHandler(this.activerAnimationToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contentsToolStripMenuItem,
-            this.indexToolStripMenuItem,
-            this.searchToolStripMenuItem,
-            this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.helpToolStripMenuItem.Text = "Aide";
             // 
-            // contentsToolStripMenuItem
-            // 
-            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.contentsToolStripMenuItem.Text = "&Contents";
-            // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.indexToolStripMenuItem.Text = "&Index";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.searchToolStripMenuItem.Text = "&Search";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
-            // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = global::SpriteArtist.Properties.Resources.Question_16x;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
+            this.aboutToolStripMenuItem.Text = "&À propos";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // TLS_Top
             // 
@@ -446,8 +388,6 @@
             this.BTN_Cut,
             this.BTN_Copy,
             this.BTN_Paste,
-            this.toolStripSeparator9,
-            this.BTN_Resize,
             this.toolStripSeparator11,
             this.BTN_ShapePen,
             this.toolStripSeparator12,
@@ -468,7 +408,8 @@
             this.BTN_New_File.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_New_File.Name = "BTN_New_File";
             this.BTN_New_File.Size = new System.Drawing.Size(24, 24);
-            this.BTN_New_File.Text = "toolStripButton1";
+            this.BTN_New_File.Text = "Nouveau";
+            this.BTN_New_File.Click += new System.EventHandler(this.BTN_New_File_Click);
             // 
             // BTN_Load
             // 
@@ -477,7 +418,7 @@
             this.BTN_Load.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Load.Name = "BTN_Load";
             this.BTN_Load.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Load.Text = "toolStripButton1";
+            this.BTN_Load.Text = "Ouvrir";
             this.BTN_Load.Click += new System.EventHandler(this.BTN_Load_Click);
             // 
             // BTN_Save
@@ -487,7 +428,7 @@
             this.BTN_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Save.Name = "BTN_Save";
             this.BTN_Save.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Save.Text = "toolStripButton2";
+            this.BTN_Save.Text = "Enregistrer";
             this.BTN_Save.Click += new System.EventHandler(this.BTN_Save_Click);
             // 
             // BTN_Upload
@@ -497,7 +438,7 @@
             this.BTN_Upload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Upload.Name = "BTN_Upload";
             this.BTN_Upload.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Upload.Text = "toolStripButton6";
+            this.BTN_Upload.Text = "Partager sur SpriteArtist.com";
             this.BTN_Upload.Click += new System.EventHandler(this.BTN_Upload_Click);
             // 
             // toolStripSeparator6
@@ -512,7 +453,7 @@
             this.BTN_Undo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Undo.Name = "BTN_Undo";
             this.BTN_Undo.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Undo.Text = "toolStripButton3";
+            this.BTN_Undo.Text = "Annuler";
             this.BTN_Undo.Click += new System.EventHandler(this.BTN_Undo_Click);
             // 
             // BTN_Redo
@@ -522,7 +463,7 @@
             this.BTN_Redo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Redo.Name = "BTN_Redo";
             this.BTN_Redo.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Redo.Text = "toolStripButton4";
+            this.BTN_Redo.Text = "Répéter";
             this.BTN_Redo.Click += new System.EventHandler(this.BTN_Redo_Click);
             // 
             // toolStripSeparator8
@@ -537,7 +478,7 @@
             this.BTN_Cut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Cut.Name = "BTN_Cut";
             this.BTN_Cut.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Cut.Text = "toolStripButton37";
+            this.BTN_Cut.Text = "Couper";
             this.BTN_Cut.Click += new System.EventHandler(this.BTN_Cut_Click);
             // 
             // BTN_Copy
@@ -547,7 +488,7 @@
             this.BTN_Copy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Copy.Name = "BTN_Copy";
             this.BTN_Copy.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Copy.Text = "toolStripButton37";
+            this.BTN_Copy.Text = "Copier";
             this.BTN_Copy.Click += new System.EventHandler(this.BTN_Copy_Click);
             // 
             // BTN_Paste
@@ -557,22 +498,8 @@
             this.BTN_Paste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Paste.Name = "BTN_Paste";
             this.BTN_Paste.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Paste.Text = "toolStripButton37";
+            this.BTN_Paste.Text = "Coller";
             this.BTN_Paste.Click += new System.EventHandler(this.BTN_Paste_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 27);
-            // 
-            // BTN_Resize
-            // 
-            this.BTN_Resize.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BTN_Resize.Image = global::SpriteArtist.Properties.Resources.Resize_16x;
-            this.BTN_Resize.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_Resize.Name = "BTN_Resize";
-            this.BTN_Resize.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Resize.Text = "toolStripButton36";
             // 
             // toolStripSeparator11
             // 
@@ -586,7 +513,7 @@
             this.BTN_ShapePen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_ShapePen.Name = "BTN_ShapePen";
             this.BTN_ShapePen.Size = new System.Drawing.Size(24, 24);
-            this.BTN_ShapePen.Text = "BTN_Grid";
+            this.BTN_ShapePen.Text = "Changer la forme du pinceau";
             this.BTN_ShapePen.Click += new System.EventHandler(this.BTN_ShapePen_Click);
             // 
             // toolStripSeparator12
@@ -601,7 +528,7 @@
             this.toolStripButton45.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton45.Name = "toolStripButton45";
             this.toolStripButton45.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton45.Text = "BTN_Grow_Brush";
+            this.toolStripButton45.Text = "Augmenter la taille du pinceau";
             // 
             // toolStripButton47
             // 
@@ -610,7 +537,7 @@
             this.toolStripButton47.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton47.Name = "toolStripButton47";
             this.toolStripButton47.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton47.Text = "BTN_Shrink_Brush";
+            this.toolStripButton47.Text = "Diminuer la taille du pinceau";
             // 
             // toolStripSeparator7
             // 
@@ -1107,7 +1034,7 @@
             this.BTN_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_ZoomIn.Name = "BTN_ZoomIn";
             this.BTN_ZoomIn.Size = new System.Drawing.Size(24, 24);
-            this.BTN_ZoomIn.Text = "toolStripButton34";
+            this.BTN_ZoomIn.Text = "Zoomer plus";
             this.BTN_ZoomIn.Click += new System.EventHandler(this.BTN_ZoomIn_Click);
             // 
             // BTN_Zoom1x
@@ -1117,7 +1044,7 @@
             this.BTN_Zoom1x.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Zoom1x.Name = "BTN_Zoom1x";
             this.BTN_Zoom1x.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Zoom1x.Text = "toolStripButton1";
+            this.BTN_Zoom1x.Text = "Zoomer à l\'échelle";
             this.BTN_Zoom1x.Click += new System.EventHandler(this.BTN_Zoom1x_Click);
             // 
             // BTN_ZoomOut
@@ -1127,7 +1054,7 @@
             this.BTN_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_ZoomOut.Name = "BTN_ZoomOut";
             this.BTN_ZoomOut.Size = new System.Drawing.Size(24, 24);
-            this.BTN_ZoomOut.Text = "toolStripButton44";
+            this.BTN_ZoomOut.Text = "Zoomer moin";
             this.BTN_ZoomOut.Click += new System.EventHandler(this.BTN_ZoomOut_Click);
             // 
             // TXB_ZoomLevel
@@ -1135,7 +1062,7 @@
             this.TXB_ZoomLevel.Name = "TXB_ZoomLevel";
             this.TXB_ZoomLevel.ReadOnly = true;
             this.TXB_ZoomLevel.Size = new System.Drawing.Size(100, 27);
-            this.TXB_ZoomLevel.Text = "300%";
+            this.TXB_ZoomLevel.Text = "100%";
             // 
             // PNL_Drag_Zone
             // 
@@ -1156,6 +1083,7 @@
             // PNL_Animation
             // 
             this.PNL_Animation.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PNL_Animation.Controls.Add(this.BTN_Duplicate_Frame);
             this.PNL_Animation.Controls.Add(this.BTN_Stop);
             this.PNL_Animation.Controls.Add(this.BTN_Start);
             this.PNL_Animation.Controls.Add(this.BTN_Supp_Frame);
@@ -1172,29 +1100,39 @@
             this.PNL_Animation.TabIndex = 5;
             this.PNL_Animation.Visible = false;
             // 
+            // BTN_Duplicate_Frame
+            // 
+            this.BTN_Duplicate_Frame.Location = new System.Drawing.Point(6, 235);
+            this.BTN_Duplicate_Frame.Name = "BTN_Duplicate_Frame";
+            this.BTN_Duplicate_Frame.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Duplicate_Frame.TabIndex = 7;
+            this.BTN_Duplicate_Frame.Text = "Dupliquer";
+            this.BTN_Duplicate_Frame.UseVisualStyleBackColor = true;
+            this.BTN_Duplicate_Frame.Click += new System.EventHandler(this.BTN_Duplicate_Frame_Click);
+            // 
             // BTN_Stop
             // 
-            this.BTN_Stop.Location = new System.Drawing.Point(7, 208);
+            this.BTN_Stop.Image = global::SpriteArtist.Properties.Resources.square;
+            this.BTN_Stop.Location = new System.Drawing.Point(86, 168);
             this.BTN_Stop.Name = "BTN_Stop";
-            this.BTN_Stop.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Stop.Size = new System.Drawing.Size(32, 32);
             this.BTN_Stop.TabIndex = 6;
-            this.BTN_Stop.Text = "Stop";
             this.BTN_Stop.UseVisualStyleBackColor = true;
             this.BTN_Stop.Click += new System.EventHandler(this.BTN_Stop_Click);
             // 
             // BTN_Start
             // 
-            this.BTN_Start.Location = new System.Drawing.Point(7, 179);
+            this.BTN_Start.Image = global::SpriteArtist.Properties.Resources.start;
+            this.BTN_Start.Location = new System.Drawing.Point(7, 168);
             this.BTN_Start.Name = "BTN_Start";
-            this.BTN_Start.Size = new System.Drawing.Size(111, 23);
+            this.BTN_Start.Size = new System.Drawing.Size(32, 32);
             this.BTN_Start.TabIndex = 6;
-            this.BTN_Start.Text = "Start";
             this.BTN_Start.UseVisualStyleBackColor = true;
             this.BTN_Start.Click += new System.EventHandler(this.BTN_Start_Click);
             // 
             // BTN_Supp_Frame
             // 
-            this.BTN_Supp_Frame.Location = new System.Drawing.Point(7, 266);
+            this.BTN_Supp_Frame.Location = new System.Drawing.Point(6, 264);
             this.BTN_Supp_Frame.Name = "BTN_Supp_Frame";
             this.BTN_Supp_Frame.Size = new System.Drawing.Size(111, 23);
             this.BTN_Supp_Frame.TabIndex = 5;
@@ -1204,7 +1142,7 @@
             // 
             // BTN_Add_Frame
             // 
-            this.BTN_Add_Frame.Location = new System.Drawing.Point(7, 237);
+            this.BTN_Add_Frame.Location = new System.Drawing.Point(6, 206);
             this.BTN_Add_Frame.Name = "BTN_Add_Frame";
             this.BTN_Add_Frame.Size = new System.Drawing.Size(111, 23);
             this.BTN_Add_Frame.TabIndex = 5;
@@ -1215,10 +1153,12 @@
             // FLP_All_Frame
             // 
             this.FLP_All_Frame.AllowDrop = true;
+            this.FLP_All_Frame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.FLP_All_Frame.AutoScroll = true;
-            this.FLP_All_Frame.Location = new System.Drawing.Point(7, 295);
+            this.FLP_All_Frame.Location = new System.Drawing.Point(7, 293);
             this.FLP_All_Frame.Name = "FLP_All_Frame";
-            this.FLP_All_Frame.Size = new System.Drawing.Size(111, 298);
+            this.FLP_All_Frame.Size = new System.Drawing.Size(111, 235);
             this.FLP_All_Frame.TabIndex = 4;
             this.FLP_All_Frame.DragDrop += new System.Windows.Forms.DragEventHandler(this.FLP_All_Frame_DragDrop);
             this.FLP_All_Frame.DragEnter += new System.Windows.Forms.DragEventHandler(this.FLP_All_Frame_DragEnter);
@@ -1226,7 +1166,7 @@
             // LB_fps_value
             // 
             this.LB_fps_value.AutoSize = true;
-            this.LB_fps_value.Location = new System.Drawing.Point(44, 12);
+            this.LB_fps_value.Location = new System.Drawing.Point(44, 116);
             this.LB_fps_value.Name = "LB_fps_value";
             this.LB_fps_value.Size = new System.Drawing.Size(13, 13);
             this.LB_fps_value.TabIndex = 3;
@@ -1235,16 +1175,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 11);
+            this.label1.Location = new System.Drawing.Point(4, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "FPS: ";
+            this.label1.Text = "Vitesse:";
             // 
             // TBAR_FrameRate
             // 
-            this.TBAR_FrameRate.Location = new System.Drawing.Point(3, 142);
-            this.TBAR_FrameRate.Maximum = 15;
+            this.TBAR_FrameRate.Location = new System.Drawing.Point(3, 132);
+            this.TBAR_FrameRate.Maximum = 30;
             this.TBAR_FrameRate.Minimum = 1;
             this.TBAR_FrameRate.Name = "TBAR_FrameRate";
             this.TBAR_FrameRate.Size = new System.Drawing.Size(120, 45);
@@ -1255,7 +1195,7 @@
             // PBX_Animation
             // 
             this.PBX_Animation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PBX_Animation.Location = new System.Drawing.Point(7, 30);
+            this.PBX_Animation.Location = new System.Drawing.Point(7, 3);
             this.PBX_Animation.Name = "PBX_Animation";
             this.PBX_Animation.Size = new System.Drawing.Size(111, 106);
             this.PBX_Animation.TabIndex = 0;
@@ -1277,7 +1217,7 @@
             // 
             // NUM_Pen_Size
             // 
-            this.NUM_Pen_Size.Location = new System.Drawing.Point(342, 27);
+            this.NUM_Pen_Size.Location = new System.Drawing.Point(311, 27);
             this.NUM_Pen_Size.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1317,12 +1257,92 @@
             this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp|Image GIF|*.gif";
             this.DLG_Save.Title = "Sauvegarder Image";
             // 
+            // TMR_FrameRate
+            // 
+            this.TMR_FrameRate.Tick += new System.EventHandler(this.TMR_FrameRate_Tick);
+            // 
+            // DLG_Open
+            // 
+            this.DLG_Open.FileName = "Sprite";
+            this.DLG_Open.Filter = "Image PNG|*.png|Image Bitmap |*.bmp|Image GIF |*.gif|Tout les fichiers |*.*";
+            this.DLG_Open.Title = "Ouvrir une image";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(130, 6);
+            // 
+            // ITM_Delete
+            // 
+            this.ITM_Delete.Name = "ITM_Delete";
+            this.ITM_Delete.Size = new System.Drawing.Size(133, 26);
+            this.ITM_Delete.Text = "Supprimer";
+            this.ITM_Delete.Click += new System.EventHandler(this.ITM_Delete_Click);
+            // 
+            // CTM_Selection_Options
+            // 
+            this.CTM_Selection_Options.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.CTM_Selection_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ITM_Cut,
+            this.ITM_Copy,
+            this.ITM_Paste,
+            this.toolStripSeparator13,
+            this.ITM_Delete});
+            this.CTM_Selection_Options.Name = "CTM_Selection_Options";
+            this.CTM_Selection_Options.Size = new System.Drawing.Size(134, 114);
+            // 
+            // ITM_Cut
+            // 
+            this.ITM_Cut.Image = global::SpriteArtist.Properties.Resources.Cut_16x;
+            this.ITM_Cut.Name = "ITM_Cut";
+            this.ITM_Cut.Size = new System.Drawing.Size(133, 26);
+            this.ITM_Cut.Text = "Couper";
+            this.ITM_Cut.Click += new System.EventHandler(this.ITM_Cut_Click);
+            // 
+            // ITM_Copy
+            // 
+            this.ITM_Copy.Image = global::SpriteArtist.Properties.Resources.Copy_16x;
+            this.ITM_Copy.Name = "ITM_Copy";
+            this.ITM_Copy.Size = new System.Drawing.Size(133, 26);
+            this.ITM_Copy.Text = "Copier";
+            this.ITM_Copy.Click += new System.EventHandler(this.ITM_Copy_Click);
+            // 
+            // ITM_Paste
+            // 
+            this.ITM_Paste.Image = global::SpriteArtist.Properties.Resources.Paste_16x;
+            this.ITM_Paste.Name = "ITM_Paste";
+            this.ITM_Paste.Size = new System.Drawing.Size(133, 26);
+            this.ITM_Paste.Text = "Coller";
+            this.ITM_Paste.Click += new System.EventHandler(this.ITM_Paste_Click);
+            // 
+            // PNL_Colors
+            // 
+            this.PNL_Colors.AutoScroll = true;
+            this.PNL_Colors.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PNL_Colors.Location = new System.Drawing.Point(88, 51);
+            this.PNL_Colors.Margin = new System.Windows.Forms.Padding(2);
+            this.PNL_Colors.Name = "PNL_Colors";
+            this.PNL_Colors.Size = new System.Drawing.Size(1, 531);
+            this.PNL_Colors.TabIndex = 5;
+            // 
+            // BTN_MagicWand
+            // 
+            this.BTN_MagicWand.Appearance = System.Windows.Forms.Appearance.Button;
+            this.BTN_MagicWand.BackColor = System.Drawing.Color.Transparent;
+            this.BTN_MagicWand.Image = global::SpriteArtist.Properties.Resources.wand;
+            this.BTN_MagicWand.Location = new System.Drawing.Point(4, 242);
+            this.BTN_MagicWand.Name = "BTN_MagicWand";
+            this.BTN_MagicWand.Size = new System.Drawing.Size(32, 32);
+            this.BTN_MagicWand.TabIndex = 23;
+            this.BTN_MagicWand.UseVisualStyleBackColor = false;
+            this.BTN_MagicWand.CheckedChanged += new System.EventHandler(this.BTN_MagicWand_CheckedChanged);
+            // 
             // BTN_Grid
             // 
             this.BTN_Grid.Appearance = System.Windows.Forms.Appearance.Button;
             this.BTN_Grid.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTN_Grid.Image = global::SpriteArtist.Properties.Resources.GridToggle_16xMD;
-            this.BTN_Grid.Location = new System.Drawing.Point(425, 25);
+            this.BTN_Grid.Location = new System.Drawing.Point(385, 25);
             this.BTN_Grid.Name = "BTN_Grid";
             this.BTN_Grid.Size = new System.Drawing.Size(23, 22);
             this.BTN_Grid.TabIndex = 21;
@@ -1413,94 +1433,6 @@
             this.BTN_Pen.UseVisualStyleBackColor = false;
             this.BTN_Pen.CheckedChanged += new System.EventHandler(this.BTN_Pen_CheckedChanged);
             // 
-            // TMR_FrameRate
-            // 
-            this.TMR_FrameRate.Tick += new System.EventHandler(this.TMR_FrameRate_Tick);
-            // 
-            // DLG_Open
-            // 
-            this.DLG_Open.FileName = "Sprite";
-            this.DLG_Open.Filter = "Image PNG|*.png|Image Bitmap |*.bmp|Image GIF |*.gif|Tout les fichiers |*.*";
-            this.DLG_Open.Title = "Ouvrir une image";
-            // 
-            // LBL_Debug
-            // 
-            this.LBL_Debug.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LBL_Debug.AutoSize = true;
-            this.LBL_Debug.BackColor = System.Drawing.SystemColors.Control;
-            this.LBL_Debug.Location = new System.Drawing.Point(1, 590);
-            this.LBL_Debug.Name = "LBL_Debug";
-            this.LBL_Debug.Size = new System.Drawing.Size(39, 13);
-            this.LBL_Debug.TabIndex = 22;
-            this.LBL_Debug.Text = "Debug";
-            // 
-            // ITM_Cut
-            // 
-            this.ITM_Cut.Name = "ITM_Cut";
-            this.ITM_Cut.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Cut.Text = "Couper";
-            this.ITM_Cut.Click += new System.EventHandler(this.ITM_Cut_Click);
-            // 
-            // ITM_Copy
-            // 
-            this.ITM_Copy.Name = "ITM_Copy";
-            this.ITM_Copy.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Copy.Text = "Copier";
-            this.ITM_Copy.Click += new System.EventHandler(this.ITM_Copy_Click);
-            // 
-            // ITM_Paste
-            // 
-            this.ITM_Paste.Name = "ITM_Paste";
-            this.ITM_Paste.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Paste.Text = "Coller";
-            this.ITM_Paste.Click += new System.EventHandler(this.ITM_Paste_Click);
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(126, 6);
-            // 
-            // ITM_Delete
-            // 
-            this.ITM_Delete.Name = "ITM_Delete";
-            this.ITM_Delete.Size = new System.Drawing.Size(129, 22);
-            this.ITM_Delete.Text = "Supprimer";
-            this.ITM_Delete.Click += new System.EventHandler(this.ITM_Delete_Click);
-            // 
-            // CTM_Selection_Options
-            // 
-            this.CTM_Selection_Options.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.CTM_Selection_Options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ITM_Cut,
-            this.ITM_Copy,
-            this.ITM_Paste,
-            this.toolStripSeparator13,
-            this.ITM_Delete});
-            this.CTM_Selection_Options.Name = "CTM_Selection_Options";
-            this.CTM_Selection_Options.Size = new System.Drawing.Size(130, 98);
-            // 
-            // PNL_Colors
-            // 
-            this.PNL_Colors.AutoScroll = true;
-            this.PNL_Colors.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PNL_Colors.Location = new System.Drawing.Point(88, 51);
-            this.PNL_Colors.Margin = new System.Windows.Forms.Padding(2);
-            this.PNL_Colors.Name = "PNL_Colors";
-            this.PNL_Colors.Size = new System.Drawing.Size(1, 531);
-            this.PNL_Colors.TabIndex = 5;
-            // 
-            // BTN_MagicWand
-            // 
-            this.BTN_MagicWand.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_MagicWand.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_MagicWand.Image = global::SpriteArtist.Properties.Resources.wand;
-            this.BTN_MagicWand.Location = new System.Drawing.Point(4, 242);
-            this.BTN_MagicWand.Name = "BTN_MagicWand";
-            this.BTN_MagicWand.Size = new System.Drawing.Size(32, 32);
-            this.BTN_MagicWand.TabIndex = 23;
-            this.BTN_MagicWand.UseVisualStyleBackColor = false;
-            this.BTN_MagicWand.CheckedChanged += new System.EventHandler(this.BTN_MagicWand_CheckedChanged);
-            // 
             // FRM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1510,7 +1442,6 @@
             this.Controls.Add(this.BTN_MagicWand);
             this.Controls.Add(this.PNL_Colors);
             this.Controls.Add(this.TLS_Colors);
-            this.Controls.Add(this.LBL_Debug);
             this.Controls.Add(this.BTN_Grid);
             this.Controls.Add(this.BTN_Zoom);
             this.Controls.Add(this.BTN_Fill);
@@ -1559,7 +1490,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem BTNTLS_Save;
         private System.Windows.Forms.ToolStripMenuItem BTNTLS_Save_As;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -1571,17 +1501,8 @@
         private System.Windows.Forms.ToolStripMenuItem BTNTLS_Paste;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem BTNTLS_Select_All;
-        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem canevaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calquesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem animationToolStripMenuItem;
         private System.Windows.Forms.Panel PNL_Canvas;
         private System.Windows.Forms.ToolStrip TLS_Top;
@@ -1596,8 +1517,6 @@
         private System.Windows.Forms.ToolStripButton BTN_Add_Color;
         private System.Windows.Forms.ToolStripButton BTN_Palette1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripButton BTN_Resize;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripButton BTN_Paste;
         private System.Windows.Forms.ToolStripButton BTN_Cut;
         private System.Windows.Forms.ToolStripButton BTN_Copy;
@@ -1630,7 +1549,6 @@
         private System.Windows.Forms.CheckBox BTN_Grid;
         private System.Windows.Forms.ToolStripButton BTN_Zoom1x;
         private System.Windows.Forms.OpenFileDialog DLG_Open;
-        private System.Windows.Forms.Label LBL_Debug;
         private System.Windows.Forms.ToolStripMenuItem ITM_Cut;
         private System.Windows.Forms.ToolStripMenuItem ITM_Copy;
         private System.Windows.Forms.ToolStripMenuItem ITM_Paste;
@@ -1682,6 +1600,8 @@
         private System.Windows.Forms.ToolStripMenuItem activerAnimationToolStripMenuItem;
         private System.Windows.Forms.Button BTN_Supp_Frame;
         private System.Windows.Forms.RadioButton BTN_MagicWand;
+        private System.Windows.Forms.ToolStripMenuItem BTNTLS_Upload;
+        private System.Windows.Forms.Button BTN_Duplicate_Frame;
     }
 }
 

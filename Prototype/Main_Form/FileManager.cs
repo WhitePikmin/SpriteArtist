@@ -17,29 +17,48 @@ namespace SpriteArtist
 
         private DialogResult SaveFileAs()
         {
-            if (DLG_Save.ShowDialog() == DialogResult.OK)
-            {
-                string extension = Path.GetExtension(DLG_Save.FileName);
-                ImageFormat format = ImageFormat.Png;
-                switch (extension.ToLower())
-                {
-                    case ".bmp": format = ImageFormat.Bmp; break;
-                    case ".gif": format = ImageFormat.Gif; break;
-                }
-                if (OGAnimationFrame.Count > 1 && format == ImageFormat.Png)
-                {
-                    Bitmap imgSaving = new Bitmap(AnimationSave());
-                    imgSaving.Save(DLG_Save.FileName, ImageFormat.Png);
-                    addImageComment(DLG_Save.FileName, OGAnimationFrame[0].Image.Width.ToString(), TBAR_FrameRate.Value.ToString());
-                }
-                else
-                    Sprite.Save(DLG_Save.FileName, format);
-                FileName = DLG_Save.FileName;
-                FileChanged = false;
-                return DialogResult.OK;
-            }
-            return DialogResult.Cancel;
+            DialogResult Result = DLG_Save.ShowDialog();
+            if (Result == DialogResult.OK)
+                Save(DLG_Save.FileName);
+       
+            return Result;
         }
+
+        private DialogResult SimpleSave()
+        {
+            DialogResult Result = DialogResult.OK;
+            if (FileName == "")
+            {
+                Result = SaveFileAs();
+            }
+            else
+            {
+                Save(FileName);
+            }
+            return Result;
+        }
+
+        private void Save(string Name)
+        {
+            string extension = Path.GetExtension(Name);
+            ImageFormat format = ImageFormat.Png;
+            switch (extension.ToLower())
+            {
+                case ".bmp": format = ImageFormat.Bmp; break;
+                case ".gif": format = ImageFormat.Gif; break;
+            }
+            if (OGAnimationFrame.Count > 1 && format == ImageFormat.Png)
+            {
+                Bitmap imgSaving = new Bitmap(AnimationSave());
+                imgSaving.Save(Name, ImageFormat.Png);
+                addImageComment(Name, OGAnimationFrame[0].Image.Width.ToString(), TBAR_FrameRate.Value.ToString());
+            }
+            else
+                Sprite.Save(Name, format);
+                FileName = Name;
+                FileChanged = false;
+        }
+
         private Bitmap AnimationSave()
         {
             
@@ -92,6 +111,44 @@ namespace SpriteArtist
             }
             return DialogResult.Cancel;
         }
+
+        private void NewFile()
+        {
+                bool New = true;
+                if (FileChanged)
+                {
+                    DialogResult result = PromptSave();
+                    if (result == DialogResult.Yes)
+                    {
+                        result = SaveFileAs();
+                        New = (result == DialogResult.OK);
+                    }
+                    else
+                        New = (result != DialogResult.Cancel);
+                }
+            if (New)
+            {
+                FRM_New nouveau = new FRM_New();
+                nouveau.ShowDialog();
+                if (nouveau.DialogResult == DialogResult.OK)
+                {
+                    Bitmap NewSprite = new Bitmap(nouveau.CanvasWidth, nouveau.CanvasHeight);
+
+                    //Set all pixels transparent
+                    for (int i = 0; i < NewSprite.Height; i++)
+                    {
+                        for (int j = 0; j < NewSprite.Width; j++)
+                        {
+                            NewSprite.SetPixel(j, i, Color.FromArgb(0, 0, 0, 0));
+                        }
+                    }
+
+                    FileName = "";
+                    LoadImage(NewSprite);
+                }
+            }
+        }
+
         private void LoadImage(Bitmap ImageOpened)
         {
             Sprite = ImageOpened;
@@ -104,6 +161,8 @@ namespace SpriteArtist
             ChangeZoom(INITIAL_ZOOM);
             CenterCanvas();
         }
+
+
         public void addImageComment(string imageFlePath, string width, string fps)
         {
             string jpegDirectory = Path.GetDirectoryName(imageFlePath);
