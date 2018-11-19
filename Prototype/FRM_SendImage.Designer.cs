@@ -37,7 +37,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LBL_Create_Account = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TBX_Tags = new System.Windows.Forms.TextBox();
+            this.Btn_remove_tag = new System.Windows.Forms.Button();
+            this.Btn_add_tag = new System.Windows.Forms.Button();
+            this.LBx_Unused = new System.Windows.Forms.ListBox();
+            this.LBx_Used = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TBX_Description = new System.Windows.Forms.RichTextBox();
             this.TBX_Title = new System.Windows.Forms.TextBox();
@@ -131,7 +135,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.TBX_Tags);
+            this.groupBox2.Controls.Add(this.Btn_remove_tag);
+            this.groupBox2.Controls.Add(this.Btn_add_tag);
+            this.groupBox2.Controls.Add(this.LBx_Unused);
+            this.groupBox2.Controls.Add(this.LBx_Used);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.TBX_Description);
             this.groupBox2.Controls.Add(this.TBX_Title);
@@ -144,28 +152,65 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Information de l\'image";
             // 
-            // TBX_Tags
+            // Btn_remove_tag
             // 
-            this.TBX_Tags.Location = new System.Drawing.Point(9, 212);
-            this.TBX_Tags.Name = "TBX_Tags";
-            this.TBX_Tags.Size = new System.Drawing.Size(242, 20);
-            this.TBX_Tags.TabIndex = 10;
-            this.TBX_Tags.TextChanged += new System.EventHandler(this.TBX_Tags_TextChanged);
+            this.Btn_remove_tag.Location = new System.Drawing.Point(117, 190);
+            this.Btn_remove_tag.Name = "Btn_remove_tag";
+            this.Btn_remove_tag.Size = new System.Drawing.Size(29, 23);
+            this.Btn_remove_tag.TabIndex = 11;
+            this.Btn_remove_tag.Text = ">>";
+            this.Btn_remove_tag.UseVisualStyleBackColor = true;
+            this.Btn_remove_tag.Click += new System.EventHandler(this.Btn_remove_tag_Click);
+            // 
+            // Btn_add_tag
+            // 
+            this.Btn_add_tag.Location = new System.Drawing.Point(117, 161);
+            this.Btn_add_tag.Name = "Btn_add_tag";
+            this.Btn_add_tag.Size = new System.Drawing.Size(29, 23);
+            this.Btn_add_tag.TabIndex = 11;
+            this.Btn_add_tag.Text = "<<";
+            this.Btn_add_tag.UseVisualStyleBackColor = true;
+            this.Btn_add_tag.Click += new System.EventHandler(this.Btn_add_tag_Click);
+            // 
+            // LBx_Unused
+            // 
+            this.LBx_Unused.FormattingEnabled = true;
+            this.LBx_Unused.Location = new System.Drawing.Point(160, 162);
+            this.LBx_Unused.Name = "LBx_Unused";
+            this.LBx_Unused.Size = new System.Drawing.Size(91, 69);
+            this.LBx_Unused.TabIndex = 10;
+            // 
+            // LBx_Used
+            // 
+            this.LBx_Used.FormattingEnabled = true;
+            this.LBx_Used.Location = new System.Drawing.Point(12, 162);
+            this.LBx_Used.Name = "LBx_Used";
+            this.LBx_Used.Size = new System.Drawing.Size(91, 69);
+            this.LBx_Used.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(139, 146);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(112, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Étiquettes disponibles:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 195);
+            this.label6.Location = new System.Drawing.Point(9, 146);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.Size = new System.Drawing.Size(97, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Étiquettes:";
+            this.label6.Text = "Étiquettes utilisées:";
             // 
             // TBX_Description
             // 
             this.TBX_Description.Location = new System.Drawing.Point(9, 79);
             this.TBX_Description.Name = "TBX_Description";
-            this.TBX_Description.Size = new System.Drawing.Size(242, 104);
+            this.TBX_Description.Size = new System.Drawing.Size(242, 64);
             this.TBX_Description.TabIndex = 8;
             this.TBX_Description.Text = "";
             this.TBX_Description.TextChanged += new System.EventHandler(this.TBX_Description_TextChanged);
@@ -230,6 +275,7 @@
             this.Controls.Add(this.PBX_Preview);
             this.Name = "FRM_SendImage";
             this.Text = "Envoie d\'un Sprite";
+            this.Load += new System.EventHandler(this.FRM_SendImage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBX_Preview)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -251,7 +297,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox TBX_Tags;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox TBX_Description;
         private System.Windows.Forms.TextBox TBX_Title;
@@ -259,5 +304,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BTN_Send;
         private System.Windows.Forms.Button BTN_Cancel;
+        private System.Windows.Forms.ListBox LBx_Used;
+        private System.Windows.Forms.ListBox LBx_Unused;
+        private System.Windows.Forms.Button Btn_remove_tag;
+        private System.Windows.Forms.Button Btn_add_tag;
+        private System.Windows.Forms.Label label7;
     }
 }

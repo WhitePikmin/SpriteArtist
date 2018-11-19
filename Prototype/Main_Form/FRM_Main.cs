@@ -345,12 +345,8 @@ namespace SpriteArtist
                 ZoomIn(e);
         }
 
-        private void BTN_Upload_Click(object sender, EventArgs e)
-        {
-            FRM_SendImage send = new FRM_SendImage(Sprite);
-            send.ShowDialog();
-        }
-		        private void OpenAnimationOptionMenu()
+        private void BTN_Upload_Click(object sender, EventArgs e) => StartUploadDialog();
+        private void OpenAnimationOptionMenu()
         {
             
         }
@@ -415,10 +411,30 @@ namespace SpriteArtist
 
         private void BTN_Redo_Click(object sender, EventArgs e) => Redo();
 
-        private void BTNTLS_Upload_Click(object sender, EventArgs e)
+        private void BTNTLS_Upload_Click(object sender, EventArgs e) => StartUploadDialog();
+
+        private void StartUploadDialog()
         {
-            FRM_SendImage send = new FRM_SendImage(Sprite);
-            send.ShowDialog();
+            if (OGAnimationFrame.Count > 1)
+            {
+                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\temp.png";
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                Bitmap imageSave = new Bitmap(AnimationSave());
+                imageSave.Save(path, ImageFormat.Png);
+                addImageComment(path, OGAnimationFrame[0].Image.Width.ToString(), TBAR_FrameRate.Value.ToString());
+                Bitmap bm = new Bitmap(path);
+
+                FRM_SendImage send = new FRM_SendImage(bm);
+                send.ShowDialog();
+            }
+            else
+            {
+                FRM_SendImage send = new FRM_SendImage(Sprite);
+                send.ShowDialog();
+            }
         }
 
         private void BTNTLS_New_File_Click(object sender, EventArgs e) => NewFile();

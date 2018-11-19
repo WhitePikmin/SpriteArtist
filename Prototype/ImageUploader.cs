@@ -22,6 +22,8 @@ namespace SpriteArtist
             Task<string> Message = Task.Run(async () => await Upload());
             return Message.Result;
         }
+        
+        
 
         private static async Task <string> Upload()
         {
@@ -29,7 +31,7 @@ namespace SpriteArtist
             try
             {
                 Uri Link = new Uri(@"http://www.spriteartist.com/InsertionPixelArt.php");
-
+                
                 HttpClient hc = new HttpClient();
 
                 MultipartFormDataContent data = new MultipartFormDataContent("Upload----" + DateTime.Now.ToString());
@@ -41,6 +43,7 @@ namespace SpriteArtist
                 data.Add(new StringContent(Description), "Description");
                 data.Add(new StringContent(Tags), "Tags");
                 data.Add(new StreamContent(new MemoryStream(ImageRaw)), "file", "image.png");
+                
             
                 var response = await hc.PostAsync(Link, data);
                 var contents = await response.Content.ReadAsStringAsync();

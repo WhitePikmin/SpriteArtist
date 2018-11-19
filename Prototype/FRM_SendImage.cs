@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +17,8 @@ namespace SpriteArtist
     {
         string Username="", Password="", Title="", Description="", Tags="";
         Image Sprite;
+        List<dynamic> ListOfTags = new List<dynamic>(){};
+        List<dynamic> ListUsed = new List<dynamic>() { };
 
         public FRM_SendImage() => InitializeComponent();
 
@@ -23,6 +28,7 @@ namespace SpriteArtist
             Sprite = (Image)spr_;
             PBX_Preview.Image = Sprite;
             PBX_Preview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+          
         }
 
         private void LBL_Create_Account_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -54,14 +60,74 @@ namespace SpriteArtist
             UpdateStatus();
         }
 
-        private void TBX_Tags_TextChanged(object sender, EventArgs e)
+        private void ResetUsed()
         {
-            Tags = TBX_Tags.Text;
-            UpdateStatus();
+            LBx_Used.DataSource = null;
+            LBx_Used.ValueMember = "Id";
+            LBx_Used.DisplayMember = "Name";
+            LBx_Used.DataSource = ListUsed;
+        }
+        private void ResetUnUsed()
+        {
+            LBx_Unused.DataSource = null;
+            LBx_Unused.ValueMember = "Id";
+            LBx_Unused.DisplayMember = "Name";
+            LBx_Unused.DataSource = ListOfTags;
+        }
+
+        private void Btn_add_tag_Click(object sender, EventArgs e)
+        {
+            if (LBx_Unused.SelectedIndex != -1)
+            {
+                dynamic d =  LBx_Unused.SelectedItem;
+                ListOfTags.Remove(LBx_Unused.SelectedItem);
+                ListUsed.Add(LBx_Unused.SelectedItem);
+
+                ResetUsed();
+                ResetUnUsed();
+            }
+        }
+
+        private void Btn_remove_tag_Click(object sender, EventArgs e)
+        {
+            if (LBx_Used.SelectedIndex != -1)
+            {
+                dynamic d = LBx_Used.SelectedItem;
+                ListUsed.Remove(LBx_Used.SelectedItem);
+                ListOfTags.Add(LBx_Used.SelectedItem);
+
+                ResetUnUsed();
+                ResetUsed();
+            }
+        }
+
+        private string FormatTags(List<dynamic> tags)
+        {
+            string output = "";
+            for (int i = 0; i < tags.Count; i++)
+            {
+                output += tags[i];
+                if (i < tags.Count - 1) output += ",";
+            }
+            return output;
+        }
+
+        private void FRM_SendImage_Load(object sender, EventArgs e)
+        {
+            Get_tags();
+            LBx_Unused.ValueMember = "Id";
+            LBx_Unused.DisplayMember = "Name";
+            LBx_Unused.DataSource = ListOfTags;
+
+
+            LBx_Used.ValueMember = "Id";
+            LBx_Used.DisplayMember = "Name";
+            LBx_Used.DataSource = ListUsed;
         }
 
         private void BTN_Send_Click(object sender, EventArgs e)
         {
+            Tags = FormatTags(ListUsed);
             string Message = ImageUploader.SendImage(Username,Password,Title,Description,Tags,Sprite);
             if (Message == "File sent")
             {
@@ -86,5 +152,37 @@ namespace SpriteArtist
             else
                 BTN_Send.Enabled = true;
         }
+        private void Get_tags()
+        {
+            HttpWebRequest request = WebRequest.Create("http://www.spriteartist.com/api.php/Tags") as HttpWebRequest;
+            string json;
+            // Get response  
+            try {
+                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+                {
+                    // Get the response stream  
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+
+                    // Console application output  
+                    json = reader.ReadToEnd();
+                }
+                JToken[] tags;
+                JObject jObject = JObject.Parse(json);
+                JToken jResults = jObject["results"];
+                tags = jResults.ToArray();
+                foreach (var tag in tags)
+                {
+                    var id = (string)tag["idTags"];
+                    var name = (string)tag["name"];
+                    ListOfTags.Add(new { Id = id, Name = name });
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Une erreur est survenue lors de la connection à SpriteArtist.com. Vérifiez que vous êtes bien connecté sur Internet.", "Erreur de connection", MessageBoxButtons.OK);
+                this.Close();
+            }
+            } 
+            
     }
 }

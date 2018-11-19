@@ -99,6 +99,7 @@ namespace SpriteArtist
                 }
             }
             PNL_Canvas.Invalidate();
+            Update_Flow_Layout_Panel();
             UpdateUndoButton();
         }
 
@@ -127,7 +128,8 @@ namespace SpriteArtist
                     }
                 }
                 PNL_Canvas.Invalidate();
-                UpdateUndoButton();
+            Update_Flow_Layout_Panel();
+            UpdateUndoButton();
         }
 
         public void UpdateUndoButton()
