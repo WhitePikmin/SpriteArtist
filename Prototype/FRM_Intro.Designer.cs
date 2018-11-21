@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Intro));
             this.label1 = new System.Windows.Forms.Label();
             this.BTN_New = new System.Windows.Forms.Button();
             this.BTN_Open = new System.Windows.Forms.Button();
@@ -90,6 +91,7 @@
             this.Controls.Add(this.BTN_New);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FRM_Intro";
             this.Text = "Sprite Artist";
             this.Load += new System.EventHandler(this.FRM_Intro_Load);

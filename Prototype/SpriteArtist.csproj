@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>reimuspritedown.ico</ApplicationIcon>
+    <ApplicationIcon>sprite_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -314,6 +314,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="reimuspritedown.ico" />
+    <Content Include="sprite_icon.ico" />
+    <None Include="Resources\sprite_icon.ico" />
+    <None Include="Resources\MainIcon.ico" />
     <None Include="Resources\Question_16x.png" />
     <None Include="Resources\square1.png" />
     <None Include="Resources\start.png" />
