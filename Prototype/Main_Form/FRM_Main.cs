@@ -83,9 +83,9 @@ namespace SpriteArtist
         {
             InitializeComponent();
 
-            LoadImage(ImageOpened);
-
             InitCanvas();
+
+            LoadImage(ImageOpened);          
         }
 		        private void ResetCanvas(ushort Width, ushort Height)
         {
@@ -103,7 +103,6 @@ namespace SpriteArtist
             ToolButtons.Add(BTN_Select);
             ToolButtons.Add(BTN_MagicWand);
             ToolButtons.Add(BTN_Fill);
-            ToolButtons.Add(BTN_Zoom);
 
             InitializeColorPalette();
 

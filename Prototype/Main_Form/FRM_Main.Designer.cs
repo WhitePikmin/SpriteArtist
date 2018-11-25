@@ -142,7 +142,6 @@
             this.PNL_Colors = new System.Windows.Forms.Panel();
             this.BTN_MagicWand = new System.Windows.Forms.RadioButton();
             this.BTN_Grid = new System.Windows.Forms.CheckBox();
-            this.BTN_Zoom = new System.Windows.Forms.RadioButton();
             this.BTN_Fill = new System.Windows.Forms.RadioButton();
             this.BTN_Select = new System.Windows.Forms.RadioButton();
             this.BTN_Line = new System.Windows.Forms.RadioButton();
@@ -636,7 +635,7 @@
             this.BTN_Add_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Add_Color.Name = "BTN_Add_Color";
             this.BTN_Add_Color.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Add_Color.Text = "toolStripButton8";
+            this.BTN_Add_Color.Text = "Ajouter une couleur dans la palette";
             this.BTN_Add_Color.Click += new System.EventHandler(this.BTN_Add_Color_Click);
             // 
             // BTN_Remove_Color
@@ -647,7 +646,7 @@
             this.BTN_Remove_Color.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_Remove_Color.Name = "BTN_Remove_Color";
             this.BTN_Remove_Color.Size = new System.Drawing.Size(24, 24);
-            this.BTN_Remove_Color.Text = "toolStripButton8";
+            this.BTN_Remove_Color.Text = "Supprimer la dernière couleur de la palette";
             this.BTN_Remove_Color.Click += new System.EventHandler(this.BTN_Remove_Color_Click);
             // 
             // BTN_Palette1
@@ -1254,7 +1253,7 @@
             // 
             // DLG_Save
             // 
-            this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp|Image GIF|*.gif";
+            this.DLG_Save.Filter = "Image PNG|*.png|Image Bitmap|*.bmp";
             this.DLG_Save.Title = "Sauvegarder Image";
             // 
             // TMR_FrameRate
@@ -1349,17 +1348,6 @@
             this.BTN_Grid.UseVisualStyleBackColor = false;
             this.BTN_Grid.CheckedChanged += new System.EventHandler(this.BTN_Grid_CheckedChanged);
             // 
-            // BTN_Zoom
-            // 
-            this.BTN_Zoom.Appearance = System.Windows.Forms.Appearance.Button;
-            this.BTN_Zoom.BackColor = System.Drawing.Color.Transparent;
-            this.BTN_Zoom.Image = global::SpriteArtist.Properties.Resources.Zoom_16x;
-            this.BTN_Zoom.Location = new System.Drawing.Point(4, 318);
-            this.BTN_Zoom.Name = "BTN_Zoom";
-            this.BTN_Zoom.Size = new System.Drawing.Size(32, 32);
-            this.BTN_Zoom.TabIndex = 19;
-            this.BTN_Zoom.UseVisualStyleBackColor = false;
-            // 
             // BTN_Fill
             // 
             this.BTN_Fill.Appearance = System.Windows.Forms.Appearance.Button;
@@ -1443,7 +1431,6 @@
             this.Controls.Add(this.PNL_Colors);
             this.Controls.Add(this.TLS_Colors);
             this.Controls.Add(this.BTN_Grid);
-            this.Controls.Add(this.BTN_Zoom);
             this.Controls.Add(this.BTN_Fill);
             this.Controls.Add(this.BTN_Select);
             this.Controls.Add(this.BTN_Line);
@@ -1543,7 +1530,6 @@
         private System.Windows.Forms.RadioButton BTN_Line;
         private System.Windows.Forms.RadioButton BTN_Select;
         private System.Windows.Forms.RadioButton BTN_Fill;
-        private System.Windows.Forms.RadioButton BTN_Zoom;
         private System.Windows.Forms.SaveFileDialog DLG_Save;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.CheckBox BTN_Grid;

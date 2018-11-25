@@ -41,6 +41,7 @@ namespace SpriteArtist
             {
                 string Path = DLG_Open.FileName;
                 Bitmap ImageOpened = new Bitmap(Path);
+                this.Visible = false;
                 FRM_Main main = new FRM_Main(ImageOpened);
                 main.ShowDialog();
                 this.Close();

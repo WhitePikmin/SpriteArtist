@@ -33,7 +33,7 @@ namespace SpriteArtist
 
         private void LBL_Create_Account_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.spriteartist/Inscription.php");
+            System.Diagnostics.Process.Start("http://spriteartist.com/Inscription.php");
         }
 
         private void TBX_Username_TextChanged(object sender, EventArgs e)
